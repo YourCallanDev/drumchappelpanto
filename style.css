@@ -1,0 +1,132 @@
+/* === Global Styles === */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #fff7fa;
+  color: #333;
+}
+
+header {
+  background: #ffb6c1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+header h1 {
+  font-family: 'Baloo 2', cursive;
+  color: #fff;
+  font-size: 1.5em;
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+nav ul li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 12px;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  background: #ffd700;
+  color: #000;
+  border-radius: 4px;
+}
+
+/* Dropdown */
+nav ul ul {
+  display: none;
+  position: absolute;
+  background: #ffb6c1;
+  top: 35px;
+  border-radius: 5px;
+}
+
+nav ul li:hover > ul {
+  display: block;
+}
+
+nav ul ul li {
+  display: block;
+  padding: 5px;
+}
+
+/* === Sections === */
+section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+
+section img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+h2 {
+  color: #d10056;
+  font-family: 'Baloo 2', cursive;
+}
+
+ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+footer {
+  background: #ffb6c1;
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 0.9em;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+.team-member h3 {
+  margin: 10px 0 5px;
+}
+
+@media (max-width: 600px) {
+  nav ul {
+    flex-direction: column;
+  }
+}
