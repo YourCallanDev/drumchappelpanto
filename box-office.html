@@ -7,16 +7,31 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* OPTIONAL: A small sold-out ribbon instead of blocking overlay */
-    .soldout-ribbon {
-      position: fixed;
-      top: 20px;
-      right: -40px;
-      width: 200px;
-      transform: rotate(45deg);
-      z-index: 999;
-      opacity: 0.95;
-      pointer-events: none; /* does NOT block clicks */
+    /* SECTION-ONLY SOLD OUT overlay */
+    .soldout-overlay-section {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.65);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 20;
+      pointer-events: all; /* blocks clicks in this section ONLY */
+      border-radius: 10px;
+    }
+
+    .soldout-overlay-section img {
+      width: 90%;
+      max-width: 700px;
+      pointer-events: none;
+    }
+
+    /* Section wrapper so overlay attaches correctly */
+    .boxoffice-wrapper {
+      position: relative;
     }
 
     /* CURRENT PRODUCTION BANNER */
@@ -63,9 +78,6 @@
   <span class="hint">CLICK HERE TO VISIT THE SHOW PAGE!</span>
 </a>
 
-<!-- OPTIONAL small sold-out ribbon (does NOT block page clicks) -->
-<img src="assets/soldout.png" alt="Sold Out" class="soldout-ribbon">
-
 <header>
   <div style="display:flex; align-items:center;">
     <img src="assets/logo.jpeg" alt="DAPG Logo">
@@ -89,7 +101,7 @@
   </nav>
 </header>
 
-<section>
+<section class="boxoffice-wrapper">
   <h2>Box Office</h2>
   <p>🎭 <strong>Next Production:</strong> <em>Snow White & The Magnificent Eight</em></p>
   <p>Tickets available now via TicketSource!</p>
@@ -103,6 +115,11 @@
   <iframe src="https://www.ticketsource.co.uk/drumchapelpantomimegroup"
           style="width:100%; height:600px; border:none; border-radius:10px;"
           title="DAPG Ticket Booking"></iframe>
+
+  <!-- SOLD OUT overlay (section-only) -->
+  <div class="soldout-overlay-section">
+    <img src="assets/soldout.png" alt="Sold Out">
+  </div>
 </section>
 
 <footer>
