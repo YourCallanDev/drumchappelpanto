@@ -1,196 +1,176 @@
-/* style.css - master stylesheet for DAPC site */
+/* style.css - master stylesheet for DAPC site (final) */
 
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
 
-/* ====== Reset & Global ====== */
+/* Reset & base */
 * { box-sizing: border-box; }
 html,body { height:100%; }
 body {
+  margin:0;
   font-family: 'Poppins', sans-serif;
-  margin: 0;
-  background-color: #0b0b0b;
-  color: #f0f0f0;
+  background:#0b0b0b;
+  color:#f0f0f0;
   -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
 }
-
-/* Links */
-a { color: #d10056; text-decoration: none; }
-a:hover { text-decoration: underline; }
+a { color:#d10056; text-decoration:none; }
+a:hover { text-decoration:underline; }
 
 /* Header */
 header {
-  background: #111;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  border-bottom: 2px solid #d10056;
-  position: sticky;
-  top: 0;
-  z-index: 999;
-}
-header div.logo {
+  background:#111;
   display:flex;
+  justify-content:space-between;
   align-items:center;
-  gap:12px;
+  padding:12px 18px;
+  border-bottom:2px solid #d10056;
+  position:sticky;
+  top:0;
+  z-index:1100;
 }
-header img { height:55px; border-radius:6px; }
-header h1 {
-  font-family: 'Montserrat', sans-serif;
-  color:#fff;
-  font-size:1.25rem;
-  letter-spacing:0.6px;
-  margin:0;
-}
+header .logo { display:flex; align-items:center; gap:12px; }
+header img { height:56px; border-radius:6px; }
+header h1 { font-family:'Montserrat',sans-serif; font-size:1.2rem; margin:0; color:#fff; }
 
 /* Desktop nav */
-nav ul {
-  list-style:none;
-  display:flex;
-  gap:18px;
-  margin:0;
-  padding:0;
-  align-items:center;
-}
+nav ul { list-style:none; display:flex; gap:18px; margin:0; padding:0; align-items:center; }
 nav a { color:#f0f0f0; font-weight:600; padding:8px 12px; border-radius:6px; display:inline-block; }
 nav a:hover { background:#d10056; color:#fff; }
 
-/* Desktop dropdowns (hover) */
+/* Desktop dropdown */
 nav ul li { position:relative; }
 nav ul ul {
   display:none;
   position:absolute;
-  top:calc(100% + 6px);
+  top:calc(100% + 8px);
   left:0;
   background:#1a1a1a;
   border:1px solid #d10056;
   padding:8px 0;
   border-radius:6px;
-  min-width:180px;
+  min-width:190px;
 }
 nav ul li:hover > ul { display:block; }
-nav ul ul li { padding:6px 14px; display:block; }
+nav ul ul li { padding:6px 14px; }
 
-/* Current production banner (shared) */
+/* Current production banner (shared, exclude snowwhite) */
 .current-production-banner {
   display:block;
-  background: linear-gradient(90deg, #d10056, #a30041);
-  color: #fff;
+  background: linear-gradient(90deg,#d10056,#a30041);
+  color:#fff;
   text-align:center;
   padding:14px 10px;
   margin:0;
   font-family:'Montserrat',sans-serif;
   font-size:1.02rem;
-  text-decoration:none;
-  font-weight:600;
+  font-weight:700;
   border-bottom:3px solid #ffcae1;
+  text-decoration:none;
+  z-index:1050;
 }
-.current-production-banner strong { display:block; font-size:1.15rem; margin-top:3px; }
-.current-production-banner .hint { display:block; font-size:0.85rem; opacity:0.95; margin-top:4px; }
-.current-production-banner:hover { filter:brightness(1.03); }
+.current-production-banner strong { display:block; font-size:1.1rem; margin-top:4px; }
+.current-production-banner .hint { display:block; font-size:0.85rem; opacity:0.95; }
 
-/* Sections */
-section { max-width:1000px; margin:40px auto; padding:0 20px; }
-h2, h3 { color:#d10056; font-family:'Montserrat',sans-serif; margin-bottom:12px; }
-p, li { line-height:1.6; color:#e9e9e9; }
-section img { max-width:100%; border-radius:10px; margin:18px 0; border:2px solid #222; }
+/* Layout */
+.main-container { max-width:1100px; margin:32px auto; padding:0 20px; }
+section { margin-bottom:28px; }
+
+/* Hero / banners */
+.hero-banner {
+  width:100%;
+  height:360px;
+  overflow:hidden;
+  border-bottom:3px solid #d10056;
+}
+.hero-banner img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  display:block;
+}
+
+/* Info boxes */
+.info-box {
+  background:#121212;
+  border:1px solid #222;
+  border-radius:10px;
+  padding:18px;
+  margin:16px 0;
+}
 
 /* Team grid */
 .team-grid {
   display:grid;
-  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-  gap:22px;
-  margin-top:18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:20px;
 }
 .team-member {
-  background:#1a1a1a;
+  background:#151515;
+  border:1px solid #222;
   border-radius:10px;
-  padding:16px;
+  padding:14px;
   text-align:center;
-  border:1px solid #2c2c2c;
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease;
 }
-.team-member img { width:100%; max-width:180px; border-radius:50%; border:2px solid #d10056; margin:0 auto 12px; display:block; }
+.team-member:focus,
+.team-member:hover { transform:translateY(-4px); box-shadow:0 6px 20px rgba(0,0,0,0.6); }
+.team-member img { width:120px; height:120px; object-fit:cover; border-radius:50%; border:2px solid #d10056; display:block; margin:0 auto 10px; }
+.team-member h3 { margin:8px 0 4px; color:#ffd700; }
+.team-member p.role { margin:0; color:#d1d1d1; font-weight:600; }
 
-/* Info boxes */
-.info-box {
-  background:#1a1a1a;
-  padding:18px;
-  border-radius:10px;
-  border:1px solid #2c2c2c;
-  margin:18px 0;
-}
+/* Cast/Crew boards */
+.cast-board, .crew-board { display:block; width:100%; border-radius:10px; border:2px solid #222; margin:14px 0; }
 
-/* Cast & crew boards */
-.cast-board, .crew-board { width:100%; border-radius:10px; border:2px solid #222; display:block; margin:14px 0; }
-
-/* Footer */
-footer {
-  background:#111;
-  color:#aaa;
-  text-align:center;
-  padding:20px 10px;
-  font-size:0.9rem;
-  border-top:2px solid #d10056;
-}
-
-/* Popup (home) - basic */
-.popup-overlay {
-  position:fixed; inset:0;
-  background:rgba(0,0,0,0.8);
-  display:flex; align-items:center; justify-content:center;
-  z-index:12000; opacity:0; pointer-events:none; transition:0.35s;
-}
-.popup-overlay.show { opacity:1; pointer-events:auto; }
-.popup-box {
-  background:#111; border:2px solid #d10056; padding:18px; border-radius:10px; width:92%; max-width:640px; text-align:center;
-}
-
-/* Ticket wrapper (box office) */
-.ticket-wrapper { position:relative; width:100%; margin-top:12px; }
+/* Ticket wrapper + sold out overlay (box office) */
+.ticket-wrapper { position:relative; width:100%; margin-top:14px; }
 .ticket-wrapper iframe { width:100%; height:600px; border-radius:10px; border:0; display:block; }
 
-/* SOLD OUT overlay that sits on .ticket-wrapper only */
-.ticket-wrapper .soldout-overlay {
-  position:absolute; inset:0;
-  background:rgba(0,0,0,0.65);
-  display:flex; align-items:center; justify-content:center;
-  z-index:50; pointer-events:all;
+/* Sold out overlay — covers content area but leaves header/banner visible.
+   We put this positioned relative to .content-area which sits under the banner.
+*/
+.content-area { position:relative; z-index:10; }
+.content-area .soldout-overlay {
+  position:absolute; inset:0; background:rgba(0,0,0,0.75); display:flex; align-items:center; justify-content:center;
+  z-index:60; pointer-events:all;
 }
-.ticket-wrapper .soldout-overlay img { width:85%; max-width:700px; pointer-events:none; }
+.content-area .soldout-overlay img { width:90%; max-width:900px; pointer-events:none; }
 
-/* FAQ small adjustments */
-.faq-item { margin-bottom:14px; }
-.faq-item h4 { margin:6px 0; }
+/* Popup modal (homepage) */
+.popup-overlay { position:fixed; inset:0; display:flex; align-items:center; justify-content:center; background:rgba(0,0,0,0.85); z-index:12000; opacity:0; pointer-events:none; transition:opacity .35s ease; }
+.popup-overlay.show { opacity:1; pointer-events:auto; }
+.popup-box { background:#111; border:2px solid #d10056; border-radius:10px; padding:18px; width:92%; max-width:700px; text-align:center; }
 
-/* Responsive / Mobile nav (slide-out) */
-.hamburger {
-  display:none;
-  cursor:pointer;
-  width:48px; height:48px; display:flex; align-items:center; justify-content:center;
-  font-size:22px; color:#fff; background:transparent; border:none;
-  margin-left:10px;
-}
-.mobile-nav {
-  position:fixed; top:0; left:-280px; width:280px; height:100vh; background:#0e0e0e;
-  box-shadow:3px 0 18px rgba(0,0,0,0.6); z-index:11000; padding-top:76px; transition:left .32s ease;
-  border-right:3px solid #d10056; overflow-y:auto;
-}
+/* Modal for team bios */
+.modal-overlay { position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,0.85); z-index:12050; }
+.modal-overlay.show { display:flex; }
+.modal-box { background:#0f0f0f; border-radius:10px; border:2px solid #d10056; padding:18px; width:92%; max-width:720px; color:#fff; }
+
+/* Footer */
+footer { background:#111; color:#aaa; text-align:center; padding:18px 10px; border-top:2px solid #d10056; }
+
+/* Mobile hamburger & slide-out nav */
+.hamburger { display:none; background:transparent; border:0; color:#fff; font-size:22px; width:52px; height:52px; align-items:center; justify-content:center; cursor:pointer; }
+.mobile-nav { position:fixed; top:0; left:-280px; width:280px; height:100vh; background:#0e0e0e; padding-top:76px; z-index:11500; transition:left .32s ease; box-shadow:3px 0 20px rgba(0,0,0,0.6); border-right:3px solid #d10056; overflow:auto; }
 .mobile-nav.open { left:0; }
-.mobile-nav a { display:block; padding:12px 18px; color:#fff; text-decoration:none; border-bottom:1px solid #171717; }
-.mobile-dropdown-btn { display:flex; justify-content:space-between; align-items:center; padding:12px 18px; cursor:pointer; color:#fff; border-bottom:1px solid #171717; }
+.mobile-nav a, .mobile-dropdown-btn { display:block; padding:12px 18px; color:#fff; text-decoration:none; border-bottom:1px solid #151515; }
 .mobile-submenu { display:none; background:#0b0b0b; }
 .mobile-submenu a { padding-left:36px; }
 
-/* Accessibility & small device tweaks */
+/* responsiveness */
 @media (max-width:850px) {
   nav ul { display:none; }
   .hamburger { display:flex; }
   header { padding:10px 12px; }
-  header h1 { font-size:1.05rem; }
-  section { margin:28px 0; padding:0 14px; }
-  .popup-box img { height:auto; max-height:320px; object-fit:cover; }
+  header img { height:52px; }
+  .hero-banner { height:200px; }
+  .popup-box img { max-height:320px; object-fit:cover; }
   .ticket-wrapper iframe { height:520px; }
-  .team-grid { gap:12px; }
+  .team-member img { width:110px; height:110px; }
+  .modal-box { padding:14px; }
 }
+
+/* Utility */
+.hidden { display:none !important; }
+.center { text-align:center; }
