@@ -43,6 +43,19 @@ document.addEventListener('DOMContentLoaded', () => {
     el.classList.remove('show');
   };
 
+  function openBio(img, name, role, bio) {
+  document.getElementById("bioImg").src = img;
+  document.getElementById("bioName").textContent = name;
+  document.getElementById("bioRole").textContent = role;
+  document.getElementById("bioText").textContent = bio;
+
+  document.getElementById("bioModalOverlay").classList.add("active");
+}
+
+function closeBio() {
+  document.getElementById("bioModalOverlay").classList.remove("active");
+}
+
   // team modal open/close
   window.openBio = function (data) {
     const overlay = document.getElementById('bioModalOverlay');
@@ -71,3 +84,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 });
+
