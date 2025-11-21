@@ -1,134 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snow White | DAPC Production</title>
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* Banner */
-    .banner-container {
-      width: 100%;
-      height: 280px;
-      overflow: hidden;
-      border-bottom: 3px solid #d10056;
-    }
-    .banner-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    /* Info Box */
-    .info-box {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 10px;
-      border: 1px solid #2c2c2c;
-      margin: 25px 0;
-    }
-
-    .cast-board,
-    .crew-board {
-      width: 100%;
-      border-radius: 10px;
-      margin: 25px 0;
-      border: 2px solid #222;
-    }
-
-    .faq-item {
-      margin-bottom: 18px;
-    }
-
-    .map-button {
-      display: inline-block;
-      background: #d10056;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: 10px;
-      transition: 0.3s;
-    }
-    .map-button:hover {
-      background: #ff0a7a;
-    }
-
-    /* MOBILE VERSION (WHAT YOU REQUESTED) */
-    @media (max-width: 750px) {
-      header img {
-        width: 65px;
-        height: 65px;
-      }
-
-      header h1 {
-        font-size: 1.3em;
-        line-height: 1.2;
-      }
-
-      nav ul {
-        flex-direction: column;
-        gap: 0;
-      }
-
-      nav > ul > li {
-        width: 100%;
-        text-align: center;
-      }
-
-      nav ul li ul {
-        position: static;
-        background: #111;
-        border: none;
-        padding: 0;
-      }
-
-      .banner-container {
-        height: 180px;
-      }
-
-      .info-box {
-        padding: 15px;
-      }
-
-      .map-button {
-        width: 100%;
-        text-align: center;
-        padding: 12px;
-      }
-
-      .cast-board, .crew-board {
-        margin: 15px 0;
-      }
-
-      section h2, section h3 {
-        text-align: center;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Snow White | DAPC Production</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<a href="snowwhite.html" class="current-production-banner">
+  <span>🎭 OUR CURRENT PRODUCTION:</span>
+  <strong>SNOW WHITE & THE MAGNIFICENT EIGHT</strong>
+  <span class="hint">CLICK HERE TO VISIT THE SHOW PAGE!</span>
+</a>
+
 <header>
-  <div style="display:flex; align-items:center;">
-    <img src="assets/logo.jpeg" alt="DAPG Logo">
-    <h1>Drumchapel Amateur Pantomime Club</h1>
-  </div>
+  <div class="logo"><img src="assets/logo.jpeg" alt="DAPC Logo"><h1>Drumchapel Amateur Pantomime Club</h1></div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li>
-        <a href="about.html">About</a>
-        <ul>
-          <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
-          <li><a href="meet-the-team.html">Meet the Team</a></li>
-          <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
-        </ul>
-      </li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="donate.html">Donate</a></li>
       <li><a href="box-office.html">Box Office</a></li>
@@ -136,106 +28,54 @@
   </nav>
 </header>
 
-<!-- Banner -->
+<nav id="mobileNav" class="mobile-nav">
+  <a href="index.html">Home</a>
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">About <span class="arrow">▶</span></div>
+  <div class="mobile-submenu">
+    <a href="becoming-a-friend.html">Becoming a Friend</a>
+    <a href="meet-the-team.html">Meet the Team</a>
+    <a href="fundraisers.html">Fundraising & Days Out</a>
+  </div>
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+  <a href="box-office.html">Box Office</a>
+</nav>
+
 <div class="banner-container">
   <img src="assets/snowwhite.webp" alt="Snow White Banner">
 </div>
 
 <section>
   <h2>Snow White – 2025 Production</h2>
-
-  <!-- Show Info -->
   <div class="info-box">
     <h3>Show Information</h3>
-    <p>
-      Get ready for a magical, laugh-out-loud panto packed with singing, dancing, and dazzling costumes!  
-      Join us as Drumchapel Amateur Panto Club brings a hilarious twist to the classic fairytale, featuring 
-      Snow White, her eight not-so-little helpers, and a host of colourful characters.
-    </p>
-    <p>🎉 Fun for the whole family — don’t miss this feel-good festive treat!</p>
-
+    <p>Get ready for a magical, laugh-out-loud panto... featuring Snow White, her eight helpers and a host of colourful characters.</p>
     <h3>Dates & Times</h3>
-    <p><strong>Saturday 22nd & Sunday 23rd of November, 2025</strong></p>
-    <p>1:15PM Doors Open – 2:00PM Show Starts</p>
-
-    <h3>Facilities</h3>
-    <p>
-      Tuck Shop at interval by 
-      <a href="https://www.facebook.com/kirstie.docherty.16" target="_blank">Kirstie Docherty</a><br>
-      Bar available before & after the show
-    </p>
-
+    <p><strong>Saturday 22nd & Sunday 23rd November 2025</strong></p>
+    <p>1:15PM Doors — 2:00PM Show</p>
     <h3>Location</h3>
     <p>Goodyear Social Club, Glasgow, G15 6SA</p>
-
-    <a class="map-button"
-       href="https://www.google.com/maps?q=Goodyear+Social+Club+Glasgow+G15+6SA"
-       target="_blank">
-       Open in Maps
-    </a>
-
-    <h3>Accessibility & Parking</h3>
-    <p>Wheelchair accessible. Parking is limited — please arrive early where possible.</p>
-
-    <h3>Runtime</h3>
-    <ul>
-      <li>Act 1 — 40 minutes</li>
-      <li>Interval — 20 minutes</li>
-      <li>Act 2 — 30 minutes</li>
-    </ul>
-
-    <h3>Credits</h3>
-    <ul>
-      <li><strong>Written & Directed by:</strong> Maggie Harkness-Smith</li>
-      <li><strong>Technically Directed by:</strong> Callan Chesser</li>
-      <li><strong>Makeup Artists:</strong> Nidine Boyle</li>
-    </ul>
+    <a class="map-button" href="https://www.google.com/maps?q=Goodyear+Social+Club+Glasgow+G15+6SA" target="_blank">Open in Maps</a>
+    <h3>Runtime & Credits</h3>
+    <ul><li>Act 1 — 40 mins</li><li>Interval — 20 mins</li><li>Act 2 — 30 mins</li></ul>
+    <ul><li><strong>Written & Directed:</strong> Maggie Harkness-Smith</li><li><strong>Technical Director:</strong> Callan Chesser</li><li><strong>Makeup:</strong> Nidine Boyle</li></ul>
   </div>
 
-  <!-- Cast Boards -->
   <h3>Cast</h3>
-  <img src="assets/cast1.png" class="cast-board" alt="Cast Board 1">
-  <img src="assets/cast2.png" class="cast-board" alt="Cast Board 2">
+  <img src="assets/cast1.png" class="cast-board" alt="Cast board 1">
+  <img src="assets/cast2.png" class="cast-board" alt="Cast board 2">
 
-  <!-- Crew Board -->
   <h3>Crew</h3>
-  <img src="assets/crew.png" class="crew-board" alt="Crew Board">
+  <img src="assets/crew.png" class="crew-board" alt="Crew board">
 
-  <!-- FAQ -->
   <div class="info-box">
-    <h3>Frequently Asked Questions</h3>
-
-    <div class="faq-item">
-      <h4>Are tickets still available?</h4>
-      <p>Tickets are fully sold out, but we can add you to our waiting list.</p>
-    </div>
-
-    <div class="faq-item">
-      <h4>Is the show suitable for young children?</h4>
-      <p>Yes! The show is written especially for children and designed for them to have fun.</p>
-    </div>
-
-    <div class="faq-item">
-      <h4>Can I take photos?</h4>
-      <p>Photos are allowed — please try not to use flash to avoid distracting the performers.</p>
-    </div>
-
-    <div class="faq-item">
-      <h4>Are prams allowed?</h4>
-      <p>Yes, prams are allowed inside the hall. Please be mindful of others when parking them.</p>
-    </div>
-
-    <div class="faq-item">
-      <h4>Is talking allowed?</h4>
-      <p>Yes, but please keep voices low so everyone can enjoy the show!</p>
-    </div>
+    <h3>FAQ</h3>
+    <div class="faq-item"><h4>Are tickets still available?</h4><p>Sold out — join the waiting list.</p></div>
+    <div class="faq-item"><h4>Is it child friendly?</h4><p>Yes — designed for children.</p></div>
   </div>
-
 </section>
 
-<footer>
-  © 2025 Drumchapel Amateur Pantomime Club
-</footer>
-
+<footer>© 2025 Drumchapel Amateur Pantomime Club</footer>
+<script src="script.js"></script>
 </body>
 </html>
