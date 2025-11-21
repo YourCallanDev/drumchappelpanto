@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* Page-specific styling */
+    /* Banner */
     .banner-container {
       width: 100%;
       height: 280px;
@@ -21,6 +21,7 @@
       object-position: center;
     }
 
+    /* Info Box */
     .info-box {
       background: #1a1a1a;
       padding: 20px;
@@ -29,7 +30,8 @@
       margin: 25px 0;
     }
 
-    .cast-board, .crew-board {
+    .cast-board,
+    .crew-board {
       width: 100%;
       border-radius: 10px;
       margin: 25px 0;
@@ -53,6 +55,58 @@
     }
     .map-button:hover {
       background: #ff0a7a;
+    }
+
+    /* MOBILE VERSION (WHAT YOU REQUESTED) */
+    @media (max-width: 750px) {
+      header img {
+        width: 65px;
+        height: 65px;
+      }
+
+      header h1 {
+        font-size: 1.3em;
+        line-height: 1.2;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      nav > ul > li {
+        width: 100%;
+        text-align: center;
+      }
+
+      nav ul li ul {
+        position: static;
+        background: #111;
+        border: none;
+        padding: 0;
+      }
+
+      .banner-container {
+        height: 180px;
+      }
+
+      .info-box {
+        padding: 15px;
+      }
+
+      .map-button {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+      }
+
+      .cast-board, .crew-board {
+        margin: 15px 0;
+      }
+
+      section h2, section h3 {
+        text-align: center;
+      }
     }
   </style>
 </head>
@@ -114,7 +168,6 @@
     <h3>Location</h3>
     <p>Goodyear Social Club, Glasgow, G15 6SA</p>
 
-    <!-- Map link that opens device default map app -->
     <a class="map-button"
        href="https://www.google.com/maps?q=Goodyear+Social+Club+Glasgow+G15+6SA"
        target="_blank">
