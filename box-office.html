@@ -1,166 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DAPG | Box Office</title>
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* -------------------------
-       CURRENT PRODUCTION BANNER
-    -------------------------- */
-    .current-production-banner {
-      display: block;
-      background: linear-gradient(90deg, #d10056, #a30041);
-      color: #fff;
-      text-align: center;
-      padding: 18px 10px;
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.05em;
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 3px solid #ffcae1;
-    }
-
-    .current-production-banner strong {
-      display: block;
-      font-size: 1.25em;
-    }
-
-    .current-production-banner .hint {
-      display: block;
-      font-size: 0.9em;
-      opacity: 0.9;
-    }
-
-    /* -------------------------
-       MOBILE NAVIGATION
-    -------------------------- */
-
-    /* Hamburger */
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 5px;
-      padding: 10px;
-      z-index: 10001;
-    }
-
-    .hamburger div {
-      width: 26px;
-      height: 3px;
-      background: #333;
-      border-radius: 4px;
-    }
-
-    /* Side menu (hidden by default) */
-    .mobile-nav {
-      position: fixed;
-      top: 0;
-      left: -260px;
-      width: 260px;
-      height: 100vh;
-      background: white;
-      box-shadow: 3px 0 10px rgba(0,0,0,0.25);
-      padding: 20px;
-      transition: left 0.3s ease;
-      z-index: 10000;
-      overflow-y: auto;
-    }
-
-    .mobile-nav.open {
-      left: 0;
-    }
-
-    .mobile-nav ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .mobile-nav li {
-      margin-bottom: 15px;
-    }
-
-    .mobile-nav a {
-      color: #333;
-      text-decoration: none;
-      font-size: 1.1em;
-    }
-
-    .submenu-toggle {
-      float: right;
-      cursor: pointer;
-      font-size: 1.2em;
-      margin-left: 8px;
-    }
-
-    .submenu {
-      display: none;
-      margin-top: 6px;
-      margin-left: 12px;
-    }
-
-    @media (max-width: 850px) {
-      nav { display: none; }
-
-      .hamburger {
-        display: flex;
-      }
-
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      header img {
-        width: 55px;
-      }
-
-      header h1 {
-        font-size: 1.1em;
-        max-width: 200px;
-      }
-    }
-
-    /* -------------------------
-       SOLD OUT OVERLAY — FIXED
-       (only covers body content)
-    -------------------------- */
-
-    #content-area {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .soldout-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.65);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 20;
-      pointer-events: all;
-    }
-
-    .soldout-overlay img {
-      width: 90%;
-      max-width: 700px;
-      pointer-events: none;
-    }
-
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DAPC | Box Office</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- CURRENT PRODUCTION BANNER -->
 <a href="snowwhite.html" class="current-production-banner">
   <span>🎭 OUR CURRENT PRODUCTION:</span>
   <strong>SNOW WHITE & THE MAGNIFICENT EIGHT</strong>
@@ -168,26 +15,12 @@
 </a>
 
 <header>
-  <div style="display:flex; align-items:center;">
-    <img src="assets/logo.jpeg" alt="DAPG Logo">
-    <h1>Drumchapel Amateur Pantomime Group</h1>
-  </div>
-
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div><div></div><div></div>
-  </div>
-
+  <div class="logo"><img src="assets/logo.jpeg" alt="DAPC Logo"><h1>Drumchapel Amateur Pantomime Club</h1></div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li>
-        <a href="about.html">About</a>
-        <ul>
-          <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
-          <li><a href="meet-the-team.html">Meet the Team</a></li>
-          <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
-        </ul>
-      </li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="donate.html">Donate</a></li>
       <li><a href="box-office.html">Box Office</a></li>
@@ -195,66 +28,36 @@
   </nav>
 </header>
 
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <ul>
-    <li><a href="index.html">Home</a></li>
+<nav id="mobileNav" class="mobile-nav">
+  <a href="index.html">Home</a>
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">About <span class="arrow">▶</span></div>
+  <div class="mobile-submenu">
+    <a href="becoming-a-friend.html">Becoming a Friend</a>
+    <a href="meet-the-team.html">Meet the Team</a>
+    <a href="fundraisers.html">Fundraising & Days Out</a>
+  </div>
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+  <a href="box-office.html">Box Office</a>
+</nav>
 
-    <li>
-      <a href="about.html">About</a>
-      <span class="submenu-toggle" onclick="toggleSubmenu(this)">▼</span>
-      <ul class="submenu">
-        <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
-        <li><a href="meet-the-team.html">Meet the Team</a></li>
-        <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
-      </ul>
-    </li>
-
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="donate.html">Donate</a></li>
-    <li><a href="box-office.html">Box Office</a></li>
-  </ul>
-</div>
-
-<!-- CONTENT AREA (overlay only covers THIS) -->
-<div id="content-area">
 <section>
   <h2>Box Office</h2>
-  <p>🎭 <strong>Next Production:</strong> <em>Snow White & The Magnificent Eight</em></p>
-  <p>Tickets available now via TicketSource!</p>
-  <p>If the site below is not working, please click 
-     <a href="https://www.ticketsource.co.uk/drumchapelpantomimegroup" target="_blank">
-       here.
-     </a>
-  </p>
+  <p><strong>Next Production:</strong> <em>Snow White & The Magnificent Eight</em></p>
+  <p>If the widget fails, open ticketsource in a new tab: <a href="https://www.ticketsource.co.uk/drumchapelpantomimegroup" target="_blank">Ticketsource</a></p>
 
-  <iframe src="https://www.ticketsource.co.uk/drumchapelpantomimegroup"
-          style="width:100%; height:600px; border:none; border-radius:10px;"
-          title="DAPG Ticket Booking"></iframe>
+  <!-- ticket wrapper with sold out overlay that only covers this block -->
+  <div class="ticket-wrapper">
+    <iframe src="https://www.ticketsource.co.uk/drumchapelpantomimegroup" title="DAPC Ticket Booking"></iframe>
+
+    <!-- SOLD OUT overlay (only here) -->
+    <div class="soldout-overlay" role="img" aria-label="Sold Out">
+      <img src="assets/soldout.png" alt="Sold Out">
+    </div>
+  </div>
 </section>
 
-<!-- SOLD OUT OVERLAY (fixed to content only) -->
-<div class="soldout-overlay">
-  <img src="assets/soldout.png" alt="Sold Out">
-</div>
-</div>
-
-<footer>
-  © 2025 Drumchapel Amateur Pantomime Group.
-</footer>
-
-<script>
-  function toggleMenu() {
-    document.getElementById("mobileNav").classList.toggle("open");
-  }
-
-  function toggleSubmenu(el) {
-    const submenu = el.parentElement.querySelector(".submenu");
-    const open = submenu.style.display === "block";
-    submenu.style.display = open ? "none" : "block";
-    el.textContent = open ? "▼" : "▲";
-  }
-</script>
-
+<footer>© 2025 Drumchapel Amateur Pantomime Club.</footer>
+<script src="script.js"></script>
 </body>
 </html>
