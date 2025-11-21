@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DAPC | Home</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DAPC | Home</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -22,6 +22,7 @@
     <h1>Drumchapel Amateur Pantomime Club</h1>
   </div>
 
+  <!-- hamburger only appears on mobile via CSS -->
   <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
 
   <nav>
@@ -42,13 +43,11 @@
   </nav>
 </header>
 
-<!-- Mobile nav -->
+<!-- Mobile slide-in nav -->
 <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
   <a href="index.html">Home</a>
 
-  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">
-    <span>About</span> <span class="arrow">▶</span>
-  </div>
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)"><span>About</span> <span class="arrow">▶</span></div>
   <div class="mobile-submenu">
     <a href="becoming-a-friend.html">Becoming a Friend</a>
     <a href="meet-the-team.html">Meet the Team</a>
@@ -64,27 +63,37 @@
 <div id="popup" class="popup-overlay">
   <div class="popup-box">
     <h2 style="color:#ffd700;">VIEW OUR CURRENT PRODUCTION</h2>
-    <img src="assets/snowwhite.webp" alt="Snow White">
-    <button class="popup-btn take-me-btn" onclick="location.href='snowwhite.html'">TAKE ME THERE</button>
-    <button class="popup-btn close-btn" onclick="closePopup()">CLOSE</button>
+    <!-- responsive srcset for the popup image -->
+    <img src="assets/snowwhite.webp"
+         srcset="assets/snowwhite-small.webp 600w, assets/snowwhite-medium.webp 1000w, assets/snowwhite.webp 1600w"
+         sizes="(max-width:700px) 90vw, 600px"
+         alt="Snow White">
+    <div style="margin-top:12px">
+      <button class="popup-btn take-me-btn" onclick="location.href='snowwhite.html'">TAKE ME THERE</button>
+      <button class="popup-btn close-btn" onclick="closePopup('popup')">CLOSE</button>
+    </div>
   </div>
 </div>
 
-<section>
-  <div class="events-grid">
-    <img src="assets/home/banner.jpeg" alt="Home Banner">
-    <div>
-      <h2 class="event-title">Welcome</h2>
-      <p>Welcome to our Amateur Theatre Club based in Drumchapel, Glasgow! We're passionate about bringing the community together through our annual pantomimes, shows, and fundraisers. As proud members of the Scottish Community Drama Association, we strive to create memorable performances that entertain and inspire. Join us in celebrating the vibrant spirit of local theatre!</p>
+<main class="main-container">
+  <section>
+    <div class="hero-banner">
+      <img src="assets/home/banner.jpeg"
+           srcset="assets/home/banner-small.jpg 600w, assets/home/banner-medium.jpg 1000w, assets/home/banner.jpeg 1600w"
+           sizes="100vw"
+           alt="Home Banner">
     </div>
-  </div>
-</section>
 
-<section>
-  <h2>What We've Been Getting Up To</h2>
-  <div class="sk-ww-facebook-page-posts" data-embed-id="25624766"></div>
-  <script src="https://widgets.sociablekit.com/facebook-page-posts/widget.js" defer></script>
-</section>
+    <h2 class="center">Welcome</h2>
+    <p class="center">Welcome to our Amateur Theatre Club based in Drumchapel, Glasgow! We're passionate about bringing the community together through our annual pantomimes, shows, and fundraisers. As proud members of the Scottish Community Drama Association, we strive to create memorable performances that entertain and inspire. Join us in celebrating the vibrant spirit of local theatre!</p>
+  </section>
+
+  <section>
+    <h2>What We've Been Getting Up To</h2>
+    <div class="sk-ww-facebook-page-posts" data-embed-id="25624766"></div>
+    <script src="https://widgets.sociablekit.com/facebook-page-posts/widget.js" defer></script>
+  </section>
+</main>
 
 <footer>© 2025 Drumchapel Amateur Pantomime Club. All rights reserved.</footer>
 
