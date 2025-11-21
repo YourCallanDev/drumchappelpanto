@@ -6,8 +6,10 @@
   <title>DAPC | Meet the Team</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- CURRENT PRODUCTION BANNER (DOES NOT APPEAR ON SNOW WHITE PAGE) -->
 <a href="snowwhite.html" class="current-production-banner">
   <span>🎭 OUR CURRENT PRODUCTION:</span>
   <strong>SNOW WHITE & THE MAGNIFICENT EIGHT</strong>
@@ -15,19 +17,26 @@
 </a>
 
 <header>
-  <div class="logo"><img src="assets/logo.jpeg" alt="DAPC Logo"><h1>Drumchapel Amateur Pantomime Club</h1></div>
+  <div class="logo">
+    <img src="assets/logo.jpeg" alt="DAPC Logo">
+    <h1>Drumchapel Amateur Pantomime Club</h1>
+  </div>
+
   <button class="hamburger" onclick="toggleMenu()">☰</button>
-  <nav>
+
+  <nav class="desktop-nav">
     <ul>
       <li><a href="index.html">Home</a></li>
+
       <li>
         <a href="about.html">About</a>
-        <ul>
+        <ul class="dropdown">
           <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
-          <li><a href="meet-the-team.html">Meet the Team</a></li>
+          <li><a href="meet-the-team.html" class="active">Meet the Team</a></li>
           <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
         </ul>
       </li>
+
       <li><a href="contact.html">Contact</a></li>
       <li><a href="donate.html">Donate</a></li>
       <li><a href="box-office.html">Box Office</a></li>
@@ -35,14 +44,19 @@
   </nav>
 </header>
 
+<!-- MOBILE NAV PANEL -->
 <nav id="mobileNav" class="mobile-nav">
   <a href="index.html">Home</a>
-  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">About <span class="arrow">▶</span></div>
+
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">
+    About <span class="arrow">▶</span>
+  </div>
   <div class="mobile-submenu">
     <a href="becoming-a-friend.html">Becoming a Friend</a>
     <a href="meet-the-team.html">Meet the Team</a>
     <a href="fundraisers.html">Fundraising & Days Out</a>
   </div>
+
   <a href="contact.html">Contact</a>
   <a href="donate.html">Donate</a>
   <a href="box-office.html">Box Office</a>
@@ -55,74 +69,52 @@
     <div class="team-grid">
 
       <!-- Maggie -->
-      <div class="team-member" tabindex="0"
-           onclick='openBio({"name":"Maggie Harkness-Smith","role":"Artistic Director & Group Founder","bio":"Maggie Harkness-Smith is a talented scriptwriter and director, with a passion for creating unforgettable pantomimes and shows. As the founder of the club, she has brought joy and laughter to audiences of all ages. With her expertise and creativity, Maggie is sure to make every production a success.","img":"assets/team/maggie.jpeg"})'>
-        <img src="assets/team/maggie.jpeg"
-             srcset="assets/team/maggie-small.jpg 400w, assets/team/maggie.jpeg 800w"
-             sizes="(max-width:700px) 120px, 180px"
-             alt="Maggie">
+      <div class="team-member" onclick='openBio("assets/team/maggie.jpeg","Maggie Harkness-Smith","Artistic Director & Group Founder","Maggie Harkness-Smith is a talented scriptwriter and director, with a passion for creating unforgettable pantomimes and shows. As the founder of the club, she has brought joy and laughter to audiences of all ages. With her expertise and creativity, Maggie is sure to make every production a success.")'>
+        <img src="assets/team/maggie.jpeg" alt="Maggie Harkness-Smith">
         <h3>Maggie Harkness-Smith</h3>
         <p class="role">Artistic Director & Group Founder</p>
       </div>
 
       <!-- Andrew -->
-      <div class="team-member" tabindex="0"
-           onclick='openBio({"name":"Andrew McVie","role":"Assistant Director","bio":"Andrew McVie is an experienced Assistant Director for shows, with a background in theatre production. He previously ran the Stardust Theatre Company and is now lending his expertise to the Drumchapel Pantomime Group. With his passion for theatre and dedication to his craft, Andrew is sure to bring a wealth of knowledge and creativity to any production he works on.","img":"assets/team/andrew.jpeg"})'>
-        <img src="assets/team/andrew.jpeg"
-             srcset="assets/team/andrew-small.jpg 400w, assets/team/andrew.jpeg 800w"
-             sizes="(max-width:700px) 120px, 180px"
-             alt="Andrew">
+      <div class="team-member" onclick='openBio("assets/team/andrew.jpeg","Andrew McVie","Assistant Director","Andrew McVie is an experienced Assistant Director for shows, with a background in theatre production. He previously ran the Stardust Theatre Company and is now lending his expertise to the Drumchapel Pantomime Group. With his passion for theatre and dedication to his craft, Andrew brings creativity and precision to every production.")'>
+        <img src="assets/team/andrew.jpeg" alt="Andrew McVie">
         <h3>Andrew McVie</h3>
         <p class="role">Assistant Director</p>
       </div>
 
       <!-- Jackie -->
-      <div class="team-member" tabindex="0"
-           onclick='openBio({"name":"Jackie Doyle","role":"Back Stage Manager","bio":"Jackie Doyle is our backstage manager extraordinaire! She's here to make sure that all cast members are in the right place at the right time. With her help, our performances will run like clockwork.","img":"assets/team/jackie.jpeg"})'>
-        <img src="assets/team/jackie.jpeg"
-             srcset="assets/team/jackie-small.jpg 400w, assets/team/jackie.jpeg 800w"
-             sizes="(max-width:700px) 120px, 180px"
-             alt="Jackie">
+      <div class="team-member" onclick='openBio("assets/team/jackie.jpeg","Jackie Doyle","Backstage Manager","Jackie Doyle is our backstage manager extraordinaire! She’s here to make sure that all cast members are in the right place at the right time. With her help, our performances run like clockwork.")'>
+        <img src="assets/team/jackie.jpeg" alt="Jackie Doyle">
         <h3>Jackie Doyle</h3>
-        <p class="role">Back Stage Manager</p>
+        <p class="role">Backstage Manager</p>
       </div>
 
       <!-- Callan -->
-      <div class="team-member" tabindex="0"
-           onclick='openBio({"name":"Callan Chesser","role":"Production & Technical Manager","bio":"Callan Chesser is the technical heart of our productions — bringing every show to life through expert lighting, sound, staging, and backstage coordination. From mixing microphones to designing immersive atmospheres and keeping every cue perfectly timed, Callan ensures each performance looks and sounds spectacular. His dedication, skill, and creativity help transform our pantomimes into unforgettable experiences for cast and audience alike.","img":"assets/team/callan.png"})'>
-        <img src="assets/team/callan.png"
-             srcset="assets/team/callan-small.png 400w, assets/team/callan.png 800w"
-             sizes="(max-width:700px) 120px, 180px"
-             alt="Callan">
+      <div class="team-member" onclick='openBio("assets/team/callan.png","Callan Chesser","Production & Technical Manager","Callan Chesser is the technical heart of our productions — bringing every show to life through expert lighting, sound, staging, and backstage coordination. From microphones to atmosphere design, Callan ensures every performance looks and sounds spectacular. His dedication and creativity help transform our pantomimes into unforgettable experiences.")'>
+        <img src="assets/team/callan.png" alt="Callan Chesser">
         <h3>Callan Chesser</h3>
         <p class="role">Production & Technical Manager</p>
-        <p style="margin-top:8px;"><a href="https://www.instagram.com/callandoestech/" target="_blank">Instagram</a></p>
+        <p><a href="https://www.instagram.com/callandoestech/" target="_blank">Instagram</a></p>
       </div>
 
     </div>
   </section>
 </main>
 
-<!-- Modal overlay for bios -->
-<div id="bioModalOverlay" class="modal-overlay" role="dialog" aria-modal="true" aria-hidden="true">
-  <div class="modal-box" role="document">
-    <div style="display:flex;gap:14px;align-items:center;">
-      <img class="modal-photo" src="" alt="" style="width:120px;height:120px;object-fit:cover;border-radius:8px;border:2px solid #d10056;">
-      <div>
-        <h3 class="modal-name" style="margin:0;color:#ffd700;"></h3>
-        <p class="modal-role" style="margin:6px 0;color:#fff;font-weight:700;"></p>
-      </div>
-    </div>
-    <div style="margin-top:12px;">
-      <p class="modal-bio" style="color:#e9e9e9;"></p>
-    </div>
-    <div style="text-align:right;margin-top:12px;">
-      <button onclick="closeBio()" style="background:#333;color:#fff;padding:10px 12px;border-radius:6px;border:0;">Close</button>
-    </div>
+<!-- BIO MODAL -->
+<div id="bioModalOverlay" class="modal-overlay">
+  <div class="modal-box">
+    <img id="bioImg" class="modal-photo">
+    <h3 id="bioName"></h3>
+    <p id="bioRole" class="modal-role"></p>
+    <p id="bioText"></p>
+    <button onclick="closeBio()">Close</button>
   </div>
 </div>
 
 <footer>© 2025 Drumchapel Amateur Pantomime Club</footer>
+
 <script src="script.js"></script>
+
 </body>
 </html>
