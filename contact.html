@@ -1,213 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DAPC | Contact</title>
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* -------------------------
-       CONTACT FORM
-    -------------------------- */
-    form {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: 20px auto;
-      border: 1px solid #333;
-    }
-    input, textarea, button {
-      width: 100%;
-      margin-bottom: 15px;
-      padding: 10px;
-      border-radius: 5px;
-      border: none;
-    }
-    input, textarea {
-      background: #2a2a2a;
-      color: #fff;
-    }
-    button {
-      background: #d10056;
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    button:hover {
-      background: #ff4081;
-    }
-
-    /* -------------------------
-       CURRENT PRODUCTION BANNER
-    -------------------------- */
-    .current-production-banner {
-      display: block;
-      background: linear-gradient(90deg, #d10056, #a30041);
-      color: #fff;
-      text-align: center;
-      padding: 18px 10px;
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.05em;
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 3px solid #ffcae1;
-      animation: fadeInBanner 0.8s ease-in-out;
-    }
-
-    .current-production-banner strong {
-      display: block;
-      font-size: 1.25em;
-      margin-top: 2px;
-    }
-
-    .current-production-banner .hint {
-      display: block;
-      font-size: 0.85em;
-      opacity: 0.9;
-      margin-top: 4px;
-    }
-
-    .current-production-banner:hover {
-      background: linear-gradient(90deg, #ff0f70, #c4004c);
-    }
-
-    @keyframes fadeInBanner {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* -------------------------
-       MOBILE NAVIGATION
-    -------------------------- */
-
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 5px;
-      padding: 10px;
-      z-index: 10001;
-    }
-
-    .hamburger div {
-      width: 26px;
-      height: 3px;
-      background: #333;
-      border-radius: 4px;
-    }
-
-    .mobile-nav {
-      position: fixed;
-      top: 0;
-      left: -260px;
-      width: 260px;
-      height: 100vh;
-      background: white;
-      box-shadow: 3px 0 10px rgba(0,0,0,0.25);
-      padding: 20px;
-      transition: left 0.3s ease;
-      z-index: 10000;
-      overflow-y: auto;
-    }
-
-    .mobile-nav.open {
-      left: 0;
-    }
-
-    .mobile-nav ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .mobile-nav li {
-      margin-bottom: 15px;
-    }
-
-    .mobile-nav a {
-      color: #333;
-      text-decoration: none;
-      font-size: 1.1em;
-    }
-
-    .submenu-toggle {
-      float: right;
-      cursor: pointer;
-      font-size: 1.1em;
-      margin-left: 8px;
-    }
-
-    .submenu {
-      display: none;
-      margin-top: 6px;
-      margin-left: 12px;
-    }
-
-    @media (max-width: 850px) {
-      nav {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      header img {
-        width: 55px;
-      }
-
-      header h1 {
-        font-size: 1.05em;
-        max-width: 190px;
-      }
-
-      section {
-        padding: 0 18px;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DAPC | Contact</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- CURRENT PRODUCTION BANNER -->
-  <a href="snowwhite.html" class="current-production-banner">
-    <span>🎭 OUR CURRENT PRODUCTION:</span>
-    <strong>SNOW WHITE & THE MAGNIFICENT EIGHT</strong>
-    <span class="hint">CLICK HERE TO VISIT THE SHOW PAGE!</span>
-  </a>
+<a href="snowwhite.html" class="current-production-banner">
+  <span>🎭 OUR CURRENT PRODUCTION:</span>
+  <strong>SNOW WHITE & THE MAGNIFICENT EIGHT</strong>
+  <span class="hint">CLICK HERE TO VISIT THE SHOW PAGE!</span>
+</a>
 
 <header>
-  <div style="display:flex; align-items:center;">
-    <img src="assets/logo.jpeg" alt="DAPG Logo">
-    <h1>Drumchapel Amateur Pantomime Club</h1>
-  </div>
-
-  <!-- HAMBURGER -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div><div></div><div></div>
-  </div>
-
+  <div class="logo"><img src="assets/logo.jpeg" alt="DAPC Logo"><h1>Drumchapel Amateur Pantomime Club</h1></div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li>
-        <a href="about.html">About</a>
-        <ul>
-          <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
-          <li><a href="meet-the-team.html">Meet the Team</a></li>
-          <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
-        </ul>
-      </li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="donate.html">Donate</a></li>
       <li><a href="box-office.html">Box Office</a></li>
@@ -215,53 +28,31 @@
   </nav>
 </header>
 
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-
-    <li>
-      <a href="about.html">About</a>
-      <span class="submenu-toggle" onclick="toggleSubmenu(this)">▼</span>
-      <ul class="submenu">
-        <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
-        <li><a href="meet-the-team.html">Meet the Team</a></li>
-        <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
-      </ul>
-    </li>
-
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="donate.html">Donate</a></li>
-    <li><a href="box-office.html">Box Office</a></li>
-  </ul>
-</div>
+<nav id="mobileNav" class="mobile-nav">
+  <a href="index.html">Home</a>
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">About <span class="arrow">▶</span></div>
+  <div class="mobile-submenu">
+    <a href="becoming-a-friend.html">Becoming a Friend</a>
+    <a href="meet-the-team.html">Meet the Team</a>
+    <a href="fundraisers.html">Fundraising & Days Out</a>
+  </div>
+  <a href="donate.html">Donate</a>
+  <a href="box-office.html">Box Office</a>
+</nav>
 
 <section>
   <h2>Contact Us</h2>
-  <p>If you have any questions, want to get involved, or simply want to reach out — use the form below and we’ll get back to you.</p>
+  <p>If you have any questions or want to get involved, use the form below.</p>
 
-  <form action="https://formspree.io/f/mpwyoggy" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="_replyto" placeholder="Your Email" required>
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send Message</button>
+  <form action="https://formspree.io/f/mpwyoggy" method="POST" style="max-width:600px;margin:18px auto;">
+    <input type="text" name="name" placeholder="Your name" required style="width:100%;padding:10px;margin-bottom:12px;border-radius:6px;border:none;background:#2a2a2a;color:#fff;">
+    <input type="email" name="_replyto" placeholder="Your email" required style="width:100%;padding:10px;margin-bottom:12px;border-radius:6px;border:none;background:#2a2a2a;color:#fff;">
+    <textarea name="message" rows="5" placeholder="Message" required style="width:100%;padding:10px;border-radius:6px;border:none;background:#2a2a2a;color:#fff;margin-bottom:12px;"></textarea>
+    <button type="submit" style="background:#d10056;color:#fff;padding:12px 16px;border:none;border-radius:6px;font-weight:700;">Send Message</button>
   </form>
 </section>
 
 <footer>© 2025 Drumchapel Amateur Pantomime Club</footer>
-
-<script>
-  function toggleMenu() {
-    document.getElementById("mobileNav").classList.toggle("open");
-  }
-
-  function toggleSubmenu(el) {
-    const submenu = el.parentElement.querySelector(".submenu");
-    const open = submenu.style.display === "block";
-    submenu.style.display = open ? "none" : "block";
-    el.textContent = open ? "▼" : "▲";
-  }
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
