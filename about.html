@@ -5,63 +5,187 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DAPC | About</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* -------------------------
+       CURRENT PRODUCTION BANNER
+    -------------------------- */
+    .current-production-banner {
+      display: block;
+      background: linear-gradient(90deg, #d10056, #a30041);
+      color: #fff;
+      text-align: center;
+      padding: 18px 10px;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05em;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 3px solid #ffcae1;
+      animation: fadeInBanner 0.8s ease-in-out;
+    }
+
+    .current-production-banner strong {
+      display: block;
+      font-size: 1.25em;
+      margin-top: 2px;
+    }
+
+    .current-production-banner .hint {
+      display: block;
+      font-size: 0.85em;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .current-production-banner:hover {
+      background: linear-gradient(90deg, #ff0f70, #c4004c);
+    }
+
+    @keyframes fadeInBanner {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* -------------------------
+       MOBILE NAVIGATION
+    -------------------------- */
+
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px;
+      z-index: 10001;
+    }
+
+    .hamburger div {
+      width: 26px;
+      height: 3px;
+      background: #333;
+      border-radius: 4px;
+    }
+
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100vh;
+      background: white;
+      box-shadow: 3px 0 10px rgba(0,0,0,0.25);
+      padding: 20px;
+      transition: left 0.3s ease;
+      z-index: 10000;
+      overflow-y: auto;
+    }
+
+    .mobile-nav.open {
+      left: 0;
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .mobile-nav li {
+      margin-bottom: 15px;
+    }
+
+    .mobile-nav a {
+      color: #333;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+
+    .submenu-toggle {
+      float: right;
+      cursor: pointer;
+      font-size: 1.1em;
+      margin-left: 8px;
+    }
+
+    .submenu {
+      display: none;
+      margin-top: 6px;
+      margin-left: 12px;
+    }
+
+    @media (max-width: 850px) {
+      nav { display: none; }
+
+      .hamburger {
+        display: flex;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header img {
+        width: 55px;
+      }
+
+      header h1 {
+        font-size: 1.05em;
+        max-width: 190px;
+      }
+
+      section {
+        padding: 0 18px;
+      }
+    }
+
+    /* Small accordion styling improvement */
+    details summary {
+      cursor: pointer;
+      padding: 10px;
+      background: #1a1a1a;
+      border: 1px solid #d10056;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    details summary:hover {
+      background: #222;
+    }
+
+    details ul {
+      margin-left: 18px;
+      margin-top: 10px;
+    }
+
+  </style>
 </head>
 <body>
 
-  <!-- CURRENT PRODUCTION BANNER -->
+<!-- CURRENT PRODUCTION BANNER -->
 <a href="snowwhite.html" class="current-production-banner">
   <span>🎭 OUR CURRENT PRODUCTION:</span>
   <strong>SNOW WHITE & THE MAGNIFICENT EIGHT</strong>
   <span class="hint">CLICK HERE TO VISIT THE SHOW PAGE!</span>
 </a>
 
-<style>
-  .current-production-banner {
-    display: block;
-    background: linear-gradient(90deg, #d10056, #a30041);
-    color: #fff;
-    text-align: center;
-    padding: 18px 10px;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.05em;
-    text-decoration: none;
-    font-weight: 600;
-    border-bottom: 3px solid #ffcae1;
-    animation: fadeInBanner 0.8s ease-in-out;
-  }
-
-  .current-production-banner strong {
-    display: block;
-    font-size: 1.25em;
-    margin-top: 2px;
-  }
-
-  .current-production-banner .hint {
-    display: block;
-    font-size: 0.85em;
-    opacity: 0.9;
-    margin-top: 4px;
-  }
-
-  .current-production-banner:hover {
-    background: linear-gradient(90deg, #ff0f70, #c4004c);
-  }
-
-  @keyframes fadeInBanner {
-    from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
-
 <header>
   <div style="display:flex; align-items:center;">
     <img src="assets/logo.jpeg" alt="DAPG Logo">
     <h1>Drumchapel Amateur Pantomime Club</h1>
   </div>
+
+  <!-- HAMBURGER ICON -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
+
       <li>
         <a href="about.html">About</a>
         <ul>
@@ -70,6 +194,7 @@
           <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
         </ul>
       </li>
+
       <li><a href="contact.html">Contact</a></li>
       <li><a href="donate.html">Donate</a></li>
       <li><a href="box-office.html">Box Office</a></li>
@@ -77,22 +202,46 @@
   </nav>
 </header>
 
+<!-- MOBILE SLIDE-OUT NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+
+    <li>
+      <a href="about.html">About</a>
+      <span class="submenu-toggle" onclick="toggleSubmenu(this)">▼</span>
+      <ul class="submenu">
+        <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
+        <li><a href="meet-the-team.html">Meet the Team</a></li>
+        <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donate.html">Donate</a></li>
+    <li><a href="box-office.html">Box Office</a></li>
+  </ul>
+</div>
+
 <section>
   <h2>About Us</h2>
+
   <p>
     In 2022, Maggie Harkness-Smith had a brilliant idea for a Theatre Club and launched
-    Pantozonians. The first show was Cinderella, which Maggie wrote and directed at the
+    Pantozonians. The first show was Cinderella, written and directed by Maggie at the
     GoodYear Social Club in Drumchapel. Since then, the club has held various fundraising
-    nights, from Bingo to Discos, etc. In 2023, the clu name changed to Drumchapel
-    Amateur Pantomime Club from Drumchapel Amateur Pantomime Group, and they performed 
-    The Wizard of Oz Pantomime, again written by Maggie. Maggie welcomes anyone with an
-    interest in the performing arts to attend her group, with rehearsals taking place from
-    April to December each year.
+    nights, from Bingo to Discos, and more.
+  </p>
+
+  <p>
+    In 2023, the club changed its name from Drumchapel Amateur Pantomime Group to
+    Drumchapel Amateur Pantomime Club — and performed The Wizard of Oz, again written
+    by Maggie. Maggie welcomes anyone with an interest in the performing arts, with
+    rehearsals taking place from April to December each year.
   </p>
 
   <h3>Previous Productions</h3>
 
-  <!-- Accordion for Productions -->
   <div class="accordion">
 
     <details>
@@ -119,7 +268,22 @@
   </div>
 </section>
 
-<footer>© 2025 Drumchapel Amateur Pantomime Club</footer>
+<footer>
+  © 2025 Drumchapel Amateur Pantomime Club
+</footer>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("mobileNav").classList.toggle("open");
+  }
+
+  function toggleSubmenu(el) {
+    const submenu = el.parentElement.querySelector(".submenu");
+    const open = submenu.style.display === "block";
+    submenu.style.display = open ? "none" : "block";
+    el.textContent = open ? "▼" : "▲";
+  }
+</script>
 
 </body>
 </html>
