@@ -1,7 +1,7 @@
-// script.js - site-wide interactions: mobile nav, submenus, popup, team modal, soldout control
+// script.js - site-wide interactions
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Mobile nav toggle
+  // toggle mobile nav
   window.toggleMenu = function () {
     const nav = document.getElementById('mobileNav');
     if (!nav) return;
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
   };
 
-  // toggle submenu (mobile)
+  // toggle mobile submenu
   window.toggleSubmenu = function (btn) {
     if (!btn) return;
     const submenu = btn.nextElementSibling;
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (arrow) arrow.textContent = isOpen ? '▶' : '▼';
   };
 
-  // Close mobile menu when tapping outside
+  // click outside to close mobile menu
   document.addEventListener('click', (e) => {
     const nav = document.getElementById('mobileNav');
     const hamburger = e.target.closest('.hamburger');
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Popup helpers
+  // popup helpers
   window.openPopup = function (id) {
     const el = document.getElementById(id);
     if (!el) return;
@@ -43,19 +43,18 @@ document.addEventListener('DOMContentLoaded', () => {
     el.classList.remove('show');
   };
 
-  // Team modal
+  // team modal open/close
   window.openBio = function (data) {
-    // data: {name, role, bio, img}
     const overlay = document.getElementById('bioModalOverlay');
     if (!overlay) return;
     overlay.querySelector('.modal-photo').src = data.img;
+    overlay.querySelector('.modal-photo').alt = data.name;
     overlay.querySelector('.modal-name').textContent = data.name;
     overlay.querySelector('.modal-role').textContent = data.role;
     overlay.querySelector('.modal-bio').textContent = data.bio;
     overlay.classList.add('show');
     document.body.style.overflow = 'hidden';
   };
-
   window.closeBio = function () {
     const overlay = document.getElementById('bioModalOverlay');
     if (!overlay) return;
@@ -63,12 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.overflow = '';
   };
 
-  // Prevent link clicks under sold-out overlay when active
-  // the overlay itself has pointer-events: all; but we also ensure keyboard navigation blocked
+  // block keyboard navigation under soldout overlay (basic)
   document.addEventListener('keydown', (e) => {
     const sold = document.querySelector('.content-area .soldout-overlay');
     if (!sold) return;
-    // If overlay visible, block ESC to do nothing here (optional)
     if (sold && sold.offsetParent !== null) {
       if (e.key === 'Tab') e.preventDefault();
     }
