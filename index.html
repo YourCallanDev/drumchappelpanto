@@ -7,9 +7,73 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2&family=Poppins&display=swap" rel="stylesheet">
 
-  <!-- POPUP + PAGE-SPECIFIC STYLES -->
   <style>
-    /* Fade-in popup overlay */
+    /* ---------- MOBILE MENU ---------- */
+
+    /* Show hamburger only on mobile */
+    .hamburger {
+      display: none;
+      font-size: 32px;
+      cursor: pointer;
+      padding: 10px 15px;
+      user-select: none;
+      color: #fff;
+    }
+
+    @media (max-width: 850px) {
+      nav ul { display: none; } /* Hide normal menu */
+
+      .hamburger {
+        display: block;
+      }
+
+      /* Slide-in menu */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 260px;
+        height: 100%;
+        background: #111;
+        z-index: 9999;
+        padding-top: 70px;
+        transition: 0.4s ease;
+        overflow-y: auto;
+        border-right: 3px solid #d10056;
+      }
+
+      .mobile-menu.show {
+        left: 0;
+      }
+
+      .mobile-menu a {
+        display: block;
+        padding: 15px 20px;
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid #222;
+      }
+
+      .mobile-dropdown-btn {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 20px;
+        cursor: pointer;
+        color: white;
+        border-bottom: 1px solid #222;
+      }
+
+      .mobile-submenu {
+        display: none;
+        background: #181818;
+      }
+
+      .mobile-submenu a {
+        padding-left: 40px;
+      }
+    }
+
+    /* ---------- POPUP + PAGE STYLES (unchanged) ---------- */
     .popup-overlay {
       position: fixed;
       top: 0;
@@ -20,7 +84,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 9999;
+      z-index: 9000;
       backdrop-filter: blur(3px);
       opacity: 0;
       pointer-events: none;
@@ -69,7 +133,6 @@
     .take-me-btn { background: #d10056; color: white; }
     .close-btn { background: #333; color: white; }
 
-    /* Two-column layout */
     .events-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -78,87 +141,54 @@
       align-items: center;
     }
 
-    .events-grid img {
-      width: 100%;
-      border-radius: 10px;
-      border: 2px solid #222;
-    }
-
-    .event-title {
-      font-size: 1.7em;
-      font-weight: bold;
-      color: #d10056;
-      margin-bottom: 10px;
-    }
-
     @media(max-width: 700px) {
-      .events-grid {
-        grid-template-columns: 1fr;
-      }
+      .events-grid { grid-template-columns: 1fr; }
     }
   </style>
 
 </head>
 <body>
 
-  <!-- CURRENT PRODUCTION BANNER -->
+<!-- CURRENT PRODUCTION BANNER -->
 <a href="snowwhite.html" class="current-production-banner">
   <span>🎭 OUR CURRENT PRODUCTION:</span>
   <strong>SNOW WHITE & THE MAGNIFICENT EIGHT</strong>
   <span class="hint">CLICK HERE TO VISIT THE SHOW PAGE!</span>
 </a>
 
-<style>
-  .current-production-banner {
-    display: block;
-    background: linear-gradient(90deg, #d10056, #a30041);
-    color: #fff;
-    text-align: center;
-    padding: 18px 10px;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.05em;
-    text-decoration: none;
-    font-weight: 600;
-    border-bottom: 3px solid #ffcae1;
-    animation: fadeInBanner 0.8s ease-in-out;
-  }
+<!-- MOBILE HAMBURGER -->
+<div class="hamburger" onclick="toggleMenu()">☰</div>
 
-  .current-production-banner strong {
-    display: block;
-    font-size: 1.25em;
-    margin-top: 2px;
-  }
+<!-- MOBILE SLIDE-IN MENU -->
+<div id="mobileMenu" class="mobile-menu">
 
-  .current-production-banner .hint {
-    display: block;
-    font-size: 0.85em;
-    opacity: 0.9;
-    margin-top: 4px;
-  }
+  <a href="index.html">Home</a>
 
-  .current-production-banner:hover {
-    background: linear-gradient(90deg, #ff0f70, #c4004c);
-  }
+  <!-- ABOUT DROPDOWN -->
+  <div class="mobile-dropdown-btn" onclick="toggleDropdown()">
+    About
+    <span id="arrow">▶</span>
+  </div>
 
-  @keyframes fadeInBanner {
-    from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
+  <div id="mobileSubmenu" class="mobile-submenu">
+    <a href="becoming-a-friend.html">Becoming a Friend</a>
+    <a href="meet-the-team.html">Meet the Team</a>
+    <a href="fundraisers.html">Fundraising & Days Out</a>
+  </div>
 
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+  <a href="box-office.html">Box Office</a>
+
+</div>
 
 <!-- POPUP -->
 <div id="popup" class="popup-overlay">
   <div class="popup-box">
     <h2 style="color:#ffd700;">VIEW OUR CURRENT PRODUCTION</h2>
     <img src="assets/snowwhite.webp" alt="Snow White">
-    <button class="popup-btn take-me-btn" onclick="location.href='snowwhite.html'">
-      TAKE ME THERE
-    </button>
-    <button class="popup-btn close-btn" onclick="closePopup()">
-      CLOSE
-    </button>
+    <button class="popup-btn take-me-btn" onclick="location.href='snowwhite.html'">TAKE ME THERE</button>
+    <button class="popup-btn close-btn" onclick="closePopup()">CLOSE</button>
   </div>
 </div>
 
@@ -167,6 +197,8 @@
     <img src="assets/logo.jpeg" alt="DAPG Logo">
     <h1>Drumchapel Amateur Pantomime Club</h1>
   </div>
+
+  <!-- DESKTOP MENU -->
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -188,45 +220,49 @@
 <section>
   <div class="events-grid">
     <img src="assets/home/banner.jpeg" alt="Home Banner">
-
     <div>
       <h2 class="event-title">Welcome</h2>
-      <p>
-        Welcome to our Amateur Theatre Club based in Drumchapel, Glasgow! We're passionate
-        about bringing the community together through our annual pantomimes, shows, and
-        fundraisers. As proud members of the Scottish Community Drama Association, we strive
-        to create memorable performances that entertain and inspire. Join us in celebrating
-        the vibrant spirit of local theatre!
-      </p>
+      <p>Welcome to our Amateur Theatre Club based in Drumchapel, Glasgow! We're passionate
+      about bringing the community together through our annual pantomimes, shows, and
+      fundraisers. As proud members of the Scottish Community Drama Association, we strive
+      to create memorable performances that entertain and inspire. Join us in celebrating
+      the vibrant spirit of local theatre!</p>
     </div>
   </div>
 </section>
 
 <section>
   <h2>What We've Been Getting Up To</h2>
-
-  <!-- SociableKit Facebook Feed -->
   <div class="sk-ww-facebook-page-posts" data-embed-id="25624766"></div>
   <script src="https://widgets.sociablekit.com/facebook-page-posts/widget.js" defer></script>
 </section>
 
-<footer>
-  © 2025 Drumchapel Amateur Pantomime Club.
-  All rights reserved.
-</footer>
+<footer>© 2025 Drumchapel Amateur Pantomime Club. All rights reserved.</footer>
 
-<!-- POPUP JS -->
 <script>
+  /* OPEN/CLOSE MOBILE MENU */
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('show');
+  }
+
+  /* MOBILE ABOUT DROPDOWN */
+  function toggleDropdown() {
+    const submenu = document.getElementById('mobileSubmenu');
+    const arrow = document.getElementById('arrow');
+
+    submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
+    arrow.textContent = submenu.style.display === 'block' ? '▼' : '▶';
+  }
+
+  /* POPUP FUNCTIONALITY */
   window.addEventListener('load', () => {
     document.getElementById('popup').classList.add('show');
   });
 
   function closePopup() {
-    const popup = document.getElementById('popup');
-    popup.classList.remove('show');
+    document.getElementById('popup').classList.remove('show');
   }
 </script>
 
 </body>
 </html>
-
