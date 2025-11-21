@@ -17,53 +17,41 @@
 <header>
   <div class="logo"><img src="assets/logo.jpeg" alt="DAPC Logo"><h1>Drumchapel Amateur Pantomime Club</h1></div>
   <button class="hamburger" onclick="toggleMenu()">☰</button>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="donate.html">Donate</a></li>
-      <li><a href="box-office.html">Box Office</a></li>
-    </ul>
-  </nav>
+  <nav>...</nav>
 </header>
 
-<nav id="mobileNav" class="mobile-nav">
-  <a href="index.html">Home</a>
-  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">About <span class="arrow">▶</span></div>
-  <div class="mobile-submenu">
-    <a href="becoming-a-friend.html">Becoming a Friend</a>
-    <a href="meet-the-team.html">Meet the Team</a>
-    <a href="fundraisers.html">Fundraising & Days Out</a>
-  </div>
-  <a href="contact.html">Contact</a>
-  <a href="donate.html">Donate</a>
-  <a href="box-office.html">Box Office</a>
-</nav>
+<nav id="mobileNav" class="mobile-nav"> ... </nav>
 
-<section>
-  <img src="assets/fundraisers/banner.png" alt="Fundraising Banner">
-  <h2>Members Social Events & Fundraisers</h2>
-  <p>We enjoy socials, day trips and fundraisers — bingo nights, themed parties and family events to raise funds for the club.</p>
+<main class="main-container">
+  <section>
+    <div class="hero-banner">
+      <img src="assets/fundraisers/banner.png" alt="Fundraising Banner"
+           srcset="assets/fundraisers/banner-small.jpg 600w, assets/fundraisers/banner.png 1200w"
+           sizes="100vw">
+    </div>
 
-  <h3>Previous Fundraising Nights</h3>
-  <ul>
-    <li><strong>2023</strong>
-      <ul><li>Grease Vs Dirty Dancing Night</li><li>Santa's Grotto</li></ul>
-    </li>
-    <li><strong>2024</strong>
-      <ul><li>Easter Family Bingo Night</li><li>80s Vs 90s Night</li><li>Family Halloween Night</li></ul>
-    </li>
-    <li><strong>2025</strong>
-      <ul><li>Easter Bingo Night</li><li>Old School Disco</li></ul>
-    </li>
-  </ul>
+    <h2>Members Social Events & Fundraisers</h2>
+    <p>We enjoy socials, day trips and fundraisers — bingo nights, themed parties and family events to raise funds for the club.</p>
 
-  <h3>Gallery</h3>
-  <p>Add photos to <code>assets/fundraisers/</code> and link them below.</p>
-  <img src="assets/fundraisers/photo1.jpg" alt="Photo 1">
-  <img src="assets/fundraisers/photo2.jpg" alt="Photo 2">
-</section>
+    <h3>Previous Fundraising Nights</h3>
+    <ul>
+      <li><strong>2023</strong>
+        <ul><li>Grease Vs Dirty Dancing Night</li><li>Santa's Grotto</li></ul>
+      </li>
+      <li><strong>2024</strong>
+        <ul><li>Easter Family Bingo Night</li><li>80s Vs 90s Night</li><li>Family Halloween Night</li></ul>
+      </li>
+      <li><strong>2025</strong>
+        <ul><li>Easter Bingo Night</li><li>Old School Disco</li></ul>
+      </li>
+    </ul>
+
+    <h3>Gallery</h3>
+    <p>Add photos to <code>assets/fundraisers/</code> and they will appear here.</p>
+    <img src="assets/fundraisers/photo1.jpg" alt="Photo 1">
+    <img src="assets/fundraisers/photo2.jpg" alt="Photo 2">
+  </section>
+</main>
 
 <footer>© 2025 Drumchapel Amateur Pantomime Club</footer>
 <script src="script.js"></script>
