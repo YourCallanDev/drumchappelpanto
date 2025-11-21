@@ -3,38 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DAPC | Box Office</title>
+  <title>DAPG | Box Office</title>
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* SECTION-ONLY SOLD OUT overlay */
-    .soldout-overlay-section {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.65);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 20;
-      pointer-events: all; /* blocks clicks in this section ONLY */
-      border-radius: 10px;
-    }
-
-    .soldout-overlay-section img {
-      width: 90%;
-      max-width: 700px;
-      pointer-events: none;
-    }
-
-    /* Section wrapper so overlay attaches correctly */
-    .boxoffice-wrapper {
-      position: relative;
-    }
-
-    /* CURRENT PRODUCTION BANNER */
+    /* -------------------------
+       CURRENT PRODUCTION BANNER
+    -------------------------- */
     .current-production-banner {
       display: block;
       background: linear-gradient(90deg, #d10056, #a30041);
@@ -49,23 +24,141 @@
       border-bottom: 3px solid #ffcae1;
       animation: fadeInBanner 0.8s ease-in-out;
     }
+
     .current-production-banner strong {
       display: block;
       font-size: 1.25em;
       margin-top: 2px;
     }
+
     .current-production-banner .hint {
       display: block;
       font-size: 0.85em;
       opacity: 0.9;
       margin-top: 4px;
     }
-    .current-production-banner:hover {
-      background: linear-gradient(90deg, #ff0f70, #c4004c);
-    }
+
     @keyframes fadeInBanner {
       from { opacity: 0; transform: translateY(-8px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* -------------------------
+       MOBILE NAVIGATION
+    -------------------------- */
+
+    /* Hamburger (mobile only) */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px;
+      z-index: 10001;
+    }
+
+    .hamburger div {
+      width: 26px;
+      height: 3px;
+      background: #333;
+      border-radius: 4px;
+    }
+
+    /* Side menu */
+    .mobile-nav {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100vh;
+      background: white;
+      box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+      padding: 20px;
+      transition: left 0.3s ease;
+      z-index: 10000;
+    }
+
+    .mobile-nav.open {
+      left: 0;
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .mobile-nav ul li {
+      margin-bottom: 14px;
+    }
+
+    .mobile-nav a {
+      font-size: 1.1em;
+      text-decoration: none;
+      color: #333;
+    }
+
+    /* Submenu toggle arrow */
+    .submenu-toggle {
+      float: right;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+
+    .submenu {
+      display: none;
+      margin-top: 6px;
+      margin-left: 10px;
+    }
+
+    .submenu a {
+      font-size: 1em;
+    }
+
+    /* Desktop nav hidden on mobile */
+    @media (max-width: 850px) {
+      nav { display: none; }
+
+      .hamburger {
+        display: flex;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      header img {
+        width: 55px;
+      }
+
+      header h1 {
+        font-size: 1.1em;
+        max-width: 200px;
+      }
+    }
+
+    /* -------------------------
+       SOLD OUT OVERLAY
+    -------------------------- */
+    .soldout-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.65);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      pointer-events: all;
+    }
+
+    .soldout-overlay img {
+      width: 90%;
+      max-width: 700px;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -79,13 +172,22 @@
 </a>
 
 <header>
+  <!-- Header Left: Logo + Title -->
   <div style="display:flex; align-items:center;">
     <img src="assets/logo.jpeg" alt="DAPG Logo">
-    <h1>Drumchapel Amateur Pantomime Club</h1>
+    <h1>Drumchapel Amateur Pantomime Group</h1>
   </div>
+
+  <!-- MOBILE HAMBURGER -->
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+
+  <!-- DESKTOP NAV -->
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
+
       <li>
         <a href="about.html">About</a>
         <ul>
@@ -94,6 +196,7 @@
           <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
         </ul>
       </li>
+
       <li><a href="contact.html">Contact</a></li>
       <li><a href="donate.html">Donate</a></li>
       <li><a href="box-office.html">Box Office</a></li>
@@ -101,7 +204,28 @@
   </nav>
 </header>
 
-<section class="boxoffice-wrapper">
+<!-- MOBILE SLIDE-OUT NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+
+    <li>
+      <a href="about.html">About</a>
+      <span class="submenu-toggle" onclick="toggleSubmenu(this)">▼</span>
+      <ul class="submenu">
+        <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
+        <li><a href="meet-the-team.html">Meet the Team</a></li>
+        <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="donate.html">Donate</a></li>
+    <li><a href="box-office.html">Box Office</a></li>
+  </ul>
+</div>
+
+<section>
   <h2>Box Office</h2>
   <p>🎭 <strong>Next Production:</strong> <em>Snow White & The Magnificent Eight</em></p>
   <p>Tickets available now via TicketSource!</p>
@@ -111,20 +235,33 @@
      </a>
   </p>
 
-  <!-- Embed TicketSource widget -->
   <iframe src="https://www.ticketsource.co.uk/drumchapelpantomimegroup"
           style="width:100%; height:600px; border:none; border-radius:10px;"
           title="DAPG Ticket Booking"></iframe>
-
-  <!-- SOLD OUT overlay (section-only) -->
-  <div class="soldout-overlay-section">
-    <img src="assets/soldout.png" alt="Sold Out">
-  </div>
 </section>
 
 <footer>
-  © 2025 Drumchapel Amateur Pantomime Club
+  © 2025 Drumchapel Amateur Pantomime Group.
 </footer>
+
+<!-- SOLD OUT OVERLAY -->
+<div class="soldout-overlay">
+  <img src="assets/soldout.png" alt="Sold Out">
+</div>
+
+<script>
+  function toggleMenu() {
+    document.getElementById("mobileNav").classList.toggle("open");
+  }
+
+  function toggleSubmenu(el) {
+    let submenu = el.parentElement.querySelector(".submenu");
+    submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+
+    // Rotate arrow
+    el.textContent = submenu.style.display === "block" ? "▲" : "▼";
+  }
+</script>
 
 </body>
 </html>
