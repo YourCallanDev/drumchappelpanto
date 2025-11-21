@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DAPC | Box Office</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DAPC | Box Office</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -17,14 +17,32 @@
 <header>
   <div class="logo"><img src="assets/logo.jpeg" alt="DAPC Logo"><h1>Drumchapel Amateur Pantomime Club</h1></div>
   <button class="hamburger" onclick="toggleMenu()">☰</button>
-  <nav>...</nav>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="box-office.html">Box Office</a></li>
+    </ul>
+  </nav>
 </header>
 
-<nav id="mobileNav" class="mobile-nav"> ... </nav>
+<nav id="mobileNav" class="mobile-nav">
+  <a href="index.html">Home</a>
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">About <span class="arrow">▶</span></div>
+  <div class="mobile-submenu">
+    <a href="becoming-a-friend.html">Becoming a Friend</a>
+    <a href="meet-the-team.html">Meet the Team</a>
+    <a href="fundraisers.html">Fundraising & Days Out</a>
+  </div>
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+  <a href="box-office.html">Box Office</a>
+</nav>
 
-<!-- content-area is what the sold-out overlay will cover -->
 <main class="main-container">
-  <div class="content-area">
+  <div class="content-area" aria-hidden="false">
     <section>
       <h2>Box Office</h2>
       <p><strong>Next Production:</strong> <em>Snow White & The Magnificent Eight</em></p>
@@ -37,16 +55,15 @@
       </div>
     </section>
 
-    <!-- SOLD OUT overlay spans the entire content-area (blocks everything underneath) -->
-    <div class="soldout-overlay" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:60;pointer-events:all;">
-      <img src="assets/soldout.png" alt="Sold Out" style="width:90%;max-width:900px;pointer-events:none;">
+    <!-- SOLD OUT overlay (only on content-area, covers the entire content area & blocks clicks under it) -->
+    <div class="soldout-overlay" role="img" aria-label="Sold Out">
+      <img src="assets/soldout.png" alt="Sold Out">
     </div>
 
-  </div> <!-- /.content-area -->
+  </div><!-- /.content-area -->
 </main>
 
 <footer>© 2025 Drumchapel Amateur Pantomime Club.</footer>
 <script src="script.js"></script>
 </body>
 </html>
-
