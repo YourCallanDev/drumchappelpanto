@@ -1,157 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DAPC | Fundraisers & Days Out</title>
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* -------------------------
-       CURRENT PRODUCTION BANNER
-    -------------------------- */
-    .current-production-banner {
-      display: block;
-      background: linear-gradient(90deg, #d10056, #a30041);
-      color: #fff;
-      text-align: center;
-      padding: 18px 10px;
-      margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.05em;
-      text-decoration: none;
-      font-weight: 600;
-      border-bottom: 3px solid #ffcae1;
-      animation: fadeInBanner 0.8s ease-in-out;
-    }
-
-    .current-production-banner strong {
-      display: block;
-      font-size: 1.25em;
-      margin-top: 2px;
-    }
-
-    .current-production-banner .hint {
-      display: block;
-      font-size: 0.85em;
-      opacity: 0.9;
-      margin-top: 4px;
-    }
-
-    .current-production-banner:hover {
-      background: linear-gradient(90deg, #ff0f70, #c4004c);
-    }
-
-    @keyframes fadeInBanner {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* -------------------------
-       MOBILE NAVIGATION
-    -------------------------- */
-    .hamburger {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      gap: 5px;
-      padding: 10px;
-      z-index: 10001;
-    }
-
-    .hamburger div {
-      width: 26px;
-      height: 3px;
-      background: #333;
-      border-radius: 4px;
-    }
-
-    .mobile-nav {
-      position: fixed;
-      top: 0;
-      left: -260px;
-      width: 260px;
-      height: 100vh;
-      background: white;
-      box-shadow: 3px 0 10px rgba(0,0,0,0.25);
-      padding: 20px;
-      transition: left 0.3s ease;
-      z-index: 10000;
-      overflow-y: auto;
-    }
-
-    .mobile-nav.open {
-      left: 0;
-    }
-
-    .mobile-nav ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .mobile-nav li {
-      margin-bottom: 15px;
-    }
-
-    .mobile-nav a {
-      color: #333;
-      text-decoration: none;
-      font-size: 1.1em;
-    }
-
-    .submenu-toggle {
-      float: right;
-      cursor: pointer;
-      font-size: 1.1em;
-      margin-left: 8px;
-    }
-
-    .submenu {
-      display: none;
-      margin-top: 6px;
-      margin-left: 12px;
-    }
-
-    /* Hide desktop nav + adjust header on mobile */
-    @media (max-width: 850px) {
-      nav {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      header img {
-        width: 55px;
-      }
-
-      header h1 {
-        font-size: 1.05em;
-        max-width: 190px;
-      }
-
-      section img {
-        width: 100%;
-        border-radius: 6px;
-      }
-
-      section {
-        padding: 0 18px;
-      }
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DAPC | Fundraisers & Days Out</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- CURRENT PRODUCTION BANNER -->
 <a href="snowwhite.html" class="current-production-banner">
   <span>🎭 OUR CURRENT PRODUCTION:</span>
   <strong>SNOW WHITE & THE MAGNIFICENT EIGHT</strong>
@@ -159,27 +15,12 @@
 </a>
 
 <header>
-  <div style="display:flex; align-items:center;">
-    <img src="assets/logo.jpeg" alt="DAPG Logo">
-    <h1>Drumchapel Amateur Pantomime Club</h1>
-  </div>
-
-  <!-- MOBILE HAMBURGER -->
-  <div class="hamburger" onclick="toggleMenu()">
-    <div></div><div></div><div></div>
-  </div>
-
+  <div class="logo"><img src="assets/logo.jpeg" alt="DAPC Logo"><h1>Drumchapel Amateur Pantomime Club</h1></div>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li>
-        <a href="about.html">About</a>
-        <ul>
-          <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
-          <li><a href="meet-the-team.html">Meet the Team</a></li>
-          <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
-        </ul>
-      </li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="donate.html">Donate</a></li>
       <li><a href="box-office.html">Box Office</a></li>
@@ -187,86 +28,44 @@
   </nav>
 </header>
 
-<!-- MOBILE NAV -->
-<div class="mobile-nav" id="mobileNav">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-
-    <li>
-      <a href="about.html">About</a>
-      <span class="submenu-toggle" onclick="toggleSubmenu(this)">▼</span>
-      <ul class="submenu">
-        <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
-        <li><a href="meet-the-team.html">Meet the Team</a></li>
-        <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
-      </ul>
-    </li>
-
-    <li><a href="contact.html">Contact</a></li>
-    <li><a href="donate.html">Donate</a></li>
-    <li><a href="box-office.html">Box Office</a></li>
-  </ul>
-</div>
+<nav id="mobileNav" class="mobile-nav">
+  <a href="index.html">Home</a>
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">About <span class="arrow">▶</span></div>
+  <div class="mobile-submenu">
+    <a href="becoming-a-friend.html">Becoming a Friend</a>
+    <a href="meet-the-team.html">Meet the Team</a>
+    <a href="fundraisers.html">Fundraising & Days Out</a>
+  </div>
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+  <a href="box-office.html">Box Office</a>
+</nav>
 
 <section>
   <img src="assets/fundraisers/banner.png" alt="Fundraising Banner">
-
   <h2>Members Social Events & Fundraisers</h2>
-  <p>
-    Our passion for performing goes far beyond the stage!  
-    We love organising fun social days out, exploring museums and parks, and hosting themed fundraising events such as bingo nights, discos and family celebrations — all helping us raise vital funds for future productions.
-  </p>
+  <p>We enjoy socials, day trips and fundraisers — bingo nights, themed parties and family events to raise funds for the club.</p>
 
   <h3>Previous Fundraising Nights</h3>
-
   <ul>
     <li><strong>2023</strong>
-      <ul>
-        <li>Grease Vs Dirty Dancing Night</li>
-        <li>Santa's Grotto</li>
-      </ul>
+      <ul><li>Grease Vs Dirty Dancing Night</li><li>Santa's Grotto</li></ul>
     </li>
-
     <li><strong>2024</strong>
-      <ul>
-        <li>Easter Family Bingo Night</li>
-        <li>80s Vs 90s Night (Adult Only)</li>
-        <li>Family Halloween Night</li>
-        <li>Santa's Grotto</li>
-      </ul>
+      <ul><li>Easter Family Bingo Night</li><li>80s Vs 90s Night</li><li>Family Halloween Night</li></ul>
     </li>
-
     <li><strong>2025</strong>
-      <ul>
-        <li>Easter Bingo Night</li>
-        <li>Old School Disco (Adult Only)</li>
-      </ul>
+      <ul><li>Easter Bingo Night</li><li>Old School Disco</li></ul>
     </li>
   </ul>
 
-  <div style="margin-top:30px;">
-    <h3>Gallery</h3>
-    <p>Add photos to <code>assets/fundraisers/</code> and they will display here.</p>
-
-    <img src="assets/fundraisers/photo1.jpg" alt="Event Photo 1">
-    <img src="assets/fundraisers/photo2.jpg" alt="Event Photo 2">
-  </div>
+  <h3>Gallery</h3>
+  <p>Add photos to <code>assets/fundraisers/</code> and link them below.</p>
+  <img src="assets/fundraisers/photo1.jpg" alt="Photo 1">
+  <img src="assets/fundraisers/photo2.jpg" alt="Photo 2">
 </section>
 
 <footer>© 2025 Drumchapel Amateur Pantomime Club</footer>
-
-<script>
-  function toggleMenu() {
-    document.getElementById("mobileNav").classList.toggle("open");
-  }
-
-  function toggleSubmenu(el) {
-    const submenu = el.parentElement.querySelector(".submenu");
-    const open = submenu.style.display === "block";
-    submenu.style.display = open ? "none" : "block";
-    el.textContent = open ? "▼" : "▲";
-  }
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
