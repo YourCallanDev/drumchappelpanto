@@ -15,14 +15,12 @@
   <span class="hint">CLICK HERE TO VISIT THE SHOW PAGE!</span>
 </a>
 
-<!-- Header -->
 <header>
   <div class="logo">
     <img src="assets/logo.jpeg" alt="DAPC Logo">
     <h1>Drumchapel Amateur Pantomime Club</h1>
   </div>
 
-  <!-- hamburger only appears on mobile via CSS -->
   <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
 
   <nav>
@@ -43,11 +41,12 @@
   </nav>
 </header>
 
-<!-- Mobile slide-in nav -->
 <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
   <a href="index.html">Home</a>
 
-  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)"><span>About</span> <span class="arrow">▶</span></div>
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">
+    <span>About</span> <span class="arrow">▶</span>
+  </div>
   <div class="mobile-submenu">
     <a href="becoming-a-friend.html">Becoming a Friend</a>
     <a href="meet-the-team.html">Meet the Team</a>
@@ -60,10 +59,9 @@
 </nav>
 
 <!-- Popup (home) -->
-<div id="popup" class="popup-overlay">
+<div id="popup" class="popup-overlay" role="dialog" aria-modal="true" aria-hidden="true">
   <div class="popup-box">
     <h2 style="color:#ffd700;">VIEW OUR CURRENT PRODUCTION</h2>
-    <!-- responsive srcset for the popup image -->
     <img src="assets/snowwhite.webp"
          srcset="assets/snowwhite-small.webp 600w, assets/snowwhite-medium.webp 1000w, assets/snowwhite.webp 1600w"
          sizes="(max-width:700px) 90vw, 600px"
