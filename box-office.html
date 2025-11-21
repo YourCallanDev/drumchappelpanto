@@ -22,32 +22,24 @@
       text-decoration: none;
       font-weight: 600;
       border-bottom: 3px solid #ffcae1;
-      animation: fadeInBanner 0.8s ease-in-out;
     }
 
     .current-production-banner strong {
       display: block;
       font-size: 1.25em;
-      margin-top: 2px;
     }
 
     .current-production-banner .hint {
       display: block;
-      font-size: 0.85em;
+      font-size: 0.9em;
       opacity: 0.9;
-      margin-top: 4px;
-    }
-
-    @keyframes fadeInBanner {
-      from { opacity: 0; transform: translateY(-8px); }
-      to { opacity: 1; transform: translateY(0); }
     }
 
     /* -------------------------
        MOBILE NAVIGATION
     -------------------------- */
 
-    /* Hamburger (mobile only) */
+    /* Hamburger */
     .hamburger {
       display: none;
       cursor: pointer;
@@ -64,7 +56,7 @@
       border-radius: 4px;
     }
 
-    /* Side menu */
+    /* Side menu (hidden by default) */
     .mobile-nav {
       position: fixed;
       top: 0;
@@ -72,10 +64,11 @@
       width: 260px;
       height: 100vh;
       background: white;
-      box-shadow: 3px 0 10px rgba(0,0,0,0.2);
+      box-shadow: 3px 0 10px rgba(0,0,0,0.25);
       padding: 20px;
       transition: left 0.3s ease;
       z-index: 10000;
+      overflow-y: auto;
     }
 
     .mobile-nav.open {
@@ -87,34 +80,29 @@
       padding: 0;
     }
 
-    .mobile-nav ul li {
-      margin-bottom: 14px;
+    .mobile-nav li {
+      margin-bottom: 15px;
     }
 
     .mobile-nav a {
-      font-size: 1.1em;
-      text-decoration: none;
       color: #333;
+      text-decoration: none;
+      font-size: 1.1em;
     }
 
-    /* Submenu toggle arrow */
     .submenu-toggle {
       float: right;
-      font-size: 1.2em;
       cursor: pointer;
+      font-size: 1.2em;
+      margin-left: 8px;
     }
 
     .submenu {
       display: none;
       margin-top: 6px;
-      margin-left: 10px;
+      margin-left: 12px;
     }
 
-    .submenu a {
-      font-size: 1em;
-    }
-
-    /* Desktop nav hidden on mobile */
     @media (max-width: 850px) {
       nav { display: none; }
 
@@ -139,19 +127,26 @@
     }
 
     /* -------------------------
-       SOLD OUT OVERLAY
+       SOLD OUT OVERLAY — FIXED
+       (only covers body content)
     -------------------------- */
+
+    #content-area {
+      position: relative;
+      overflow: hidden;
+    }
+
     .soldout-overlay {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
-      width: 100vw;
-      height: 100vh;
+      width: 100%;
+      height: 100%;
       background: rgba(0,0,0,0.65);
       display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 9999;
+      z-index: 20;
       pointer-events: all;
     }
 
@@ -160,6 +155,7 @@
       max-width: 700px;
       pointer-events: none;
     }
+
   </style>
 </head>
 <body>
@@ -172,22 +168,18 @@
 </a>
 
 <header>
-  <!-- Header Left: Logo + Title -->
   <div style="display:flex; align-items:center;">
     <img src="assets/logo.jpeg" alt="DAPG Logo">
     <h1>Drumchapel Amateur Pantomime Group</h1>
   </div>
 
-  <!-- MOBILE HAMBURGER -->
   <div class="hamburger" onclick="toggleMenu()">
     <div></div><div></div><div></div>
   </div>
 
-  <!-- DESKTOP NAV -->
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-
       <li>
         <a href="about.html">About</a>
         <ul>
@@ -196,7 +188,6 @@
           <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
         </ul>
       </li>
-
       <li><a href="contact.html">Contact</a></li>
       <li><a href="donate.html">Donate</a></li>
       <li><a href="box-office.html">Box Office</a></li>
@@ -204,7 +195,7 @@
   </nav>
 </header>
 
-<!-- MOBILE SLIDE-OUT NAV -->
+<!-- MOBILE NAV -->
 <div class="mobile-nav" id="mobileNav">
   <ul>
     <li><a href="index.html">Home</a></li>
@@ -225,6 +216,8 @@
   </ul>
 </div>
 
+<!-- CONTENT AREA (overlay only covers THIS) -->
+<div id="content-area">
 <section>
   <h2>Box Office</h2>
   <p>🎭 <strong>Next Production:</strong> <em>Snow White & The Magnificent Eight</em></p>
@@ -240,14 +233,15 @@
           title="DAPG Ticket Booking"></iframe>
 </section>
 
-<footer>
-  © 2025 Drumchapel Amateur Pantomime Group.
-</footer>
-
-<!-- SOLD OUT OVERLAY -->
+<!-- SOLD OUT OVERLAY (fixed to content only) -->
 <div class="soldout-overlay">
   <img src="assets/soldout.png" alt="Sold Out">
 </div>
+</div>
+
+<footer>
+  © 2025 Drumchapel Amateur Pantomime Group.
+</footer>
 
 <script>
   function toggleMenu() {
@@ -255,11 +249,10 @@
   }
 
   function toggleSubmenu(el) {
-    let submenu = el.parentElement.querySelector(".submenu");
-    submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-
-    // Rotate arrow
-    el.textContent = submenu.style.display === "block" ? "▲" : "▼";
+    const submenu = el.parentElement.querySelector(".submenu");
+    const open = submenu.style.display === "block";
+    submenu.style.display = open ? "none" : "block";
+    el.textContent = open ? "▼" : "▲";
   }
 </script>
 
