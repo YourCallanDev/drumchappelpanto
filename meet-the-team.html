@@ -5,59 +5,147 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DAPC | Meet the Team</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ---------- MOBILE MENU SYSTEM ---------- */
+
+    .hamburger {
+      display: none;
+      font-size: 32px;
+      cursor: pointer;
+      padding: 10px 15px;
+      color: #fff;
+      user-select: none;
+    }
+
+    @media (max-width: 850px) {
+      nav ul { display: none; }
+
+      .hamburger { display: block; }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: -260px;
+        width: 260px;
+        height: 100%;
+        background: #111;
+        z-index: 9999;
+        padding-top: 70px;
+        transition: 0.4s ease;
+        overflow-y: auto;
+        border-right: 3px solid #d10056;
+      }
+
+      .mobile-menu.show {
+        left: 0;
+      }
+
+      .mobile-menu a,
+      .mobile-dropdown-btn {
+        display: block;
+        padding: 15px 20px;
+        color: white;
+        text-decoration: none;
+        border-bottom: 1px solid #222;
+      }
+
+      .mobile-dropdown-btn {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .mobile-submenu {
+        display: none;
+        background: #181818;
+      }
+
+      .mobile-submenu a {
+        padding-left: 40px;
+      }
+    }
+
+    /* CURRENT PRODUCTION BANNER (unchanged) */
+    .current-production-banner {
+      display: block;
+      background: linear-gradient(90deg, #d10056, #a30041);
+      color: #fff;
+      text-align: center;
+      padding: 18px 10px;
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.05em;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 3px solid #ffcae1;
+      animation: fadeInBanner 0.8s ease-in-out;
+    }
+
+    .current-production-banner strong {
+      display: block;
+      font-size: 1.25em;
+      margin-top: 2px;
+    }
+
+    .current-production-banner .hint {
+      display: block;
+      font-size: 0.85em;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    .current-production-banner:hover {
+      background: linear-gradient(90deg, #ff0f70, #c4004c);
+    }
+
+    @keyframes fadeInBanner {
+      from { opacity: 0; transform: translateY(-8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
+
 <body>
-  <!-- CURRENT PRODUCTION BANNER -->
+
+<!-- CURRENT PRODUCTION BANNER -->
 <a href="snowwhite.html" class="current-production-banner">
   <span>🎭 OUR CURRENT PRODUCTION:</span>
   <strong>SNOW WHITE & THE MAGNIFICENT EIGHT</strong>
   <span class="hint">CLICK HERE TO VISIT THE SHOW PAGE!</span>
 </a>
 
-<style>
-  .current-production-banner {
-    display: block;
-    background: linear-gradient(90deg, #d10056, #a30041);
-    color: #fff;
-    text-align: center;
-    padding: 18px 10px;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.05em;
-    text-decoration: none;
-    font-weight: 600;
-    border-bottom: 3px solid #ffcae1;
-    animation: fadeInBanner 0.8s ease-in-out;
-  }
+<!-- MOBILE HAMBURGER -->
+<div class="hamburger" onclick="toggleMenu()">☰</div>
 
-  .current-production-banner strong {
-    display: block;
-    font-size: 1.25em;
-    margin-top: 2px;
-  }
+<!-- MOBILE SLIDE-IN MENU -->
+<div id="mobileMenu" class="mobile-menu">
 
-  .current-production-banner .hint {
-    display: block;
-    font-size: 0.85em;
-    opacity: 0.9;
-    margin-top: 4px;
-  }
+  <a href="index.html">Home</a>
 
-  .current-production-banner:hover {
-    background: linear-gradient(90deg, #ff0f70, #c4004c);
-  }
+  <!-- ABOUT DROPDOWN -->
+  <div class="mobile-dropdown-btn" onclick="toggleDropdown()">
+    About <span id="arrow">▶</span>
+  </div>
 
-  @keyframes fadeInBanner {
-    from { opacity: 0; transform: translateY(-8px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-</style>
+  <div id="mobileSubmenu" class="mobile-submenu">
+    <a href="becoming-a-friend.html">Becoming a Friend</a>
+    <a href="meet-the-team.html">Meet the Team</a>
+    <a href="fundraisers.html">Fundraising & Days Out</a>
+  </div>
+
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+  <a href="box-office.html">Box Office</a>
+</div>
 
 <header>
   <div style="display:flex; align-items:center;">
     <img src="assets/logo.jpeg" alt="DAPG Logo">
     <h1>Drumchapel Amateur Pantomime Club</h1>
   </div>
+
+  <!-- DESKTOP NAV -->
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -78,40 +166,55 @@
 
 <section>
   <h2>Meet the Team</h2>
+
   <div class="team-grid">
 
     <div class="team-member">
       <img src="assets/team/maggie.jpeg" alt="Member 1">
       <h3>Maggie Harkness-Smith</h3>
       <p>Group Founder & Artistic Director</p>
-      <p>Maggie Harkness-Smith is a talented scriptwriter and director, with a passion for creating unforgettable pantomimes and shows. As the founder of the club, she has brought joy and laughter to audiences of all ages. With her expertise and creativity. Maggie is sure to make every production a success.</p>
+      <p>Maggie Harkness-Smith is a talented scriptwriter and director, with a passion for creating unforgettable pantomimes and shows...</p>
     </div>
 
     <div class="team-member">
       <img src="assets/team/andrew.jpeg" alt="Member 2">
       <h3>Andrew McVie</h3>
       <p>Assistant Director</p>
-      <p>Andrew McVie is an experienced Assistant Director for shows, with a background in theatre production. He previously ran the Stardust Theatre Company and is now lending his expertise to the Drumchapel Pantomime Group. With his passion for theatre and dedication to his craft, Andrew is sure to bring a wealth of knowledge and creativity to any production he works on.</p>
+      <p>Andrew McVie is an experienced Assistant Director for shows...</p>
     </div>
 
     <div class="team-member">
       <img src="assets/team/jackie.jpeg" alt="Member 3">
       <h3>Jackie Doyle</h3>
       <p>Backstage Manager</p>
-      <p>Jackie Doyle is our backstage manager extraordinaire! She's here to make sure that all cast members are in the right place at the right time. With her help, our performances will run like clockwork.</p>
+      <p>Jackie ensures backstage runs smoothly and every cast member is in place...</p>
     </div>
 
     <div class="team-member">
       <img src="assets/team/callan.png" alt="Member 4">
       <h3>Callan Chesser</h3>
       <p>Technical Director</p>
-      <p>Callan Chesser is our technical director. He makes sure all of the tech for the shows work, and has it all programmed in and ready for the show. During the show he can be found running it all and making all of our beautiful cast members heard. With a true passion for the theatre and the technical elements, Callan is sure to bring a lot of knowledge and creativy to the productions!</p>
+      <p>Callan manages all technical aspects of our productions...</p>
       <p><a href="https://www.instagram.com/callandoestech/">Instagram</a></p>
     </div>
-
   </div>
 </section>
 
 <footer>© 2025 Drumchapel Amateur Pantomime Club</footer>
+
+<!-- MOBILE MENU JS -->
+<script>
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('show');
+  }
+
+  function toggleDropdown() {
+    const submenu = document.getElementById('mobileSubmenu');
+    const arrow = document.getElementById('arrow');
+    submenu.style.display = submenu.style.display === "block" ? "none" : "block";
+    arrow.textContent = submenu.style.display === "block" ? "▼" : "▶";
+  }
+</script>
+
 </body>
 </html>
