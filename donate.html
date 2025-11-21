@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DAPC | Donate</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DAPC | Donate</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -17,10 +17,28 @@
 <header>
   <div class="logo"><img src="assets/logo.jpeg" alt="DAPC Logo"><h1>Drumchapel Amateur Pantomime Club</h1></div>
   <button class="hamburger" onclick="toggleMenu()">☰</button>
-  <nav>...</nav>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="box-office.html">Box Office</a></li>
+    </ul>
+  </nav>
 </header>
 
-<nav id="mobileNav" class="mobile-nav"> ... </nav>
+<nav id="mobileNav" class="mobile-nav">
+  <a href="index.html">Home</a>
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">About <span class="arrow">▶</span></div>
+  <div class="mobile-submenu">
+    <a href="becoming-a-friend.html">Becoming a Friend</a>
+    <a href="meet-the-team.html">Meet the Team</a>
+    <a href="fundraisers.html">Fundraising & Days Out</a>
+  </div>
+  <a href="contact.html">Contact</a>
+  <a href="box-office.html">Box Office</a>
+</nav>
 
 <main class="main-container">
   <section>
