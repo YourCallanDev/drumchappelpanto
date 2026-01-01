@@ -84,4 +84,53 @@ function closeBio() {
     }
   });
 });
+// --------------------
+// BIO MODAL FUNCTIONS
+// --------------------
+
+function openBio(image, name, role, text) {
+  const overlay = document.getElementById("bioModalOverlay");
+
+  document.getElementById("bioImg").src = image;
+  document.getElementById("bioImg").alt = name;
+  document.getElementById("bioName").textContent = name;
+  document.getElementById("bioRole").textContent = role;
+  document.getElementById("bioText").textContent = text;
+
+  overlay.style.display = "flex";
+}
+
+function closeBio() {
+  document.getElementById("bioModalOverlay").style.display = "none";
+}
+
+// Close modal when clicking outside the box
+document.getElementById("bioModalOverlay").addEventListener("click", function (e) {
+  if (e.target === this) {
+    closeBio();
+  }
+});
+
+
+// --------------------
+// MOBILE NAV FUNCTIONS
+// --------------------
+
+function toggleMenu() {
+  const nav = document.getElementById("mobileNav");
+  nav.classList.toggle("open");
+}
+
+function toggleSubmenu(button) {
+  const submenu = button.nextElementSibling;
+  const arrow = button.querySelector(".arrow");
+
+  submenu.classList.toggle("open");
+
+  if (submenu.classList.contains("open")) {
+    arrow.textContent = "▼";
+  } else {
+    arrow.textContent = "▶";
+  }
+}
 
