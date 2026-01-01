@@ -235,4 +235,34 @@ footer { background:#111; color:#aaa; text-align:center; padding:18px 10px; bord
   border-radius: 8px;
   border: 2px solid #d10056;
 }
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-box {
+  background: #fff;
+  padding: 20px;
+  max-width: 500px;
+  width: 90%;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.modal-photo {
+  max-width: 150px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.modal-role {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
 
