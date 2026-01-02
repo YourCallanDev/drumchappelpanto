@@ -23,56 +23,39 @@
       margin-left: 6px;
     }
 
-    /* ===== POPUP MODAL ===== */
-    .popup-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.7);
-      display: none;
+    /* ===== Existing Styles for Production Highlight ===== */
+    .production-highlight {
+      margin: 40px 0;
+    }
+
+    .production-highlight-inner {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      gap: 32px;
       align-items: center;
-      justify-content: center;
-      z-index: 9999;
     }
 
-    .popup-overlay.show {
-      display: flex;
-    }
-
-    .popup {
-      background: #000;
-      color: #fff;
-      padding: 30px;
-      max-width: 420px;
-      text-align: center;
+    .production-image img {
+      width: 100%;
       border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      display: block;
     }
 
-    .popup p {
-      font-weight: bold;
+    .production-text h2 {
+      margin-bottom: 6px;
     }
 
-    .popup a {
-      display: inline-block;
-      background: #d10056;
-      color: #fff;
-      padding: 12px 18px;
-      border-radius: 6px;
-      font-weight: bold;
-      margin-top: 10px;
+    .production-text .subheading {
+      margin-bottom: 16px;
+      color: #d10056;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
-    .popup .close {
-      margin-top: 18px;
-      display: inline-block;
-      font-size: 0.9em;
-      cursor: pointer;
-      color: #aaa;
-      text-decoration: underline;
-    }
-
-    .popup .close:hover {
-      color: #fff;
+    @media (max-width: 768px) {
+      .production-highlight-inner {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -85,51 +68,95 @@
   <a href="talent.html">CLICK HERE TO FIND OUT MORE</a>
 </div>
 
-<!-- ===== POPUP ===== -->
-<div class="popup-overlay" id="talentPopup">
-  <div class="popup" id="popupBox">
-    <h2>🎭 Big News!</h2>
-    <p>WE'RE HOSTING DRUMCHAPEL’S #1 TALENT SHOW</p>
-    <a href="talent.html">CLICK HERE TO FIND OUT MORE</a><br>
-    <span class="close" id="closePopup">No thanks</span>
-  </div>
-</div>
-
 <header>
   <div class="logo">
     <img src="assets/logo.jpeg" alt="DAPC Logo">
     <h1>Drumchapel Amateur Pantomime Club</h1>
   </div>
+
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="about.html">About</a>
+        <ul>
+          <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
+          <li><a href="meet-the-team.html">Meet the Team</a></li>
+          <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="box-office.html">Box Office</a></li>
+    </ul>
+  </nav>
 </header>
+
+<nav id="mobileNav" class="mobile-nav" aria-hidden="true">
+  <a href="index.html">Home</a>
+
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">
+    <span>About</span> <span class="arrow">▶</span>
+  </div>
+  <div class="mobile-submenu">
+    <a href="becoming-a-friend.html">Becoming a Friend</a>
+    <a href="meet-the-team.html">Meet the Team</a>
+    <a href="fundraisers.html">Fundraising & Days Out</a>
+  </div>
+
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+  <a href="box-office.html">Box Office</a>
+</nav>
+
+<main class="main-container">
+  <section>
+    <div class="hero-banner">
+      <img src="assets/home/bannar.jpeg"
+           srcset="assets/home/bannar-small.jpg 600w,
+                   assets/home/bannar-medium.jpg 1000w,
+                   assets/home/bannar.jpeg 1600w"
+           sizes="100vw"
+           alt="Home Banner">
+    </div>
+
+    <h2 class="center">Welcome</h2>
+    <p class="center">
+      Welcome to our Amateur Theatre Club based in Drumchapel, Glasgow!
+      We're passionate about bringing the community together through our annual pantomimes,
+      shows, and fundraisers.
+    </p>
+  </section>
+
+  <section class="production-highlight">
+    <div class="production-highlight-inner">
+      <div class="production-image">
+        <img src="assets/snowwhitebanner.png" alt="Snow White & The Magnificent Eight">
+      </div>
+
+      <div class="production-text">
+        <h2>Snow White &amp; The Magnificent Eight</h2>
+        <h4 class="subheading">OUR 2025 CHRISTMAS PANTO</h4>
+        <p>
+          Take a look at our Christmas panto for 2025. A fun-filled, exciting,
+          and family-friendly panto that had raving reviews.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What We've Been Getting Up To</h2>
+    <div class="sk-ww-facebook-page-posts" data-embed-id="25624766"></div>
+    <script src="https://widgets.sociablekit.com/facebook-page-posts/iframe/25638742" defer></script>
+  </section>
+</main>
 
 <footer>© 2026 Drumchapel Amateur Pantomime Club. All rights reserved.</footer>
 
-<script>
-  const popupOverlay = document.getElementById('talentPopup');
-  const popupBox = document.getElementById('popupBox');
-  const closeBtn = document.getElementById('closePopup');
-
-  function closePopup() {
-    popupOverlay.classList.remove('show');
-  }
-
-  // Show popup on load
-  window.addEventListener('load', () => {
-    popupOverlay.classList.add('show');
-  });
-
-  // Click outside popup closes it
-  popupOverlay.addEventListener('click', closePopup);
-
-  // Prevent clicks inside popup from closing
-  popupBox.addEventListener('click', (e) => {
-    e.stopPropagation();
-  });
-
-  // No thanks button
-  closeBtn.addEventListener('click', closePopup);
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
-
