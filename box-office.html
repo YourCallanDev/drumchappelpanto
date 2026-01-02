@@ -24,10 +24,11 @@
     }
 
     .production img {
-      width: 100%;
+      width: 100%;            /* Fill column width */
+      max-width: 600px;       /* Shrink from full 1200px width */
+      height: auto;           /* Maintain aspect ratio */
       border-radius: 10px;
-      max-height: 200px;
-      object-fit: cover;
+      object-fit: cover;      /* Crop nicely if needed */
       margin-bottom: 12px;
     }
 
@@ -52,6 +53,10 @@
     @media (max-width: 768px) {
       .production-list {
         grid-template-columns: 1fr;
+      }
+
+      .production img {
+        max-width: 100%;
       }
     }
   </style>
@@ -100,7 +105,7 @@
 
     <section>
       <h2>Box Office</h2>
-      <h3>🎄 Christmas Pantomines 2026</h3>
+      <h3>🎄 Christmas Pantomimes 2026</h3>
 
       <div class="production-list">
 
