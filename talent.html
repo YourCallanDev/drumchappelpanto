@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DAPC Summer Talent Show 2026</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Your main site CSS -->
+
+  <style>
+    /* ===== General Styles ===== */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f8f8;
+      color: #333;
+    }
+    a { text-decoration: none; color: #0066cc; }
+    h1, h2, h3 { margin: 0.5em 0; }
+    section { padding: 2em 1em; max-width: 1000px; margin: auto; }
+
+    /* ===== Header ===== */
+    .hero {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 2em auto;
+    }
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 10px;
+    }
+    .countdown {
+      text-align: center;
+      margin-top: 1em;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #d9534f;
+    }
+
+    /* ===== Event Info ===== */
+    .event-info {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5em;
+      margin-bottom: 2em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .event-info ul { list-style: none; padding: 0; }
+    .event-info li { margin-bottom: 0.5em; }
+
+    /* ===== Signup Form ===== */
+    form {
+      background: #fff;
+      padding: 1.5em;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    form label {
+      display: block;
+      margin-top: 1em;
+      font-weight: bold;
+    }
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 0.5em;
+      margin-top: 0.3em;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    form button {
+      margin-top: 1em;
+      padding: 0.7em 1.5em;
+      background: #0066cc;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    form button:hover { background: #0055aa; }
+
+    /* ===== Popup Banner ===== */
+    .popup-banner {
+      background: #ffcc00;
+      color: #333;
+      text-align: center;
+      padding: 0.8em;
+      font-weight: bold;
+      position: relative;
+    }
+    .popup-banner a {
+      color: #0066cc;
+      margin-left: 1em;
+      font-weight: bold;
+    }
+    .popup-banner .close-btn {
+      position: absolute;
+      right: 1em;
+      top: 0.5em;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Popup Banner ===== -->
+  <div class="popup-banner" id="popupBanner">
+    JOIN US FOR DRUMCHAPEL'S #1 TALENT SHOW! 
+    <a href="#signup">CLICK HERE TO FIND OUT MORE</a>
+    <span class="close-btn" onclick="document.getElementById('popupBanner').style.display='none'">&times;</span>
+  </div>
+
+  <!-- ===== Hero Image ===== -->
+  <div class="hero">
+    <img src="assets/talentshowbanner.png" alt="DAPC Summer Talent Show Banner">
+  </div>
+
+  <!-- ===== Countdown Timer ===== -->
+  <div class="countdown" id="countdown"></div>
+
+  <!-- ===== Event Info ===== -->
+  <section class="event-info">
+    <h2>About the Talent Show</h2>
+    <p>Open to all ages! Any acts are welcome. We are looking for 10-15 acts and want everyone involved. Come show your talent and have fun!</p>
+
+    <h3>Event Details</h3>
+    <ul>
+      <li><strong>Date:</strong> TBC</li>
+      <li><strong>Location:</strong> Goodyear Social Club</li>
+      <li><strong>Entry Deadline:</strong> TBC</li>
+      <li><strong>Performer Fee:</strong> £5</li>
+      <li><strong>Audience Fee:</strong> £3</li>
+    </ul>
+
+    <h3>Volunteer & Crew</h3>
+    <p>If you want to volunteer or help run the show, contact <a href="tel:07936897949">07936 897949</a>.</p>
+  </section>
+
+  <!-- ===== Signup Form ===== -->
+  <section id="signup">
+    <h2>Performer Signup Form</h2>
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required>
+
+      <label for="actType">Type of Act</label>
+      <select id="actType" name="actType" required>
+        <option value="">Select...</option>
+        <option>Singing</option>
+        <option>Dancing</option>
+        <option>Comedy</option>
+        <option>Magic</option>
+        <option>Other</option>
+      </select>
+
+      <label for="actDesc">Description of Act</label>
+      <textarea id="actDesc" name="actDesc" rows="4" placeholder="Brief description of your act..." required></textarea>
+
+      <label for="equipment">Props / Music / Equipment Needed</label>
+      <textarea id="equipment" name="equipment" rows="2" placeholder="Specify any requirements"></textarea>
+
+      <button type="submit">Submit Signup</button>
+    </form>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer style="text-align:center; padding:2em; background:#333; color:#fff;">
+    <p>Drumchapel Amateur Panto Club | Contact: <a href="tel:07936897949" style="color:#fff;">07936 897949</a></p>
+    <p><a href="https://drumchapelpanto.me" style="color:#fff;">Back to Main Site</a></p>
+  </footer>
+
+  <!-- ===== Countdown Script ===== -->
+  <script>
+    // Set countdown date here
+    const countdownDate = new Date("June 20, 2026 00:00:00").getTime();
+
+    const countdownElement = document.getElementById("countdown");
+
+    const x = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        clearInterval(x);
+        countdownElement.innerHTML = "The Talent Show is Here!";
+      }
+    }, 1000);
+  </script>
+
+</body>
+</html>
