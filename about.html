@@ -5,23 +5,76 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>DAPC | About</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* ABOUT PAGE SPECIFIC */
+
+    .about-banner {
+      width: 100%;
+      max-height: 360px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .about-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .production-year {
+      margin-bottom: 40px;
+    }
+
+    .production {
+      margin-bottom: 24px;
+      padding: 16px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .production h4 {
+      margin-bottom: 8px;
+    }
+
+    .production-image {
+      width: 100%;
+      height: 200px;
+      background: #2a2a2a;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 0.9rem;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .production-image {
+        height: 160px;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <div class="logo"><img src="assets/logo.jpeg" alt="DAPC Logo"><h1>Drumchapel Amateur Pantomime Club</h1></div>
+  <div class="logo">
+    <img src="assets/logo.jpeg" alt="DAPC Logo">
+    <h1>Drumchapel Amateur Pantomime Club</h1>
+  </div>
+
   <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li>
-        <a href="about.html">About</a>
-        <ul>
-          <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
-          <li><a href="meet-the-team.html">Meet the Team</a></li>
-          <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
-        </ul>
-      </li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
+      <li><a href="meet-the-team.html">Meet the Team</a></li>
+      <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="donate.html">Donate</a></li>
       <li><a href="box-office.html">Box Office</a></li>
@@ -29,44 +82,87 @@
   </nav>
 </header>
 
+<!-- MOBILE NAV -->
 <nav id="mobileNav" class="mobile-nav" aria-hidden="true">
   <a href="index.html">Home</a>
-  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">About <span class="arrow">▶</span></div>
-  <div class="mobile-submenu">
-    <a href="becoming-a-friend.html">Becoming a Friend</a>
-    <a href="meet-the-team.html">Meet the Team</a>
-    <a href="fundraisers.html">Fundraising & Days Out</a>
-  </div>
+  <a href="about.html">About</a>
+  <a href="becoming-a-friend.html">Becoming a Friend</a>
+  <a href="meet-the-team.html">Meet the Team</a>
+  <a href="fundraisers.html">Fundraising & Days Out</a>
   <a href="contact.html">Contact</a>
   <a href="donate.html">Donate</a>
   <a href="box-office.html">Box Office</a>
 </nav>
 
 <main class="main-container">
+
+  <!-- TOP BANNER -->
+  <div class="about-banner">
+    <img src="assets/aboutbanner.png" alt="About Drumchapel Amateur Pantomime Club">
+  </div>
+
   <section>
     <h2>About Us</h2>
-    <p>In 2022, Maggie Harkness-Smith launched Pantozonians and presented Cinderella at the Goodyear Social Club in Drumchapel. The group has since run fundraisers and in 2023 renamed to Drumchapel Amateur Pantomime Club, mounting The Wizard of Oz. Rehearsals run April–December each year and all are welcome.</p>
+
+    <p>
+      In 2022, Maggie Harkness-Smith launched Pantozonians and presented
+      <strong>Cinderella</strong> at the Goodyear Social Club in Drumchapel.
+      The group has since run fundraisers and in 2023 renamed to
+      <strong>Drumchapel Amateur Pantomime Club</strong>, mounting
+      <strong>The Wizard of Oz</strong>.
+      Rehearsals run April–December each year and all are welcome.
+    </p>
 
     <h3>Previous Productions</h3>
 
-    <details>
-      <summary>2022</summary>
-      <ul><li>December – Cinderella Panto</li></ul>
-    </details>
+    <!-- 2022 -->
+    <div class="production-year">
+      <h3>2022</h3>
 
-    <details>
-      <summary>2023</summary>
-      <ul><li>December – Wizard of Oz Panto</li></ul>
-    </details>
+      <div class="production">
+        <h4>December – Cinderella (Pantomime)</h4>
+        <div class="production-image">
+          Image placeholder
+        </div>
+      </div>
+    </div>
 
-    <details>
-      <summary>2025</summary>
-      <ul><li>May – The Magical Adventure of the Easter Bunny</li><li>November – Snow White & The Magnificent Eight</li></ul>
-    </details>
+    <!-- 2023 -->
+    <div class="production-year">
+      <h3>2023</h3>
+
+      <div class="production">
+        <h4>December – The Wizard of Oz (Pantomime)</h4>
+        <div class="production-image">
+          Image placeholder
+        </div>
+      </div>
+    </div>
+
+    <!-- 2025 -->
+    <div class="production-year">
+      <h3>2025</h3>
+
+      <div class="production">
+        <h4>May – The Magical Adventure of the Easter Bunny</h4>
+        <div class="production-image">
+          Image placeholder
+        </div>
+      </div>
+
+      <div class="production">
+        <h4>November – Snow White &amp; The Magnificent Eight</h4>
+        <div class="production-image">
+          Image placeholder
+        </div>
+      </div>
+    </div>
+
   </section>
 </main>
 
 <footer>© 2026 Drumchapel Amateur Pantomime Club</footer>
+
 <script src="script.js"></script>
 </body>
 </html>
