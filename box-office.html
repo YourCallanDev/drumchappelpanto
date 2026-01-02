@@ -8,62 +8,90 @@
 </head>
 <body>
 
-<a href="snowwhite.html" class="current-production-banner">
-  <span>🎭 OUR CURRENT PRODUCTION:</span>
-  <strong>SNOW WHITE & THE MAGNIFICENT EIGHT</strong>
-  <span class="hint">CLICK HERE TO VISIT THE SHOW PAGE!</span>
-</a>
-
 <header>
-  <div class="logo"><img src="assets/logo.jpeg" alt="DAPC Logo"><h1>Drumchapel Amateur Pantomime Club</h1></div>
+  <div class="logo">
+    <img src="assets/logo.jpeg" alt="DAPC Logo">
+    <h1>Drumchapel Amateur Pantomime Club</h1>
+  </div>
+
   <button class="hamburger" onclick="toggleMenu()">☰</button>
+
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="donate.html">Donate</a></li>
-      <li><a href="box-office.html">Box Office</a></li>
+      <li><a href="box-office.html" class="active">Box Office</a></li>
     </ul>
   </nav>
 </header>
 
+<!-- MOBILE NAV -->
 <nav id="mobileNav" class="mobile-nav">
   <a href="index.html">Home</a>
-  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">About <span class="arrow">▶</span></div>
+
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">
+    About <span class="arrow">▶</span>
+  </div>
   <div class="mobile-submenu">
     <a href="becoming-a-friend.html">Becoming a Friend</a>
     <a href="meet-the-team.html">Meet the Team</a>
     <a href="fundraisers.html">Fundraising & Days Out</a>
   </div>
+
   <a href="contact.html">Contact</a>
   <a href="donate.html">Donate</a>
   <a href="box-office.html">Box Office</a>
 </nav>
 
 <main class="main-container">
-  <div class="content-area" aria-hidden="false">
-    <section>
-      <h2>Box Office</h2>
-      <p><strong>Next Production:</strong> <em>Snow White & The Magnificent Eight</em></p>
-      <p>If the widget fails, open ticketsource in a new tab: <a href="https://www.ticketsource.co.uk/drumchapelpantomimegroup" target="_blank">Ticketsource</a></p>
-    </section>
+  <div class="content-area">
 
     <section>
-      <div class="ticket-wrapper" aria-hidden="true">
-        <iframe src="https://www.ticketsource.co.uk/drumchapelpantomimegroup" title="Ticketsource iframe"></iframe>
+      <h2>Box Office</h2>
+
+      <h3>🎄 Christmas Pantomimes 2026</h3>
+
+      <div class="production-list">
+
+        <div class="production">
+          <h4>The Wizard of Oz</h4>
+          <p><strong>Dates:</strong> 21st & 22nd November 2026</p>
+          <p><strong>Audience:</strong> Family Friendly</p>
+        </div>
+
+        <div class="production">
+          <h4>Cinderella & Her Two Ugly Bitches</h4>
+          <p><strong>Dates:</strong> TBC</p>
+          <p><strong>Audience:</strong> 18+</p>
+        </div>
+
       </div>
     </section>
 
-    <!-- SOLD OUT overlay (only on content-area, covers the entire content area & blocks clicks under it) -->
-    <div class="soldout-overlay" role="img" aria-label="Sold Out">
-      <img src="assets/soldout.png" alt="Sold Out">
-    </div>
+    <section>
+      <p>
+        Tickets will be available via Ticketsource.
+        If the widget fails, open in a new tab:
+        <a href="https://www.ticketsource.co.uk/drumchapelpantomimegroup" target="_blank">
+          Ticketsource
+        </a>
+      </p>
 
-  </div><!-- /.content-area -->
+      <div class="ticket-wrapper">
+        <iframe
+          src="https://www.ticketsource.co.uk/drumchapelpantomimegroup"
+          title="Ticketsource iframe">
+        </iframe>
+      </div>
+    </section>
+
+  </div>
 </main>
 
 <footer>© 2025 Drumchapel Amateur Pantomime Club.</footer>
+
 <script src="script.js"></script>
 </body>
 </html>
