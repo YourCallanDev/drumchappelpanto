@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>DAPC | Snow White & The Magnificent Eight</title>
+  <title>DAPC | Home</title>
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* PRODUCTION HIGHLIGHT SECTION */
+    /* Snow White 2025 Christmas Panto Highlight Section */
     .production-highlight {
       margin: 40px 0;
     }
@@ -45,18 +45,27 @@
 </head>
 <body>
 
+<!-- Current Production Banner -->
+
 <header>
   <div class="logo">
     <img src="assets/logo.jpeg" alt="DAPC Logo">
     <h1>Drumchapel Amateur Pantomime Club</h1>
   </div>
 
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
 
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
+      <li>
+        <a href="about.html">About</a>
+        <ul>
+          <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
+          <li><a href="meet-the-team.html">Meet the Team</a></li>
+          <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
+        </ul>
+      </li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="donate.html">Donate</a></li>
       <li><a href="box-office.html">Box Office</a></li>
@@ -64,20 +73,37 @@
   </nav>
 </header>
 
-<nav id="mobileNav" class="mobile-nav">
+<nav id="mobileNav" class="mobile-nav" aria-hidden="true">
   <a href="index.html">Home</a>
-  <a href="about.html">About</a>
-  <a href="becoming-a-friend.html">Becoming a Friend</a>
-  <a href="meet-the-team.html">Meet the Team</a>
-  <a href="fundraisers.html">Fundraising & Days Out</a>
+
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">
+    <span>About</span> <span class="arrow">▶</span>
+  </div>
+  <div class="mobile-submenu">
+    <a href="becoming-a-friend.html">Becoming a Friend</a>
+    <a href="meet-the-team.html">Meet the Team</a>
+    <a href="fundraisers.html">Fundraising & Days Out</a>
+  </div>
+
   <a href="contact.html">Contact</a>
   <a href="donate.html">Donate</a>
   <a href="box-office.html">Box Office</a>
 </nav>
 
 <main class="main-container">
+  <section>
+    <div class="hero-banner">
+      <img src="assets/home/bannar.jpeg"
+           srcset="assets/home/bannar-small.jpg 600w, assets/home/bannar-medium.jpg 1000w, assets/home/bannar.jpeg 1600w"
+           sizes="100vw"
+           alt="Home Banner">
+    </div>
 
-  <!-- NEW SECTION (ADDED ABOVE FACEBOOK PLUGIN) -->
+    <h2 class="center">Welcome</h2>
+    <p class="center">Welcome to our Amateur Theatre Club based in Drumchapel, Glasgow! We're passionate about bringing the community together through our annual pantomimes, shows, and fundraisers. As proud members of the Scottish Community Drama Association, we strive to create memorable performances that entertain and inspire. Join us in celebrating the vibrant spirit of local theatre!</p>
+  </section>
+
+  <!-- Snow White 2025 Christmas Panto Section -->
   <section class="production-highlight">
     <div class="production-highlight-inner">
 
@@ -99,16 +125,19 @@
     </div>
   </section>
 
-  <!-- FACEBOOK PLUGIN SECTION -->
   <section>
-    <h3>Follow Us on Facebook</h3>
-
-    <div class="facebook-embed">
-      <!-- Your existing Facebook plugin iframe stays EXACTLY here -->
-    </div>
+    <h2>What We've Been Getting Up To</h2>
+    <div class="sk-ww-facebook-page-posts" data-embed-id="25624766"></div>
+    <script src="https://widgets.sociablekit.com/facebook-page-posts/iframe/25638742" defer></script>
   </section>
-
 </main>
+
+<footer>© 2026 Drumchapel Amateur Pantomime Club. All rights reserved.</footer>
+
+<script src="script.js"></script>
+<script>window.addEventListener('load', ()=>document.getElementById('popup').classList.add('show'))</script>
+</body>
+</html>
 
 <footer>© 2026 Drumchapel Amateur Pantomime Club</footer>
 
