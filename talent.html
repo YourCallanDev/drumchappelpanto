@@ -1,101 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DAPC Summer Talent Show 2026</title>
-  <link rel="stylesheet" href="styles.css">
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f8f8f8;
-      color: #333;
-    }
-
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2em 1em;
-    }
-
-    h2 {
-      margin-bottom: 0.5em;
-    }
-
-    /* Hero */
-    .hero {
-      max-width: 1200px;
-      margin: 2em auto 1em;
-    }
-
-    .hero img {
-      width: 100%;
-      border-radius: 10px;
-      display: block;
-    }
-
-    /* Countdown */
-    .countdown {
-      text-align: center;
-      font-size: 1.6em;
-      font-weight: bold;
-      color: #c0392b;
-      margin-bottom: 2em;
-    }
-
-    /* Info box */
-    .event-info {
-      background: #fff;
-      border-radius: 10px;
-      padding: 1.5em;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    .event-info ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .event-info li {
-      margin-bottom: 0.5em;
-    }
-
-    /* Footer */
-    footer {
-      background: #333;
-      color: #fff;
-      text-align: center;
-      padding: 2em 1em;
-      margin-top: 3em;
-    }
-
-    footer a {
-      color: #fff;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DAPC | Summer Talent Show 2026</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- HERO IMAGE -->
-  <div class="hero">
-    <img src="assets/talentshowbanner.png" alt="DAPC Summer Talent Show">
+<header>
+  <div class="logo">
+    <img src="assets/logo.jpeg" alt="DAPC Logo">
+    <h1>Drumchapel Amateur Pantomime Club</h1>
   </div>
 
-  <!-- COUNTDOWN -->
-  <div class="countdown" id="countdown"></div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
 
-  <!-- EVENT INFO -->
-  <section class="event-info">
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li>
+        <a href="about.html">About</a>
+        <ul>
+          <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
+          <li><a href="meet-the-team.html">Meet the Team</a></li>
+          <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
+        </ul>
+      </li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="donate.html">Donate</a></li>
+      <li><a href="box-office.html">Box Office</a></li>
+    </ul>
+  </nav>
+</header>
+
+<nav id="mobileNav" class="mobile-nav" aria-hidden="true">
+  <a href="index.html">Home</a>
+
+  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">
+    <span>About</span> <span class="arrow">▶</span>
+  </div>
+  <div class="mobile-submenu">
+    <a href="becoming-a-friend.html">Becoming a Friend</a>
+    <a href="meet-the-team.html">Meet the Team</a>
+    <a href="fundraisers.html">Fundraising & Days Out</a>
+  </div>
+
+  <a href="contact.html">Contact</a>
+  <a href="donate.html">Donate</a>
+  <a href="box-office.html">Box Office</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero-banner">
+  <img src="assets/talentshowbanner.png" alt="DAPC Summer Talent Show">
+</div>
+
+<main class="main-container">
+
+  <!-- COUNTDOWN -->
+  <section class="info-box center">
+    <h2>Countdown to the Talent Show</h2>
+    <p id="countdown" style="font-size:1.4rem;font-weight:700;"></p>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="info-box">
     <h2>About the Talent Show</h2>
     <p>
-      Open to all ages and all acts! We are looking for 10–15 acts and want everyone involved.
-      Whether you sing, dance, perform comedy, or something completely different — we want to see it!
+      Open to all ages and all acts! We are looking for <strong>10–15 acts</strong>
+      and want everyone involved. Whether you sing, dance, perform comedy,
+      or something completely different — we want to see it.
     </p>
+  </section>
 
-    <h3>Event Details</h3>
+  <!-- EVENT DETAILS -->
+  <section class="info-box">
+    <h2>Event Details</h2>
     <ul>
       <li><strong>Date:</strong> TBC</li>
       <li><strong>Location:</strong> Goodyear Social Club</li>
@@ -103,16 +85,22 @@
       <li><strong>Performer Fee:</strong> £5</li>
       <li><strong>Audience Entry:</strong> £3</li>
     </ul>
+  </section>
 
-    <h3>Volunteer & Crew</h3>
+  <!-- VOLUNTEERS -->
+  <section class="info-box">
+    <h2>Volunteer & Crew</h2>
     <p>
-      Interested in helping out behind the scenes?  
+      Want to help out behind the scenes?
       Contact <a href="tel:07936897949">07936 897949</a>
     </p>
   </section>
 
-  <!-- SIGNUP FORM (GOOGLE FORM EMBED) -->
-  <section id="signup">
+  <!-- SIGNUP -->
+  <section class="info-box" id="signup">
+    <h2>Performer Signup</h2>
+    <p>Please complete the form below to apply to perform.</p>
+
     <iframe
       src="https://docs.google.com/forms/d/e/1FAIpQLSdNBmNQQ9jCAXfttsyl8beB-Dn8QyTePb1uMmSzT4SHsuwrXw/viewform?embedded=true"
       width="100%"
@@ -124,37 +112,39 @@
     </iframe>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>Drumchapel Amateur Panto Club</p>
-    <p>Volunteer & Crew Contact: <a href="tel:07936897949">07936 897949</a></p>
-    <p><a href="https://drumchapelpanto.me">Back to Main Website</a></p>
-  </footer>
+</main>
 
-  <!-- COUNTDOWN SCRIPT -->
-  <script>
-    /* 🔧 EASY TO EDIT DATE */
-    const countdownDate = new Date("June 20, 2026 00:00:00").getTime();
-    const countdownEl = document.getElementById("countdown");
+<footer>
+  © 2026 Drumchapel Amateur Pantomime Club ·
+  Volunteer & Crew: <a href="tel:07936897949">07936 897949</a>
+</footer>
 
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = countdownDate - now;
+<script src="script.js"></script>
 
-      if (distance < 0) {
-        countdownEl.innerHTML = "🎉 The Talent Show is Here!";
-        return;
-      }
+<!-- COUNTDOWN SCRIPT -->
+<script>
+  const countdownDate = new Date("June 20, 2026 00:00:00").getTime();
+  const countdownEl = document.getElementById("countdown");
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
-      const mins = Math.floor((distance / (1000 * 60)) % 60);
-      const secs = Math.floor((distance / 1000) % 60);
+  setInterval(() => {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
 
-      countdownEl.innerHTML =
-        `Countdown: ${days}d ${hours}h ${mins}m ${secs}s`;
-    }, 1000);
-  </script>
+    if (distance < 0) {
+      countdownEl.textContent = "🎉 The Talent Show is Here!";
+      return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const mins = Math.floor((distance / (1000 * 60)) % 60);
+    const secs = Math.floor((distance / 1000) % 60);
+
+    countdownEl.textContent =
+      `${days}d ${hours}h ${mins}m ${secs}s`;
+  }, 1000);
+</script>
 
 </body>
 </html>
+
