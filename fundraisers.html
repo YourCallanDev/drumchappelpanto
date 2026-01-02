@@ -5,23 +5,55 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>DAPC | Fundraisers & Days Out</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* PAGE-SPECIFIC STYLES */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .gallery-item {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: #1f1f1f;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
 <header>
-  <div class="logo"><img src="assets/logo.jpeg" alt="DAPC Logo"><h1>Drumchapel Amateur Pantomime Club</h1></div>
+  <div class="logo">
+    <img src="assets/logo.jpeg" alt="DAPC Logo">
+    <h1>Drumchapel Amateur Pantomime Club</h1>
+  </div>
+
   <button class="hamburger" onclick="toggleMenu()">☰</button>
+
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
-      <li>
-        <a href="about.html">About</a>
-        <ul>
-          <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
-          <li><a href="meet-the-team.html">Meet the Team</a></li>
-          <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
-        </ul>
-      </li>
+      <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
       <li><a href="donate.html">Donate</a></li>
       <li><a href="box-office.html">Box Office</a></li>
@@ -31,12 +63,10 @@
 
 <nav id="mobileNav" class="mobile-nav">
   <a href="index.html">Home</a>
-  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">About <span class="arrow">▶</span></div>
-  <div class="mobile-submenu">
-    <a href="becoming-a-friend.html">Becoming a Friend</a>
-    <a href="meet-the-team.html">Meet the Team</a>
-    <a href="fundraisers.html">Fundraising & Days Out</a>
-  </div>
+  <a href="about.html">About</a>
+  <a href="becoming-a-friend.html">Becoming a Friend</a>
+  <a href="meet-the-team.html">Meet the Team</a>
+  <a href="fundraisers.html">Fundraising & Days Out</a>
   <a href="contact.html">Contact</a>
   <a href="donate.html">Donate</a>
   <a href="box-office.html">Box Office</a>
@@ -44,38 +74,74 @@
 
 <main class="main-container">
   <section>
+
+    <!-- HERO BANNER -->
     <div class="hero-banner">
-      <img src="assets/fundsbanner.png"
-           srcset="assets/fundraisers/banner-small.jpg 600w, assets/fundraisers/banner.png 1200w"
-           sizes="100vw"
-           alt="Fundraising Banner">
+      <img src="assets/fundsbanner.png" alt="Fundraising Banner">
     </div>
 
     <h2>Members Social Events & Fundraisers</h2>
-    <p>We enjoy socials, day trips and fundraisers — bingo nights, themed parties and family events to raise funds for the club.</p>
+    <p>
+      We enjoy socials, day trips and fundraisers — bingo nights, themed parties
+      and family events to raise funds for the club.
+    </p>
 
     <h3>Previous Fundraising Nights</h3>
+
     <ul>
-      <li><strong>2023</strong>
-        <ul><li>Grease Vs Dirty Dancing Night</li><li>Santa's Grotto</li></ul>
+      <li>
+        <strong>2023</strong>
+        <ul>
+          <li>Grease vs Dirty Dancing Night</li>
+          <li>Santa’s Grotto</li>
+        </ul>
       </li>
-      <li><strong>2024</strong>
-        <ul><li>Easter Family Bingo Night</li><li>80s Vs 90s Night</li><li>Family Halloween Night</li></ul>
+
+      <li>
+        <strong>2024</strong>
+        <ul>
+          <li>Easter Family Bingo Night</li>
+          <li>80s vs 90s Night</li>
+          <li>Family Halloween Night</li>
+        </ul>
       </li>
-      <li><strong>2025</strong>
-        <ul><li>Easter Bingo Night</li><li>Old School Disco</li></li>Table Top Sale</li></li>Clydebank Bowling</li></li>Halloween Bingo</li></li>Christmas Table Top Sale</li></li>Christmas Family Bingo Night</li></ul>
+
+      <li>
+        <strong>2025</strong>
+        <ul>
+          <li>Easter Bingo Night</li>
+          <li>Old School Disco</li>
+          <li>Table Top Sale</li>
+          <li>Clydebank Bowling</li>
+          <li>Halloween Bingo</li>
+          <li>Christmas Table Top Sale</li>
+          <li>Christmas Family Bingo Night</li>
+        </ul>
       </li>
     </ul>
 
     <h3>Gallery</h3>
-    <img src="assets/funds1.png">
-    <img src="assets/funds2.png">
-    <img src="assets/funds3.png">
-    <img src="assets/funds4.png">
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="assets/funds1.png" alt="Fundraiser event photo 1">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/funds2.png" alt="Fundraiser event photo 2">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/funds3.png" alt="Fundraiser event photo 3">
+      </div>
+      <div class="gallery-item">
+        <img src="assets/funds4.png" alt="Fundraiser event photo 4">
+      </div>
+    </div>
+
   </section>
 </main>
 
 <footer>© 2026 Drumchapel Amateur Pantomime Club</footer>
+
 <script src="script.js"></script>
 </body>
 </html>
