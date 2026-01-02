@@ -5,6 +5,56 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>DAPC | Box Office</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    /* Two-column production layout */
+    .production-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 20px;
+    }
+
+    .production {
+      background: #1f1f1f;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .production img {
+      width: 100%;
+      border-radius: 10px;
+      max-height: 200px;
+      object-fit: cover;
+      margin-bottom: 12px;
+    }
+
+    .production h4 {
+      margin-bottom: 8px;
+      font-size: 1.5rem;
+    }
+
+    .production p {
+      margin: 6px 0;
+    }
+
+    .production a {
+      display: inline-block;
+      margin-top: 12px;
+      color: #d10056;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    /* Mobile stacking */
+    @media (max-width: 768px) {
+      .production-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -50,21 +100,27 @@
 
     <section>
       <h2>Box Office</h2>
-
-      <h3>🎄 Christmas Pantomimes 2026</h3>
+      <h3>🎄 Christmas Pantomines 2026</h3>
 
       <div class="production-list">
 
+        <!-- Wizard of Oz -->
         <div class="production">
+          <img src="assets/wizard.png" alt="The Wizard of Oz Banner">
           <h4>The Wizard of Oz</h4>
           <p><strong>Dates:</strong> 21st & 22nd November 2026</p>
           <p><strong>Audience:</strong> Family Friendly</p>
+          <p><strong>Written by:</strong> Maggie Harkness-Smith</p>
         </div>
 
+        <!-- Sinderella -->
         <div class="production">
+          <img src="assets/sinderella.png" alt="Sinderella Banner">
           <h4>Sinderella</h4>
           <p><strong>Dates:</strong> TBC</p>
           <p><strong>Audience:</strong> 18+ ONLY</p>
+          <p><strong>Written by:</strong> Andrew McVie</p>
+          <a href="https://www.facebook.com/AndrewVlogsSco" target="_blank">BRING ME TO FACEBOOK</a>
         </div>
 
       </div>
