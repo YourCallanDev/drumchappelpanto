@@ -10,140 +10,107 @@
 body {
   background-color: var(--panto-dark);
   color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   line-height: 1.6;
-  /* Magic Wand Cursor */
-  cursor: url('https://cdn-icons-png.flaticon.com/32/1039/1039328.png'), auto;
+  overflow-x: hidden;
+  /* Standard cursor - no more weird checklist! */
+  cursor: default; 
 }
 
-/* ===== THE YELLOW BRICK ROAD (Scroll Path) ===== */
+/* The Yellow Brick Road Scroll Path */
 body::before {
   content: "";
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
+  width: 100px;
   height: 100%;
-  background: linear-gradient(to bottom, 
-    transparent, 
-    rgba(255, 204, 0, 0.15), 
-    transparent);
+  background: linear-gradient(to bottom, transparent, rgba(255, 204, 0, 0.1), transparent);
   z-index: -1;
   pointer-events: none;
-  filter: blur(15px);
 }
 
-/* ===== NAVIGATION ===== */
+/* ===== NAVIGATION (Fixed as requested) ===== */
 header {
-  background: rgba(18, 18, 18, 0.95);
-  backdrop-filter: blur(10px);
-  padding: 15px 5%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid var(--panto-gold);
+  background: rgba(0, 0, 0, 0.9);
+  padding: 1rem 5%;
+  border-bottom: 3px solid var(--panto-gold);
   position: sticky;
   top: 0;
   z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.logo h1 { font-size: 1.2rem; margin: 0; color: var(--panto-gold); }
+
 nav ul {
+  list-style: none;
   display: flex;
   gap: 20px;
-  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 nav a {
-  color: white;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 0.9rem;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.85rem;
   transition: 0.3s;
 }
 
 nav a:hover, nav a.active {
   color: var(--panto-gold);
-  text-shadow: 0 0 8px var(--panto-gold);
+  text-shadow: 0 0 10px var(--panto-gold);
 }
 
-/* ===== THEATRICAL CARDS ===== */
+/* ===== CARDS & BUTTONS ===== */
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 25px;
-  margin: 40px 0;
+  margin: 20px 0;
 }
 
 .event-card {
   background: var(--panto-card);
   padding: 25px;
   border-radius: 15px;
-  border: 1px solid var(--glass);
-  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #333;
+  transition: 0.3s;
 }
 
 .event-card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-5px);
   border-color: var(--panto-gold);
-  box-shadow: 0 10px 30px rgba(255, 204, 0, 0.1);
 }
 
-/* ===== BUTTONS ===== */
 .cta-button {
   background: var(--panto-red);
   color: white;
-  padding: 12px 25px;
+  padding: 10px 20px;
   border-radius: 50px;
   text-decoration: none;
+  font-weight: bold;
   display: inline-block;
-  font-weight: 800;
-  transition: 0.3s;
   border: none;
   cursor: pointer;
 }
 
-.cta-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px var(--panto-red);
-}
-
-/* ===== THE ROADMAP (Requirement 2) ===== */
-.roadmap {
-  display: flex;
-  justify-content: space-between;
-  margin: 50px 0;
-  position: relative;
-}
-
-.road-step {
-  text-align: center;
-  flex: 1;
-  position: relative;
-  z-index: 2;
-}
-
-.road-step span {
+/* Sparkle trail styling */
+.sparkle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
   background: var(--panto-gold);
-  color: black;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border-radius: 50%;
-  margin: 0 auto 10px;
-  font-weight: bold;
-  box-shadow: 0 0 15px var(--panto-gold);
+  pointer-events: none;
+  z-index: 9999;
 }
 
-/* ===== UTILITIES ===== */
 .center { text-align: center; }
-.main-container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
-footer { text-align: center; padding: 40px; border-top: 1px solid var(--glass); opacity: 0.6; }
-
-@media (max-width: 768px) {
-  header { flex-direction: column; gap: 15px; }
-  nav ul { flex-wrap: wrap; justify-content: center; font-size: 0.8rem; }
-  .roadmap { flex-direction: column; gap: 30px; }
-}
+.main-container { max-width: 1000px; margin: 0 auto; padding: 20px; }
