@@ -1,0 +1,39 @@
+/* ===== THE YELLOW BRICK ROAD EFFECT ===== */
+body {
+    background-color: #121212;
+    color: #ffffff;
+    /* Custom Magic Wand Cursor */
+    cursor: url('https://cdn-icons-png.flaticon.com/32/1039/1039328.png'), auto;
+}
+
+/* A subtle gold path that follows the scroll */
+.main-container::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #ffcc0033, #ffcc0011);
+    z-index: -1;
+    filter: blur(20px);
+}
+
+/* Interactive Hover for Buttons */
+button, .talent-banner a, nav ul li a {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.1) rotate(-2deg);
+    box-shadow: 0 0 15px #ffcc00;
+}
+
+/* Magical Glow for Images */
+img {
+    transition: filter 0.5s;
+}
+
+img:hover {
+    filter: drop-shadow(0 0 10px #d10056);
+}
