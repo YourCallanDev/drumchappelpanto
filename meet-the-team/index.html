@@ -1,119 +1,61 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>DAPC | Meet the Team</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
-
 <body>
-<!-- OPTIONAL: CURRENT PRODUCTION / TALENT BANNER -->
-<a href="talent.html" class="current-production-banner">
-  DRUMCHAPEL’S #1 TALENT SHOW
-  <strong>SUMMER 2026</strong>
-  <span class="hint">Click for details & sign up</span>
-</a>
 <header>
-  <div class="logo">
-    <img src="assets/logo.jpeg" alt="DAPC Logo">
-    <h1>Drumchapel Amateur Pantomime Club</h1>
-  </div>
-
-  <button class="hamburger" onclick="toggleMenu()">☰</button>
-
-  <nav class="desktop-nav">
+  <div class="logo"><h1>DAPC</h1></div>
+  <nav>
     <ul>
-      <li><a href="index.html">Home</a></li>
-
-      <li>
-        <a href="about.html">About</a>
-        <ul class="dropdown">
-          <li><a href="becoming-a-friend.html">Becoming a Friend</a></li>
-          <li><a href="meet-the-team.html" class="active">Meet the Team</a></li>
-          <li><a href="fundraisers.html">Fundraising & Days Out</a></li>
-        </ul>
-      </li>
-
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="donate.html">Donate</a></li>
-      <li><a href="box-office.html">Box Office</a></li>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/joining-us">Joining Us</a></li>
+      <li><a href="/meet-the-team" class="active">The Team</a></li>
     </ul>
   </nav>
 </header>
 
-<!-- MOBILE NAV PANEL -->
-<nav id="mobileNav" class="mobile-nav">
-  <a href="index.html">Home</a>
-
-  <div class="mobile-dropdown-btn" onclick="toggleSubmenu(this)">
-    About <span class="arrow">▶</span>
-  </div>
-  <div class="mobile-submenu">
-    <a href="becoming-a-friend.html">Becoming a Friend</a>
-    <a href="meet-the-team.html">Meet the Team</a>
-    <a href="fundraisers.html">Fundraising & Days Out</a>
-  </div>
-
-  <a href="contact.html">Contact</a>
-  <a href="donate.html">Donate</a>
-  <a href="box-office.html">Box Office</a>
-</nav>
-
 <main class="main-container">
-  <section>
-    <h2>Meet the Team</h2>
-
-    <div class="team-grid">
-
-      <!-- Maggie -->
-      <div class="team-member" onclick='openBio("assets/team/maggie.jpeg","Maggie Harkness-Smith","Artistic Director & Group Founder","Maggie Harkness-Smith is a talented scriptwriter and director, with a passion for creating unforgettable pantomimes and shows. As the founder of the club, she has brought joy and laughter to audiences of all ages. With her expertise and creativity, Maggie is sure to make every production a success.")'>
-        <img src="assets/team/maggie.jpeg" alt="Maggie Harkness-Smith">
-        <h3>Maggie Harkness-Smith</h3>
-        <p class="role">Artistic Director & Group Founder</p>
-      </div>
-
-      <!-- Andrew -->
-      <div class="team-member" onclick='openBio("assets/team/andrew.jpeg","Andrew McVie","Assistant Director","Andrew McVie is an experienced Assistant Director for shows, with a background in theatre production. He previously ran the Stardust Theatre Company and is now lending his expertise to the Drumchapel Pantomime Group. With his passion for theatre and dedication to his craft, Andrew brings creativity and precision to every production.")'>
-        <img src="assets/team/andrew.jpeg" alt="Andrew McVie">
-        <h3>Andrew McVie</h3>
-        <p class="role">Assistant Director</p>
-      </div>
-
-      <!-- Jackie -->
-      <div class="team-member" onclick='openBio("assets/team/jackie.jpeg","Jackie Doyle","Backstage Manager","Jackie Doyle is our backstage manager extraordinaire! She’s here to make sure that all cast members are in the right place at the right time. With her help, our performances run like clockwork.")'>
-        <img src="assets/team/jackie.jpeg" alt="Jackie Doyle">
-        <h3>Jackie Doyle</h3>
-        <p class="role">Backstage Manager</p>
-      </div>
-
-      <!-- Callan -->
-      <div class="team-member" onclick='openBio("assets/team/callan.png","Callan Chesser","Production & Technical Manager","Callan Chesser is the technical heart of our productions — bringing every show to life through expert lighting, sound, staging, and backstage coordination. From microphones to atmosphere design, Callan ensures every performance looks and sounds spectacular. His dedication and creativity help transform our pantomimes into unforgettable experiences.")'>
-        <img src="assets/team/callan.png" alt="Callan Chesser">
-        <h3>Callan Chesser</h3>
-        <p class="role">Production & Technical Manager</p>
-        <p><a href="https://www.instagram.com/callandoestech/" target="_blank">Instagram</a></p>
-      </div>
-
-    </div>
+  <section class="center">
+    <h2>Meet the Creative Minds 🎭</h2>
+    <p>The people who bring the magic to life.</p>
   </section>
+
+  <div class="grid-2">
+    <div class="event-card center">
+      <img src="../assets/team/maggie.jpeg" alt="Maggie" style="width:150px; height:150px; border-radius:50%; object-fit:cover; border:3px solid #ffcc00;">
+      <h3>Maggie Harkness-Smith</h3>
+      <p class="role" style="color:#ffcc00;">Artistic Director & Founder</p>
+      <p>The creative spark behind DAPC, bringing laughter to Drumchapel since 2022.</p>
+    </div>
+
+    <div class="event-card center">
+      <img src="../assets/team/callan.png" alt="Callan" style="width:150px; height:150px; border-radius:50%; object-fit:cover; border:3px solid #ffcc00;">
+      <h3>Callan Chesser</h3>
+      <p class="role" style="color:#ffcc00;">Technical Manager</p>
+      <p>The master of lights, sound, and stage magic. Ensuring every show shines.</p>
+    </div>
+
+    <div class="event-card center">
+      <img src="../assets/team/andrew.jpeg" alt="Andrew" style="width:150px; height:150px; border-radius:50%; object-fit:cover; border:3px solid #ffcc00;">
+      <h3>Andrew McVie</h3>
+      <p class="role" style="color:#ffcc00;">Assistant Director</p>
+      <p>Bringing theatre expertise and dedication to every rehearsal.</p>
+    </div>
+
+    <div class="event-card center">
+      <img src="../assets/team/jackie.jpeg" alt="Jackie" style="width:150px; height:150px; border-radius:50%; object-fit:cover; border:3px solid #ffcc00;">
+      <h3>Jackie Doyle</h3>
+      <p class="role" style="color:#ffcc00;">Backstage Manager</p>
+      <p>Keeping the show running like clockwork behind the scenes.</p>
+    </div>
+  </div>
 </main>
 
-<!-- BIO MODAL -->
-<div id="bioModalOverlay" class="modal-overlay">
-  <div class="modal-box">
-    <img id="bioImg" class="modal-photo">
-    <h3 id="bioName"></h3>
-    <p id="bioRole" class="modal-role"></p>
-    <p id="bioText"></p>
-    <button onclick="closeBio()">Close</button>
-  </div>
-</div>
-
 <footer>© 2026 Drumchapel Amateur Pantomime Club</footer>
-
-<script src="script.js"></script>
-
+<script src="../script.js"></script>
 </body>
 </html>
