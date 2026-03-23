@@ -1,136 +1,53 @@
-// script.js - site-wide interactions
+// ===== THE "HE'S BEHIND YOU" EASTER EGG =====
+// A ghost peeks out from the side of the screen randomly
+function createGhost() {
+    const ghost = document.createElement('div');
+    ghost.innerHTML = "👻";
+    ghost.style.cssText = `
+        position: fixed;
+        right: -60px;
+        top: ${Math.random() * 70 + 15}vh;
+        font-size: 50px;
+        transition: right 1s ease-in-out;
+        cursor: pointer;
+        z-index: 10000;
+        filter: drop-shadow(0 0 10px white);
+    `;
+    document.body.appendChild(ghost);
 
-document.addEventListener('DOMContentLoaded', () => {
-  // toggle mobile nav
-  window.toggleMenu = function () {
-    const nav = document.getElementById('mobileNav');
-    if (!nav) return;
-    nav.classList.toggle('open');
-    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
-  };
+    // Peek out
+    setTimeout(() => { ghost.style.right = "10px"; }, 100);
 
-  // toggle mobile submenu
-  window.toggleSubmenu = function (btn) {
-    if (!btn) return;
-    const submenu = btn.nextElementSibling;
-    if (!submenu) return;
-    const isOpen = submenu.style.display === 'block';
-    submenu.style.display = isOpen ? 'none' : 'block';
-    const arrow = btn.querySelector('.arrow');
-    if (arrow) arrow.textContent = isOpen ? '▶' : '▼';
-  };
+    // Click to vanish
+    ghost.onclick = () => {
+        ghost.innerHTML = "💥";
+        setTimeout(() => ghost.remove(), 300);
+    };
 
-  // click outside to close mobile menu
-  document.addEventListener('click', (e) => {
-    const nav = document.getElementById('mobileNav');
-    const hamburger = e.target.closest('.hamburger');
-    if (!nav) return;
-    if (nav.classList.contains('open') && !e.target.closest('#mobileNav') && !hamburger) {
-      nav.classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  });
-
-  // popup helpers
-  window.openPopup = function (id) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.classList.add('show');
-  };
-  window.closePopup = function (id = 'popup') {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.classList.remove('show');
-  };
-
-  function openBio(img, name, role, bio) {
-  document.getElementById("bioImg").src = img;
-  document.getElementById("bioName").textContent = name;
-  document.getElementById("bioRole").textContent = role;
-  document.getElementById("bioText").textContent = bio;
-
-  document.getElementById("bioModalOverlay").classList.add("active");
+    // Retreat after 4 seconds
+    setTimeout(() => {
+        if(ghost) ghost.style.right = "-60px";
+        setTimeout(() => ghost.remove(), 1000);
+    }, 4000);
 }
 
-function closeBio() {
-  document.getElementById("bioModalOverlay").classList.remove("active");
-}
+// Trigger a ghost every 45 seconds
+setInterval(createGhost, 45000);
 
-  // team modal open/close
-  window.openBio = function (data) {
-    const overlay = document.getElementById('bioModalOverlay');
-    if (!overlay) return;
-    overlay.querySelector('.modal-photo').src = data.img;
-    overlay.querySelector('.modal-photo').alt = data.name;
-    overlay.querySelector('.modal-name').textContent = data.name;
-    overlay.querySelector('.modal-role').textContent = data.role;
-    overlay.querySelector('.modal-bio').textContent = data.bio;
-    overlay.classList.add('show');
-    document.body.style.overflow = 'hidden';
-  };
-  window.closeBio = function () {
-    const overlay = document.getElementById('bioModalOverlay');
-    if (!overlay) return;
-    overlay.classList.remove('show');
-    document.body.style.overflow = '';
-  };
-
-  // block keyboard navigation under soldout overlay (basic)
-  document.addEventListener('keydown', (e) => {
-    const sold = document.querySelector('.content-area .soldout-overlay');
-    if (!sold) return;
-    if (sold && sold.offsetParent !== null) {
-      if (e.key === 'Tab') e.preventDefault();
-    }
-  });
-});
-// --------------------
-// BIO MODAL FUNCTIONS
-// --------------------
-
-function openBio(image, name, role, text) {
-  const overlay = document.getElementById("bioModalOverlay");
-
-  document.getElementById("bioImg").src = image;
-  document.getElementById("bioImg").alt = name;
-  document.getElementById("bioName").textContent = name;
-  document.getElementById("bioRole").textContent = role;
-  document.getElementById("bioText").textContent = text;
-
-  overlay.style.display = "flex";
-}
-
-function closeBio() {
-  document.getElementById("bioModalOverlay").style.display = "none";
-}
-
-// Close modal when clicking outside the box
-document.getElementById("bioModalOverlay").addEventListener("click", function (e) {
-  if (e.target === this) {
-    closeBio();
-  }
-});
-
-
-// --------------------
-// MOBILE NAV FUNCTIONS
-// --------------------
-
+// ===== MOBILE MENU TOGGLE =====
 function toggleMenu() {
-  const nav = document.getElementById("mobileNav");
-  nav.classList.toggle("open");
+    const nav = document.querySelector('nav ul');
+    nav.style.display = (nav.style.display === 'flex') ? 'none' : 'flex';
 }
 
-function toggleSubmenu(button) {
-  const submenu = button.nextElementSibling;
-  const arrow = button.querySelector(".arrow");
+// ===== SMOOTH SCROLLING =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
 
-  submenu.classList.toggle("open");
-
-  if (submenu.classList.contains("open")) {
-    arrow.textContent = "▼";
-  } else {
-    arrow.textContent = "▶";
-  }
-}
-
+console.log("DAPC Magic Loaded! 🎭");
