@@ -4,6 +4,124 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>DAPC | Summer Talent Show 2026</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <img src="../assets/logo.jpeg" alt="DAPC Logo" style="height: 50px; width: auto;">
+    <h1>DAPC</h1>
+  </div>
+
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+
+  <nav>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/about">About Us</a></li>
+      <li><a href="/joining-us">Joining Us</a></li>
+      <li><a href="/meet-the-team">Meet the Team</a></li>
+      <li><a href="/box-office">Box Office</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="hero-banner">
+  <img src="../assets/talentshowbanner.png" alt="DAPC Summer Talent Show" style="width:100%; border-bottom: 3px solid var(--panto-gold);">
+</div>
+
+<main class="main-container">
+
+  <section class="event-card center" style="margin-bottom: 40px; border: 2px solid var(--panto-gold);">
+    <h2 style="color: var(--panto-gold); text-transform: uppercase; letter-spacing: 2px;">Countdown to Showtime</h2>
+    <div id="countdown" style="font-size: 2.5rem; font-weight: 900; color: #fff; text-shadow: 0 0 15px var(--panto-gold);"></div>
+  </section>
+
+  <div class="grid-2">
+    <section class="event-card">
+      <h3>About the Show</h3>
+      <p>
+        Open to all ages and all acts! We are looking for <strong>10–15 acts</strong> 
+        to showcase the incredible talent in our community. Whether you sing, dance, perform comedy, 
+        or have a hidden skill — we want to see it on our stage.
+      </p>
+    </section>
+
+    <section class="event-card">
+      <h3>Event Details</h3>
+      <ul style="list-style: none; padding: 0; line-height: 2;">
+        <li>📅 <strong>Date:</strong> May 31st, 2026</li>
+        <li>⏰ <strong>Time:</strong> 1:45PM (Doors open 1:00PM)</li>
+        <li>📍 <strong>Location:</strong> Goodyear Social Club</li>
+        <li>🎟️ <strong>Entry Fee:</strong> £3</li>
+        <li>🚫 <strong>Signup Deadline:</strong> March 30th</li>
+      </ul>
+    </section>
+  </div>
+
+  <section class="event-card" id="signup" style="margin-top: 20px;">
+    <h2 class="center">Performer Signup</h2>
+    <p class="center">Fill out the form below to secure your spot in the spotlight!</p>
+
+    <div style="background: white; border-radius: 10px; overflow: hidden; margin-top: 20px;">
+      <iframe
+        src="https://docs.google.com/forms/d/e/1FAIpQLSdNBmNQQ9jCAXfttsyl8beB-Dn8QyTePb1uMmSzT4SHsuwrXw/viewform?embedded=true"
+        width="100%"
+        height="1000"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0">
+        Loading…
+      </iframe>
+    </div>
+  </section>
+
+  <section class="center" style="margin-top: 50px; padding: 40px; background: rgba(255,204,0,0.05); border-radius: 15px;">
+    <h3>Want to help backstage?</h3>
+    <p>We need crew, stewards, and stage hands!</p>
+    <a href="tel:07936897949" class="cta-button">Call 07936 897949</a>
+  </section>
+
+</main>
+
+<footer>
+  © 2026 Drumchapel Amateur Pantomime Club
+</footer>
+
+<script src="../script.js"></script>
+
+<script>
+  const countdownDate = new Date("May 31, 2026 13:45:00").getTime();
+  const countdownEl = document.getElementById("countdown");
+
+  const x = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((distance / (1000 * 60)) % 60);
+    const seconds = Math.floor((distance / 1000) % 60);
+
+    countdownEl.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+    if (distance < 0) {
+      clearInterval(x);
+      countdownEl.innerHTML = "🎉 IT'S SHOWTIME!";
+    }
+  }, 1000);
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>DAPC | Summer Talent Show 2026</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
