@@ -1,0 +1,35 @@
+{
+  "events": [
+    {
+      "title": "Open Day",
+      "image": "",
+      "description": "Join us for our Open Day to become a member of the cast, crew, or just find our more about our shows down at Goodyear Social Club.",
+      "dates": [
+        "Sat 18th April 2026 - 12:00PM",
+      ],
+      "ticketLink": "",
+      "soldOut": false
+    }
+    {
+      "title": "Drumchapel Talent Show",
+      "image": "",
+      "description": "Get ready for a night of homegrown magic as our community’s brightest stars take the stage to showcase their incredible skills and unique flair. From breathtaking performances to hidden gems, come cheer on your neighbors in a high-energy celebration of local talent and creativity.",
+      "dates": [
+        "Sat 31st of May - 1:45PM",
+      ],
+      "ticketLink": "",
+      "soldOut": false
+    }
+    {
+      "title": "Wizard of Oz",
+      "image": "/assets/wizard.png",
+      "description": "Follow the yellow brick road in this high-energy, magical adventure packed with side-splitting comedy, dazzling costumes, and catchy musical numbers. Join Dorothy and her loyal friends as they outsmart the Wicked Witch in a beloved panto spectacle that’s perfect for the whole family.",
+      "dates": [
+        "Sat 21st of November, 2026 - 1PM",
+        "Sun 22nd of November, 2026 - 1PM",
+      ],
+      "ticketLink": "https://www.ticketsource.co.uk/drumchapelpantomimeclub",
+      "soldOut": false
+    }
+  ]
+}
