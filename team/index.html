@@ -9,8 +9,7 @@
 
 <body>
 
-<nav> ... SAME NAV ... </nav>
-<div id="mobileMenu" class="mobile-menu"> ... </div>
+<nav>...same as home...</nav>
 
 <section>
 <h1>Production Team</h1>
@@ -44,16 +43,73 @@
 </div>
 </section>
 
+<section>
+<h1>Crew</h1>
+
+<div class="team-grid">
+
+<div class="team-card" onclick="openPopup('roma')">
+<h3>Roma Romano</h3>
+<p>Stage Manager</p>
+</div>
+
+<div class="team-card" onclick="openPopup('taylor')">
+<h3>Taylor Duncan</h3>
+<p>LX Operator</p>
+</div>
+
+</div>
+</section>
+
 <!-- POPUPS -->
+
+<div id="maggie" class="popup" onclick="closePopup('maggie')">
+<div class="popup-content">
+<h2>Maggie Harkness-Smith</h2>
+<p>The creative force behind DAPC, Maggie brings vision, passion, and energy to every production, creating unforgettable experiences for both cast and audience.</p>
+</div>
+</div>
+
+<div id="andrew" class="popup" onclick="closePopup('andrew')">
+<div class="popup-content">
+<h2>Andrew McVie</h2>
+<p>Andrew supports every rehearsal with dedication and experience, helping shape performances and guiding the cast to their best potential.</p>
+</div>
+</div>
+
 <div id="callan" class="popup" onclick="closePopup('callan')">
 <div class="popup-content">
 <h2>Callan Chesser</h2>
-<p>The master of lights, sound, and stage magic. Ensuring every show shines.</p>
-<a href="https://www.callanchesser.co.uk">Website</a>
-<br>
+<p>The master of lights, sound, and stage magic — ensuring every show looks and sounds incredible.</p>
+<a href="https://www.callanchesser.co.uk">Website</a><br>
 <a href="https://www.instagram.com/callandoestech/">Instagram</a>
 </div>
 </div>
+
+<div id="jackie" class="popup" onclick="closePopup('jackie')">
+<div class="popup-content">
+<h2>Jackie Doyle</h2>
+<p>Jackie works closely with the cast backstage, ensuring everyone feels supported, safe, and confident throughout rehearsals and performances.</p>
+</div>
+</div>
+
+<div id="roma" class="popup" onclick="closePopup('roma')">
+<div class="popup-content">
+<h2>Roma Romano</h2>
+<p>Roma calls the show and keeps everything running smoothly behind the scenes, coordinating cues and ensuring the production stays on track.</p>
+</div>
+</div>
+
+<div id="taylor" class="popup" onclick="closePopup('taylor')">
+<div class="popup-content">
+<h2>Taylor Duncan</h2>
+<p>Taylor operates lighting during performances, bringing the stage to life and supporting the visual storytelling of each show.</p>
+</div>
+</div>
+
+<footer>
+© 2026 Drumchapel Amateur Pantomime Club.
+</footer>
 
 </body>
 </html>
