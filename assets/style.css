@@ -1,128 +1,230 @@
+/* =============================
+NEXT LEVEL WIZARD OF OZ DESIGN (PRO + INTERACTIVE)
+============================= */
+
 body {
   margin:0;
   font-family: 'Trebuchet MS', sans-serif;
-  background: linear-gradient(to bottom, #87CEEB, #FFD700);
+  color:white;
+  background:
+    radial-gradient(circle at top, rgba(0,255,150,0.25), transparent 60%),
+    linear-gradient(180deg, #0b3d2e 0%, #046a38 40%, #022c1f 100%);
+  overflow-x:hidden;
 }
 
-/* NAV */
+/* EMERALD CITY BACKGROUND */
+body::before {
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url('/assets/emerald-city.png') center/cover no-repeat;
+  opacity:0.18;
+  z-index:-3;
+}
+
+/* FLOATING MAGIC PARTICLES */
+body::after {
+  content:"";
+  position:fixed;
+  width:200%;
+  height:200%;
+  background: radial-gradient(white 1px, transparent 1px);
+  background-size:40px 40px;
+  animation: sparkle 80s linear infinite;
+  opacity:0.08;
+  z-index:-2;
+}
+
+@keyframes sparkle {
+  from { transform:translateY(0); }
+  to { transform:translateY(-800px); }
+}
+
+/* NAVBAR */
 nav {
+  background: linear-gradient(90deg, #FFD700, #ff0000);
+  padding:15px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  background:#0a7f3f;
-  padding:10px 20px;
-  color:white;
+  box-shadow:0 0 25px gold;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
-.logo { height:50px; }
+.logo { height:60px; }
 
 .nav-links {
   display:flex;
-  gap:20px;
+  gap:25px;
   list-style:none;
 }
 
 .nav-links a {
-  color:white;
-  text-decoration:none;
+  color:black;
   font-weight:bold;
+  text-decoration:none;
+  padding:6px 12px;
+  border-radius:12px;
+  transition:0.3s;
 }
 
-/* MOBILE */
-.menu-toggle { display:none; font-size:24px; }
+.nav-links a:hover {
+  background:red;
+  color:white;
+  box-shadow:0 0 15px red;
+}
+
+/* MOBILE MENU */
+.menu-toggle { display:none; font-size:28px; color:black; }
 
 .mobile-menu {
   position:fixed;
   top:0;
   left:-100%;
-  width:70%;
+  width:75%;
   height:100%;
-  background:#0a7f3f;
-  display:flex;
-  flex-direction:column;
-  padding-top:60px;
-  transition:0.3s;
+  background:linear-gradient(#046a38,#022c1f);
+  padding-top:80px;
+  transition:0.4s;
+  box-shadow:0 0 30px black;
 }
 
 .mobile-menu a {
+  display:block;
+  padding:20px;
   color:white;
-  padding:15px;
   text-decoration:none;
 }
 
 .mobile-menu.active { left:0; }
 
 @media(max-width:768px){
-  .nav-links { display:none; }
-  .menu-toggle { display:block; }
+  .nav-links{display:none}
+  .menu-toggle{display:block}
 }
 
 /* HERO */
-header img { width:100%; max-height:400px; object-fit:cover; }
+header {
+  position:relative;
+  overflow:hidden;
+}
+
+header img {
+  width:100%;
+  max-height:500px;
+  object-fit:cover;
+  filter:brightness(0.6);
+}
+
+header::after {
+  content:"Follow the Yellow Brick Road ✨";
+  position:absolute;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:gold;
+  color:black;
+  padding:12px 25px;
+  border-radius:25px;
+  font-weight:bold;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow:0 0 10px gold; }
+  to { box-shadow:0 0 30px gold; }
+}
 
 /* SECTIONS */
-section { padding:40px; text-align:center; }
-
-/* EVENTS */
-.events {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
+section {
+  padding:60px 20px;
+  text-align:center;
 }
 
-.event-card {
-  background:white;
-  border-radius:15px;
-  padding:15px;
+h1,h2 {
+  text-shadow:0 0 20px rgba(0,255,150,0.8);
 }
 
-.event-card img { width:100%; }
-
-/* TEAM */
-.team-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-}
-
-.team-card {
-  background:white;
+/* GLASS CARDS */
+.event-card, .team-card {
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  border-radius:20px;
   padding:20px;
-  border-radius:20px;
-  cursor:pointer;
+  box-shadow:0 0 20px rgba(0,255,150,0.4);
+  transition:0.3s;
 }
 
+.event-card:hover, .team-card:hover {
+  transform:scale(1.07) rotate(-1deg);
+  box-shadow:0 0 35px gold;
+}
+
+.event-card button {
+  background:red;
+  color:white;
+  border:none;
+  padding:12px 20px;
+  border-radius:25px;
+  cursor:pointer;
+  box-shadow:0 0 15px red;
+}
+
+/* TEAM IMAGES */
 .team-card img {
-  width:120px;
-  height:120px;
-  object-fit:cover;
   border-radius:20px;
+  border:3px solid gold;
 }
 
 /* POPUP */
-.popup {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.7);
-  display:none;
-  justify-content:center;
-  align-items:center;
+.popup-content {
+  background:linear-gradient(#046a38,#022c1f);
+  color:white;
+  border:3px solid gold;
+  box-shadow:0 0 40px gold;
+  animation: popupIn 0.4s ease;
 }
 
-.popup-content {
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  max-width:400px;
+@keyframes popupIn {
+  from { transform:scale(0.7); opacity:0; }
+  to { transform:scale(1); opacity:1; }
+}
+
+/* INTERACTIVE EASTER EGGS */
+button::after {
+  content:" ✨";
+  opacity:0;
+  transition:0.3s;
+}
+
+button:hover::after {
+  opacity:1;
+}
+
+/* FUN PANTO TOOLTIP */
+[data-panto]:hover::after {
+  content:attr(data-panto);
+  position:absolute;
+  background:black;
+  color:white;
+  padding:5px 10px;
+  border-radius:10px;
+  margin-top:5px;
+  font-size:12px;
 }
 
 /* FOOTER */
 footer {
-  background:#222;
-  color:white;
-  padding:20px;
+  background:black;
+  color:gold;
+  padding:30px;
   text-align:center;
+  box-shadow:0 -5px 25px gold;
+}
+
+/* CURSOR MAGIC */
+body {
+  cursor: url('/assets/star-cursor.png'), auto;
 }
