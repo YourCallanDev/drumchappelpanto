@@ -1,74 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>DAPC | Home</title>
-  <link rel="stylesheet" href="../style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAPC | Home</title>
+<link rel="stylesheet" href="/assets/style.css">
+<script defer src="/assets/script.js"></script>
 </head>
 
 <body>
 
-<div class="talent-banner">
-  JOIN US FOR DRUMCHAPEL’S #1 TALENT SHOW — 
-  <a href="/talent-show-2026">CLICK HERE TO FIND OUT MORE</a>
-</div>
-
-<header>
-  <div class="logo">
-    <img src="../assets/logo.jpeg" alt="DAPC Logo">
-    <h1>Drumchapel Amateur Pantomime Club</h1>
+<!-- NAVBAR -->
+<nav>
+  <div class="nav-left">
+    <img src="/assets/logo.jpeg" class="logo">
   </div>
 
-  <button class="hamburger" onclick="toggleMenu()" aria-label="Open menu">☰</button>
+  <ul class="nav-links">
+    <li><a href="/home/">Home</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/team/">Our Team</a></li>
+    <li><a href="/box-office/">Box Office</a></li>
+    <li><a href="/join/">Join Us</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
 
-  <nav>
-    <ul>
-      <li><a href="/home" class="active">Home</a></li>
-      <li><a href="/joining-us">Joining Us</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/contact">Contact</a></li>
-      <li><a href="/donate">Donate</a></li>
-      <li><a href="/box-office">Box Office</a></li>
-      <li><a href="/stage-door">🔑 Stage Door</a></li>
-    </ul>
-  </nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobileMenu" class="mobile-menu">
+  <a href="/home/">Home</a>
+  <a href="/about/">About</a>
+  <a href="/team/">Our Team</a>
+  <a href="/box-office/">Box Office</a>
+  <a href="/join/">Join Us</a>
+  <a href="/contact/">Contact</a>
+</div>
+
+<!-- HERO -->
+<header>
+  <img src="/assets/home/banner.jpeg">
+  <div class="hero-text">
+    <h1>Welcome to Drumchapel Amateur Panto Club!</h1>
+    <p>
+      Step off the yellow brick road and into a world of laughter, magic, and unforgettable performances! 
+      Based in the heart of Drumchapel, Glasgow, our amateur theatre club brings the community together 
+      through spectacular pantomimes, exciting productions, and fun-filled fundraising events. 
+      Whether you're a performer, backstage wizard, or audience member, there's a place for everyone 
+      in our magical theatre family… oh yes there is!
+    </p>
+  </div>
 </header>
 
-<main class="main-container">
-  <section class="hero-banner">
-    <img src="../assets/home/bannar.jpeg" alt="Home Banner">
-  </section>
+<!-- UPCOMING EVENTS -->
+<section>
+  <h2>🎭 UPCOMING EVENTS</h2>
+  <div id="eventsContainer" class="events"></div>
+</section>
 
-  <section class="center">
-    <h2>Welcome to the Family</h2>
-    <p>Welcome to our Amateur Theatre Club based in Drumchapel, Glasgow! We're passionate about bringing the community together through our annual pantomimes, shows, and fundraisers.</p>
-  </section>
+<!-- SOCIALS -->
+<section class="socials">
+  <h2>Follow Us</h2>
+  <a href="https://www.facebook.com/DrumchapelPantomimeClub" target="_blank">Facebook</a>
+  <a href="https://www.instagram.com/drumchapelpantogroup/" target="_blank">Instagram</a>
+  <a href="https://www.tiktok.com/@drumchapelamateurpanto" target="_blank">TikTok</a>
+</section>
 
-  <section class="production-highlight">
-    <div class="production-highlight-inner">
-      <div class="production-image">
-        <img src="../assets/snowwhitebanner.png" alt="Snow White">
-      </div>
-      <div class="production-text">
-        <h2>Snow White &amp; The Magnificent Eight</h2>
-        <p class="subheading">OUR 2025 CHRISTMAS PANTO</p>
-        <p>Take a look at our Christmas panto for 2025. A fun-filled, exciting, and family-friendly panto that had raving reviews.</p>
-      </div>
-    </div>
-  </section>
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Drumchapel Amateur Pantomime Club. All rights reserved.</p>
+  <p>Website designed by Callan Chesser</p>
+</footer>
 
-  <section class="social-follow center">
-    <h2>Stay in the Loop</h2>
-    <p>We're always posting behind-the-scenes magic and updates on our Facebook page!</p>
-    <a href="https://www.facebook.com/share/1GaqdKzjGz/?mibextid=wwXIfr" target="_blank" class="cta-button">
-       Follow Us on Facebook
-    </a>
-  </section>
-</main>
-
-<footer>© 2026 Drumchapel Amateur Pantomime Club. All rights reserved.</footer>
-
-<script src="../script.js"></script>
 </body>
 </html>
