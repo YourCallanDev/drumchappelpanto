@@ -1,59 +1,37 @@
-/* =============================
-NEXT LEVEL WIZARD OF OZ DESIGN (PRO + INTERACTIVE)
-============================= */
+/* =========================
+READ THIS FIRST
+This is your FULL upgraded system.
+You will split into files exactly as labelled.
+========================= */
 
+/* =========================
+/assets/style.css
+========================= */
 body {
   margin:0;
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family:'Trebuchet MS',sans-serif;
+  background:#020d0a;
   color:white;
-  background:
-    radial-gradient(circle at top, rgba(0,255,150,0.25), transparent 60%),
-    linear-gradient(180deg, #0b3d2e 0%, #046a38 40%, #022c1f 100%);
   overflow-x:hidden;
 }
 
-/* EMERALD CITY BACKGROUND */
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  background:url('/assets/emerald-city.png') center/cover no-repeat;
-  opacity:0.18;
-  z-index:-3;
+/* NEON GLOW BASE */
+h1,h2,h3 {
+  text-shadow:0 0 10px #00ffcc, 0 0 20px #00ffcc;
 }
 
-/* FLOATING MAGIC PARTICLES */
-body::after {
-  content:"";
-  position:fixed;
-  width:200%;
-  height:200%;
-  background: radial-gradient(white 1px, transparent 1px);
-  background-size:40px 40px;
-  animation: sparkle 80s linear infinite;
-  opacity:0.08;
-  z-index:-2;
-}
-
-@keyframes sparkle {
-  from { transform:translateY(0); }
-  to { transform:translateY(-800px); }
-}
-
-/* NAVBAR */
+/* NAV */
 nav {
-  background: linear-gradient(90deg, #FFD700, #ff0000);
-  padding:15px 20px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  box-shadow:0 0 25px gold;
-  position:sticky;
-  top:0;
-  z-index:1000;
+  padding:10px 30px;
+  background:rgba(0,0,0,0.8);
+  backdrop-filter:blur(10px);
+  border-bottom:2px solid #00ffcc;
 }
 
-.logo { height:60px; }
+.logo {height:55px;}
 
 .nav-links {
   display:flex;
@@ -62,43 +40,38 @@ nav {
 }
 
 .nav-links a {
-  color:black;
-  font-weight:bold;
+  color:#00ffcc;
   text-decoration:none;
-  padding:6px 12px;
-  border-radius:12px;
+  font-weight:bold;
   transition:0.3s;
 }
 
 .nav-links a:hover {
-  background:red;
-  color:white;
-  box-shadow:0 0 15px red;
+  color:#ff0077;
+  text-shadow:0 0 10px #ff0077;
 }
 
-/* MOBILE MENU */
-.menu-toggle { display:none; font-size:28px; color:black; }
+/* MOBILE */
+.menu-toggle {display:none;font-size:26px;color:#00ffcc;}
 
 .mobile-menu {
   position:fixed;
   top:0;
   left:-100%;
-  width:75%;
+  width:70%;
   height:100%;
-  background:linear-gradient(#046a38,#022c1f);
+  background:#021a14;
   padding-top:80px;
   transition:0.4s;
-  box-shadow:0 0 30px black;
 }
+
+.mobile-menu.active {left:0;}
 
 .mobile-menu a {
   display:block;
   padding:20px;
-  color:white;
-  text-decoration:none;
+  color:#00ffcc;
 }
-
-.mobile-menu.active { left:0; }
 
 @media(max-width:768px){
   .nav-links{display:none}
@@ -106,125 +79,233 @@ nav {
 }
 
 /* HERO */
-header {
-  position:relative;
-  overflow:hidden;
-}
-
 header img {
   width:100%;
-  max-height:500px;
+  height:70vh;
   object-fit:cover;
-  filter:brightness(0.6);
+  filter:brightness(0.5);
 }
 
-header::after {
-  content:"Follow the Yellow Brick Road ✨";
-  position:absolute;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  background:gold;
-  color:black;
-  padding:12px 25px;
-  border-radius:25px;
-  font-weight:bold;
-  animation: glow 2s infinite alternate;
+/* YELLOW BRICK ROAD */
+.road {
+  width:100%;
+  height:120px;
+  background: repeating-linear-gradient(
+    45deg,
+    #FFD700,
+    #FFD700 20px,
+    #e6c200 20px,
+    #e6c200 40px
+  );
+  animation: roadMove 10s linear infinite;
 }
 
-@keyframes glow {
-  from { box-shadow:0 0 10px gold; }
-  to { box-shadow:0 0 30px gold; }
+@keyframes roadMove {
+  from {background-position:0 0}
+  to {background-position:200px 0}
 }
 
-/* SECTIONS */
-section {
-  padding:60px 20px;
+/* EVENTS */
+.events {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  padding:40px;
+}
+
+.event-card {
+  background:rgba(0,0,0,0.6);
+  border:2px solid #00ffcc;
+  border-radius:20px;
+  padding:15px;
+  box-shadow:0 0 15px #00ffcc;
+  transition:0.3s;
+}
+
+.event-card:hover {
+  transform:scale(1.05);
+  box-shadow:0 0 25px #ff0077;
+}
+
+button {
+  background:#ff0077;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+/* TEAM */
+.team-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  padding:40px;
+}
+
+@media(max-width:900px){
+  .team-grid{grid-template-columns:1fr}
+}
+
+.team-card {
+  background:#021a14;
+  border:2px solid #00ffcc;
+  border-radius:20px;
+  padding:20px;
   text-align:center;
 }
 
-h1,h2 {
-  text-shadow:0 0 20px rgba(0,255,150,0.8);
-}
-
-/* GLASS CARDS */
-.event-card, .team-card {
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(12px);
-  border-radius:20px;
-  padding:20px;
-  box-shadow:0 0 20px rgba(0,255,150,0.4);
-  transition:0.3s;
-}
-
-.event-card:hover, .team-card:hover {
-  transform:scale(1.07) rotate(-1deg);
-  box-shadow:0 0 35px gold;
-}
-
-.event-card button {
-  background:red;
-  color:white;
-  border:none;
-  padding:12px 20px;
-  border-radius:25px;
-  cursor:pointer;
-  box-shadow:0 0 15px red;
-}
-
-/* TEAM IMAGES */
 .team-card img {
+  width:120px;
+  height:120px;
+  object-fit:cover;
   border-radius:20px;
-  border:3px solid gold;
 }
 
 /* POPUP */
+.popup {
+  position:fixed;
+  top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.8);
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
 .popup-content {
-  background:linear-gradient(#046a38,#022c1f);
-  color:white;
-  border:3px solid gold;
-  box-shadow:0 0 40px gold;
-  animation: popupIn 0.4s ease;
+  background:#021a14;
+  padding:30px;
+  border-radius:20px;
+  border:2px solid #00ffcc;
+  box-shadow:0 0 25px #00ffcc;
+  max-width:400px;
 }
 
-@keyframes popupIn {
-  from { transform:scale(0.7); opacity:0; }
-  to { transform:scale(1); opacity:1; }
+/* CONTACT */
+form {
+  background:#021a14;
+  padding:20px;
+  border-radius:20px;
+  border:2px solid #00ffcc;
 }
 
-/* INTERACTIVE EASTER EGGS */
-button::after {
-  content:" ✨";
-  opacity:0;
-  transition:0.3s;
-}
-
-button:hover::after {
-  opacity:1;
-}
-
-/* FUN PANTO TOOLTIP */
-[data-panto]:hover::after {
-  content:attr(data-panto);
-  position:absolute;
-  background:black;
-  color:white;
-  padding:5px 10px;
+input, textarea {
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  border:none;
   border-radius:10px;
-  margin-top:5px;
-  font-size:12px;
 }
 
 /* FOOTER */
 footer {
-  background:black;
-  color:gold;
-  padding:30px;
   text-align:center;
-  box-shadow:0 -5px 25px gold;
+  padding:20px;
+  background:black;
+  border-top:2px solid #00ffcc;
 }
 
-/* CURSOR MAGIC */
-body {
-  cursor: url('/assets/star-cursor.png'), auto;
+/* =========================
+/assets/script.js
+========================= */
+
+function toggleMenu(){
+  document.getElementById('mobileMenu').classList.toggle('active');
 }
+
+/* EVENTS FIXED */
+fetch('/events.json')
+.then(res=>res.json())
+.then(data=>{
+  const container=document.getElementById('eventsContainer');
+  if(!container) return;
+
+  data.events.forEach(e=>{
+    if(e.soldOut) return;
+
+    let dates='';
+    e.dates.forEach(d=>dates+=`<p>${d}</p>`);
+
+    container.innerHTML+=`
+    <div class="event-card">
+      <img src="${e.image}">
+      <h3>${e.title}</h3>
+      <p>${e.description}</p>
+      ${dates}
+      <button onclick="window.open('${e.ticketLink}')">Tickets Available</button>
+    </div>`;
+  });
+});
+
+function openPopup(id){
+  document.getElementById(id).style.display='flex';
+}
+function closePopup(id){
+  document.getElementById(id).style.display='none';
+}
+
+/* EASTER EGG */
+document.addEventListener('click',()=>{
+  if(Math.random()<0.05){
+    alert("HE'S BEHIND YOU! 👀");
+  }
+});
+
+/* =========================
+/home/index.html
+========================= */
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home | DAPC</title>
+<link rel="stylesheet" href="/assets/style.css">
+<script defer src="/assets/script.js"></script>
+</head>
+<body>
+
+<nav>
+<img src="/assets/logo.jpeg" class="logo">
+<ul class="nav-links">
+<li><a href="/home/">Home</a></li>
+<li><a href="/about/">About</a></li>
+<li><a href="/team/">Team</a></li>
+<li><a href="/box-office/">Box Office</a></li>
+<li><a href="/join/">Join</a></li>
+<li><a href="/contact/">Contact</a></li>
+</ul>
+<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div id="mobileMenu" class="mobile-menu">
+<a href="/home/">Home</a>
+<a href="/about/">About</a>
+<a href="/team/">Team</a>
+<a href="/box-office/">Box Office</a>
+<a href="/join/">Join</a>
+<a href="/contact/">Contact</a>
+</div>
+
+<header>
+<img src="/assets/home/banner.jpeg">
+</header>
+
+<div class="road"></div>
+
+<section>
+<h1>Welcome to DAPC</h1>
+<p>Oh yes it is... your new favourite theatre family!</p>
+</section>
+
+<section>
+<h2>Upcoming Events</h2>
+<div id="eventsContainer" class="events"></div>
+</section>
+
+<footer>
+© 2026 DAPC
+</footer>
+
+</body>
+</html>
