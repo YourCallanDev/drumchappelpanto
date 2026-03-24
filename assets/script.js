@@ -1,45 +1,34 @@
-function toggleMenu() {
+function toggleMenu(){
   document.getElementById("mobileMenu").classList.toggle("active");
 }
 
-/* EVENTS LOAD */
 fetch('/events.json')
-.then(res => res.json())
-.then(data => {
-  const container = document.getElementById("eventsContainer");
+.then(res=>res.json())
+.then(data=>{
+  const container=document.getElementById("eventsContainer");
   if(!container) return;
 
-  const today = new Date();
+  data.events.forEach(e=>{
+    if(e.soldOut) return;
 
-  data.events.forEach(event => {
+    let dates="";
+    e.dates.forEach(d=>dates+=`<p>${d}</p>`);
 
-    if(event.soldOut === true) return;
-
-    const card = document.createElement("div");
-    card.className = "event-card";
-
-    let datesHTML = "";
-    event.dates.forEach(d => {
-      datesHTML += `<p>${d}</p>`;
-    });
-
-    card.innerHTML = `
-      <img src="${event.image}">
-      <h3>${event.title}</h3>
-      <p>${event.description}</p>
-      ${datesHTML}
-      <button onclick="window.open('${event.ticketLink}')">🎟 Tickets Available Now</button>
-    `;
-
-    container.appendChild(card);
+    container.innerHTML+=`
+    <div class="event-card">
+      <img src="${e.image}">
+      <h3>${e.title}</h3>
+      <p>${e.description}</p>
+      ${dates}
+      <button onclick="window.open('${e.ticketLink}')">🎟 Tickets Available Now</button>
+    </div>`;
   });
 });
 
-/* POPUPS */
-function openPopup(id) {
-  document.getElementById(id).style.display = "flex";
+function openPopup(id){
+  document.getElementById(id).style.display="flex";
 }
 
-function closePopup(id) {
-  document.getElementById(id).style.display = "none";
+function closePopup(id){
+  document.getElementById(id).style.display="none";
 }
