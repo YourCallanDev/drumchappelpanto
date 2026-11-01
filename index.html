@@ -6,23 +6,336 @@
   <meta name="theme-color" content="#100d1c">
   <meta name="description" content="Drumchapel Amateur Panto Club brings the community together through spectacular pantomimes, exciting productions and fun-filled events in Glasgow.">
   <title>Welcome | Drumchapel Amateur Panto Club</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-  <script src=".../js/script.js" defer></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+
+  <style>
+    /* SOLD OUT ANNOUNCEMENT BAR */
+    .sold-out-announcement {
+      position: relative;
+      z-index: 1001;
+      width: 100%;
+      padding: 13px 20px;
+      text-align: center;
+      color: #21152d;
+      background: linear-gradient(
+        100deg,
+        #d9b65c,
+        #ffe9a6,
+        #d9b65c
+      );
+      font-weight: 700;
+      letter-spacing: 1.3px;
+      font-size: 13px;
+      text-transform: uppercase;
+      overflow: hidden;
+    }
+
+    .sold-out-announcement::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.45),
+        transparent
+      );
+      animation: announcementShimmer 5s infinite;
+    }
+
+    .sold-out-announcement span {
+      margin: 0 8px;
+    }
+
+    @keyframes announcementShimmer {
+      0% { left: -100%; }
+      45%, 100% { left: 150%; }
+    }
+
+    /* WIZARD OF OZ SOLD OUT POSTER */
+    .show-poster-wrap {
+      position: relative;
+      isolation: isolate;
+      width: fit-content;
+      max-width: 100%;
+      margin: 35px auto 45px;
+      padding: 8px;
+      border-radius: 12px;
+      background: linear-gradient(
+        135deg,
+        #f5d77e,
+        #9c65e8,
+        #f5d77e,
+        #9c65e8
+      );
+      background-size: 300% 300%;
+      animation: posterGlow 5s ease infinite;
+      box-shadow:
+        0 0 20px rgba(214, 177, 85, 0.45),
+        0 0 45px rgba(151, 91, 220, 0.35);
+    }
+
+    .show-poster-wrap::before {
+      content: "✦";
+      position: absolute;
+      z-index: 3;
+      top: -22px;
+      left: -22px;
+      color: #f5d77e;
+      font-size: 35px;
+      animation: sparkle 3s ease-in-out infinite;
+    }
+
+    .show-poster-wrap::after {
+      content: "✧";
+      position: absolute;
+      z-index: 3;
+      bottom: -20px;
+      right: -22px;
+      color: #f5d77e;
+      font-size: 38px;
+      animation: sparkle 3s ease-in-out infinite 1s;
+    }
+
+    .show-poster {
+      display: block;
+      position: relative;
+      z-index: 1;
+      border-radius: 7px;
+      max-width: 100%;
+    }
+
+    .sold-out-ribbon {
+      position: absolute;
+      z-index: 5;
+      top: 30px;
+      right: -13px;
+      padding: 12px 35px;
+      color: #24152f;
+      background: linear-gradient(
+        90deg,
+        #e0bd62,
+        #fff0b3,
+        #e0bd62
+      );
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      transform: rotate(8deg);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+      text-shadow: 0 1px 0 rgba(255,255,255,0.4);
+    }
+
+    .sold-out-ribbon::before,
+    .sold-out-ribbon::after {
+      content: "";
+      position: absolute;
+      bottom: -9px;
+      border-top: 9px solid #94712c;
+    }
+
+    .sold-out-ribbon::before {
+      left: 0;
+      border-left: 9px solid transparent;
+    }
+
+    .sold-out-ribbon::after {
+      right: 0;
+      border-right: 9px solid transparent;
+    }
+
+    @keyframes posterGlow {
+      0%, 100% {
+        background-position: 0% 50%;
+        box-shadow:
+          0 0 20px rgba(214, 177, 85, 0.45),
+          0 0 45px rgba(151, 91, 220, 0.35);
+      }
+      50% {
+        background-position: 100% 50%;
+        box-shadow:
+          0 0 30px rgba(214, 177, 85, 0.7),
+          0 0 65px rgba(151, 91, 220, 0.55);
+      }
+    }
+
+    @keyframes sparkle {
+      0%, 100% {
+        opacity: 0.45;
+        transform: scale(0.8) rotate(0deg);
+      }
+      50% {
+        opacity: 1;
+        transform: scale(1.25) rotate(25deg);
+      }
+    }
+
+    /* BOX OFFICE SOLD OUT NOTICE */
+    .sold-out-notice {
+      position: relative;
+      max-width: 950px;
+      margin: 45px auto;
+      padding: 38px 35px;
+      text-align: center;
+      border: 1px solid rgba(226, 190, 101, 0.65);
+      border-radius: 15px;
+      background:
+        radial-gradient(
+          ellipse at top,
+          rgba(133, 82, 178, 0.25),
+          transparent 70%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(37, 25, 57, 0.98),
+          rgba(19, 15, 33, 0.98)
+        );
+      box-shadow:
+        0 0 25px rgba(181, 139, 65, 0.12),
+        inset 0 0 30px rgba(153, 102, 211, 0.08);
+      overflow: hidden;
+    }
+
+    .sold-out-notice::before {
+      content: "✦";
+      position: absolute;
+      top: 12px;
+      left: 18px;
+      color: rgba(239, 207, 125, 0.6);
+      font-size: 25px;
+    }
+
+    .sold-out-notice::after {
+      content: "✧";
+      position: absolute;
+      bottom: 12px;
+      right: 18px;
+      color: rgba(239, 207, 125, 0.6);
+      font-size: 30px;
+    }
+
+    .sold-out-notice .eyebrow {
+      color: #e7c779;
+    }
+
+    .sold-out-notice h3 {
+      margin: 12px 0 20px;
+      color: #f5d77e;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(30px, 5vw, 43px);
+    }
+
+    .sold-out-notice .notice-message {
+      max-width: 750px;
+      margin: 0 auto;
+      color: #f0edf5;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .sold-out-notice .notice-highlight {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 10px 20px;
+      border: 1px solid rgba(231, 199, 121, 0.5);
+      border-radius: 30px;
+      color: #f5d77e;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .four-shows-celebration {
+      max-width: 850px;
+      margin: 0 auto 35px;
+      padding: 25px 20px;
+      text-align: center;
+      border-radius: 12px;
+      background: rgba(174, 132, 57, 0.09);
+      border: 1px solid rgba(226, 190, 101, 0.25);
+    }
+
+    .four-shows-celebration h4 {
+      color: #e7c779;
+      font-family: 'Playfair Display', serif;
+      font-size: 23px;
+      margin-bottom: 8px;
+    }
+
+    .four-shows-celebration p {
+      color: #e8e1ef;
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    @media (max-width: 600px) {
+      .sold-out-announcement {
+        padding: 11px 10px;
+        font-size: 10px;
+        letter-spacing: 0.7px;
+      }
+
+      .sold-out-announcement span {
+        margin: 0 3px;
+      }
+
+      .sold-out-ribbon {
+        top: 22px;
+        right: -10px;
+        padding: 9px 22px;
+        font-size: 16px;
+      }
+
+      .sold-out-notice {
+        padding: 32px 20px;
+      }
+
+      .sold-out-notice .notice-message {
+        font-size: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .sold-out-announcement::after,
+      .show-poster-wrap,
+      .show-poster-wrap::before,
+      .show-poster-wrap::after {
+        animation: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ALL SHOWS SOLD OUT ANNOUNCEMENT -->
+  <div class="sold-out-announcement" role="status">
+    ✨ <span>ALL 4 SHOWS SOLD OUT!</span> ✨
+    THANK YOU, DRUMCHAPEL!
+  </div>
 
   <header class="site-header" id="top">
     <a class="brand" href="#welcome" aria-label="Drumchapel Amateur Panto Club home">
       <span class="brand-mark" aria-hidden="true">✦</span>
       <span class="brand-text">DAPC<small>DRUMCHAPEL AMATEUR PANTO CLUB</small></span>
     </a>
+
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-nav">
       <span></span><span></span><span></span>
     </button>
+
     <nav class="primary-nav" id="primary-nav" aria-label="Main navigation">
       <a href="#welcome">Welcome</a>
       <a href="#about">About us</a>
@@ -34,31 +347,41 @@
   </header>
 
   <main id="main">
+
+    <!-- WELCOME -->
     <section class="hero" id="welcome" aria-labelledby="hero-title">
       <div class="hero-image" role="img" aria-label="Theatre stage illuminated by magical lights"></div>
       <div class="hero-vignette"></div>
       <div class="hero-stars" aria-hidden="true"></div>
+
       <div class="hero-content">
         <p class="eyebrow hero-eyebrow"><span></span> THE MAGIC OF PANTOMIME <span></span></p>
         <p class="hero-kicker">WELCOME TO</p>
         <h1 id="hero-title">Drumchapel <em>Amateur</em><br>Panto Club</h1>
         <p class="hero-subtitle">Where community, creativity and a little theatrical magic come together.</p>
+
         <div class="hero-actions">
           <a class="button button-gold" href="#box-office">Explore the show <span aria-hidden="true">→</span></a>
           <a class="button button-outline" href="#about">Discover our story</a>
         </div>
+
         <div class="hero-scroll" aria-hidden="true"><span></span> SCROLL TO DISCOVER</div>
       </div>
+
       <div class="hero-bottom-glow" aria-hidden="true"></div>
     </section>
 
+    <!-- WELCOME INTRO -->
     <section class="welcome-intro section-pad">
       <div class="section-inner narrow centred">
         <p class="eyebrow">A LITTLE MAGIC IN DRUMCHAPEL</p>
         <h2>Welcome to <span>Drumchapel Amateur Panto Club!</span></h2>
         <div class="ornament" aria-hidden="true"><i></i> ✦ <i></i></div>
+
         <p class="lead">Step into a magical world of laughter, colour, and unforgettable performances! Based in Drumchapel, Glasgow, our club brings the community together through spectacular pantomimes, exciting productions, and fun-filled events.</p>
+
         <p class="lead">Whether you're on stage, backstage, or in the audience… there’s something for everyone — <strong>oh yes there is!</strong></p>
+
         <div class="social-follow">
           <h3>Follow us</h3>
           <div class="social-links">
@@ -70,6 +393,7 @@
       </div>
     </section>
 
+    <!-- ABOUT US -->
     <section class="about-section section-pad section-dark" id="about">
       <div class="section-banner about-banner">
         <div class="banner-shade"></div>
@@ -78,6 +402,7 @@
           <h2>About <span>Us</span></h2>
         </div>
       </div>
+
       <div class="section-inner">
         <div class="story-grid">
           <div class="story-heading">
@@ -85,6 +410,7 @@
             <h3>A community built on <em>theatre and togetherness.</em></h3>
             <div class="ornament ornament-left" aria-hidden="true"><i></i> ✦ <i></i></div>
           </div>
+
           <div class="story-copy">
             <p>Launched in 2022 by Maggie Harkness-Smith, Drumchapel Amateur Panto Club is more than just a theatre group — it’s a vibrant, welcoming community built on creativity, confidence, and connection.</p>
             <p>From the very beginning, our goal has been simple: bring people together through the magic of pantomime.</p>
@@ -98,6 +424,7 @@
             <h3>Previous <span>Productions</span></h3>
             <p>Every show brings a new story, new memories and a whole lot of magic.</p>
           </div>
+
           <div class="production-grid">
             <article class="production-card">
               <div class="production-image snow-white-image" role="img" aria-label="Snow White and The Magnificent Eight production"></div>
@@ -106,6 +433,7 @@
                 <h4>Snow White &amp; The Magnificent Eight</h4>
               </div>
             </article>
+
             <article class="production-card production-text-card">
               <div class="production-placeholder" aria-hidden="true"><span>✦</span><b>Once upon<br>a time…</b></div>
               <div class="production-info">
@@ -118,6 +446,7 @@
       </div>
     </section>
 
+    <!-- BOX OFFICE -->
     <section class="box-office-section section-pad" id="box-office">
       <div class="section-banner wizard-banner">
         <div class="banner-shade"></div>
@@ -126,15 +455,28 @@
           <h2>Box <span>Office</span></h2>
         </div>
       </div>
+
       <div class="section-inner">
+
         <div class="show-heading centred">
           <p class="eyebrow">OUR 2026 PRODUCTION</p>
           <h3>The <span>Wizard of Oz</span></h3>
           <p class="lead">Follow the yellow brick road and join us for a magical pantomime adventure!</p>
         </div>
+
+        <!-- WIZARD OF OZ POSTER WITH SOLD OUT EFFECT -->
         <div class="show-poster-wrap">
-          <img class="show-poster" src="assets/wizard.png" alt="The Wizard of Oz production artwork" loading="lazy">
+          <div class="sold-out-ribbon">SOLD OUT</div>
+          <img class="show-poster" src="assets/wizard.png" alt="The Wizard of Oz production artwork – all four performances sold out" loading="lazy">
         </div>
+
+        <!-- FOUR SHOWS SOLD OUT CELEBRATION -->
+        <div class="four-shows-celebration">
+          <h4>✨ Four Shows. Four Sell-Outs. ✨</h4>
+          <p>We are absolutely delighted to announce that every single one of our four Wizard of Oz performances has SOLD OUT! Thank you to everyone who bought a ticket and supported our club. We can't wait to welcome you!</p>
+        </div>
+
+        <!-- PERFORMANCE DATES -->
         <div class="venue-grid">
           <article class="venue-card">
             <span class="venue-number">01</span>
@@ -143,6 +485,7 @@
             <p class="venue-address">Glasgow, G13 4BH</p>
             <div class="venue-date"><span aria-hidden="true">✦</span> Saturday 14th November 2026 – Sunday 15th November 2026</div>
           </article>
+
           <article class="venue-card">
             <span class="venue-number">02</span>
             <p class="eyebrow">DECEMBER PERFORMANCES</p>
@@ -151,34 +494,33 @@
             <div class="venue-date"><span aria-hidden="true">✦</span> Saturday 12th December 2026 – Sunday 13th December 2026</div>
           </article>
         </div>
-        <div class="ticket-cta">
-          <div>
-            <p class="eyebrow">DON'T MISS OUT</p>
-            <h3>Your seats are <em>waiting.</em></h3>
-            <p>Book online through TicketSource and get ready for the magic.</p>
-          </div>
-          <a class="button button-gold button-large" href="https://www.ticketsource.com/drumchapelpantomimeclub" target="_blank" rel="noopener noreferrer">Book tickets <span aria-hidden="true">↗</span></a>
+
+        <!-- SOLD OUT AND TICKET SAFETY NOTICE -->
+        <div class="sold-out-notice">
+          <p class="eyebrow">IMPORTANT BOX OFFICE NOTICE</p>
+          <h3>All Tickets Are Sold Out</h3>
+
+          <p class="notice-message">
+            All tickets are sold out. Please do not buy tickets off other people, as they may be scammers. They do not have tickets. Reach out to the club if you still require a ticket and we may be able to help.
+          </p>
+
+          <span class="notice-highlight">Please stay safe and buy only through official club channels</span>
         </div>
 
-        <div class="buy-tickets">
-          <div class="section-heading centred">
-            <p class="eyebrow">SIMPLE, EASY, AND SECURE</p>
-            <h3>How to Buy <span>Tickets</span></h3>
-          </div>
-          <div class="buy-methods">
-            <div class="buy-method"><span class="method-icon">🎭</span><h4>Online</h4><p>Purchase tickets through our TicketSource box office.</p></div>
-            <div class="buy-method"><span class="method-icon">👥</span><h4>In person</h4><p>Buy directly from a cast member, crew member or the production team.</p></div>
-            <div class="buy-method"><span class="method-icon">✉</span><h4>Get in touch</h4><p>Contact us using the form below or message us on Facebook.</p></div>
-          </div>
-        </div>
-
+        <!-- BOX OFFICE CONTACT -->
         <div class="box-office-contact">
           <div class="contact-mini-icon">☎</div>
-          <div><p class="eyebrow">BOX OFFICE MANAGER</p><a class="phone-link" href="tel:0788976627">07889 766 627</a><p>For any ticket enquiries, please use our contact form or message us on Facebook.</p></div>
+          <div>
+            <p class="eyebrow">BOX OFFICE MANAGER</p>
+            <a class="phone-link" href="tel:0788976627">07889 766 627</a>
+            <p>For any ticket enquiries, please use our contact form or message us on Facebook.</p>
+          </div>
         </div>
+
       </div>
     </section>
 
+    <!-- OUR TEAM -->
     <section class="team-section section-pad section-dark" id="our-team">
       <div class="section-inner">
         <div class="section-heading centred">
@@ -186,19 +528,23 @@
           <h2>Meet Our <span>Team</span></h2>
           <p>Our dedicated team helps bring every DAPC production to life, on stage and behind the scenes.</p>
         </div>
+
         <div class="team-grid">
           <article class="team-card">
             <div class="team-photo"><img src="assets/team/maggie.jpeg" alt="Maggie Harkness-Smith" loading="lazy"></div>
             <div class="team-details"><span class="team-star">✦</span><h3>Maggie Harkness-Smith</h3><p>Artistic Director &amp; Founder</p></div>
           </article>
+
           <article class="team-card">
             <div class="team-photo"><img src="assets/team/andrew.jpeg" alt="Andrew McVie" loading="lazy"></div>
             <div class="team-details"><span class="team-star">✦</span><h3>Andrew McVie</h3><p>Assistant Director</p></div>
           </article>
+
           <article class="team-card">
             <div class="team-photo"><img src="assets/team/jackie.jpeg" alt="Jackie Doyle" loading="lazy"></div>
             <div class="team-details"><span class="team-star">✦</span><h3>Jackie Doyle</h3><p>Cast &amp; Wellbeing Coordinator</p></div>
           </article>
+
           <article class="team-card team-card-no-photo">
             <div class="team-monogram" aria-hidden="true">MM<span>✦</span></div>
             <div class="team-details"><span class="team-star">✦</span><h3>Maryann McIntyre</h3><p>Inclusion &amp; Support Coordinator</p></div>
@@ -207,6 +553,7 @@
       </div>
     </section>
 
+    <!-- JOIN US -->
     <section class="join-section section-pad" id="join-us">
       <div class="section-banner join-banner">
         <div class="banner-shade"></div>
@@ -215,20 +562,24 @@
           <h2>Join <span>Us</span></h2>
         </div>
       </div>
+
       <div class="section-inner">
         <div class="join-intro centred narrow">
           <p class="lead">Ready to step into the spotlight or work your magic behind the scenes? At DAPC, there’s a place for everyone — whether you're a performer, a creative, or just looking to be part of something special!</p>
         </div>
+
         <div class="section-heading centred">
           <p class="eyebrow">MORE THAN JUST A SHOW</p>
           <h3>Why <span>Join Us?</span></h3>
         </div>
+
         <div class="benefits-grid">
           <div class="benefit-card"><span>✧</span><h4>Make new friends</h4><p>Meet people, build friendships and become part of a welcoming community.</p></div>
           <div class="benefit-card"><span>♫</span><h4>Perform on stage</h4><p>Find your confidence, enjoy performing and be part of the story.</p></div>
           <div class="benefit-card"><span>✦</span><h4>Learn backstage skills</h4><p>Explore the creative and technical work that makes theatre happen.</p></div>
           <div class="benefit-card"><span>♡</span><h4>Be part of an amazing community</h4><p>Get involved, support one another and make something brilliant together.</p></div>
         </div>
+
         <div class="join-bottom centred">
           <p>Ready to get involved?</p>
           <a class="button button-gold" href="#contact">Get in touch <span aria-hidden="true">→</span></a>
@@ -236,6 +587,7 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section class="contact-section section-pad section-dark" id="contact">
       <div class="section-banner contact-banner">
         <div class="banner-shade"></div>
@@ -244,38 +596,59 @@
           <h2>Contact <span>Us</span></h2>
         </div>
       </div>
+
       <div class="section-inner">
         <div class="contact-layout">
           <div class="contact-copy">
             <p class="eyebrow">GET IN TOUCH</p>
             <h3>Let's start a <em>conversation.</em></h3>
             <p>Have a question about tickets, joining the club or our productions? Send us a message and a member of the team will get back to you.</p>
-            <div class="contact-detail"><span>☎</span><div><small>BOX OFFICE MANAGER</small><a href="tel:0788976627">07889 766 627</a></div></div>
-            <div class="contact-detail"><span>f</span><div><small>FIND US ON FACEBOOK</small><a href="https://www.facebook.com/DrumchapelPantomimeClub" target="_blank" rel="noopener noreferrer">Drumchapel Pantomime Club ↗</a></div></div>
-            <div class="contact-detail"><span>✉</span><div><small>GENERAL ENQUIRIES</small><a href="mailto:">Use the contact form</a></div></div>
+
+            <div class="contact-detail">
+              <span>☎</span>
+              <div><small>BOX OFFICE MANAGER</small><a href="tel:0788976627">07889 766 627</a></div>
+            </div>
+
+            <div class="contact-detail">
+              <span>f</span>
+              <div><small>FIND US ON FACEBOOK</small><a href="https://www.facebook.com/DrumchapelPantomimeClub" target="_blank" rel="noopener noreferrer">Drumchapel Pantomime Club ↗</a></div>
+            </div>
+
+            <div class="contact-detail">
+              <span>✉</span>
+              <div><small>GENERAL ENQUIRIES</small><a href="#contact-form">Use the contact form</a></div>
+            </div>
           </div>
+
           <div class="contact-form-wrap">
-            <form class="contact-form" action="https://formspree.io/f/mpwyoggy" method="POST">
+            <form class="contact-form" id="contact-form" action="https://formspree.io/f/mpwyoggy" method="POST">
               <h3>Send us a message</h3>
               <p>Fill in the form below and we'll be in touch.</p>
+
               <label for="name">Your name</label>
               <input id="name" type="text" name="name" placeholder="Your Name" autocomplete="name" required>
+
               <label for="email">Your email</label>
               <input id="email" type="email" name="email" placeholder="Your Email" autocomplete="email" required>
+
               <label for="message">Your message</label>
               <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+
               <input type="hidden" name="_subject" value="New DAPC website enquiry">
+
               <button class="button button-gold form-submit" type="submit">Send message <span aria-hidden="true">→</span></button>
               <p class="form-note">Your message will be sent securely using Formspree.</p>
             </form>
           </div>
         </div>
 
+        <!-- FAQs -->
         <div class="faq-area">
           <div class="section-heading centred">
             <p class="eyebrow">A FEW THINGS YOU MIGHT BE WONDERING</p>
             <h3>Frequently Asked <span>Questions</span></h3>
           </div>
+
           <div class="faq-list">
             <details class="faq-item"><summary>How long does it take to get a reply?<span>+</span></summary><p>We aim to respond within 24–48 hours.</p></details>
             <details class="faq-item"><summary>Can anyone join?<span>+</span></summary><p>Yes! We welcome all ages and experience levels.</p></details>
@@ -284,18 +657,23 @@
         </div>
       </div>
     </section>
+
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
     <a class="footer-brand" href="#welcome">✦ DAPC</a>
     <p>Drumchapel Amateur Panto Club</p>
+
     <div class="footer-social">
       <a href="https://www.facebook.com/DrumchapelPantomimeClub" target="_blank" rel="noopener noreferrer">Facebook</a>
       <a href="https://www.instagram.com/drumchapelpantogroup/" target="_blank" rel="noopener noreferrer">Instagram</a>
       <a href="https://www.tiktok.com/@drumchapelamateurpanto" target="_blank" rel="noopener noreferrer">TikTok</a>
     </div>
+
     <p class="copyright">© <span id="year">2026</span> Drumchapel Amateur Panto Club. All rights reserved.</p>
     <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
   </footer>
+
 </body>
 </html>
